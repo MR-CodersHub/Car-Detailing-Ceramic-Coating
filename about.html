@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About TRAVICE Detailing - Our mission, team, and history in the automotive detailing industry.">
+    <title>About Us | TRAVICE Premium Detailing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="mobile.css">
+    <!-- Theme Switcher Script (Instantly runs to avoid FOIT flashing) -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+</head>
+<body>
+
+    <!-- TOP UTILITY BAR -->
+    <div class="top-bar">
+        <div class="top-bar-container">
+            <div class="top-bar-info">
+                <span><i class="fas fa-map-marker-alt"></i> 99 Roving St., Big City, PKU2345</span>
+                <span class="bar-separator">|</span>
+                <span><i class="fas fa-phone-alt"></i> For Emergency: +123-456-7890</span>
+            </div>
+            <div class="top-bar-promo">
+                <span><i class="fas fa-percentage"></i> Discount 25% for every service</span>
+                <span class="bar-separator">|</span>
+                <span><i class="far fa-clock"></i> 08.00AM - 17.00PM</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 100 40" width="100" height="40" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10,28 L25,28 L32,20 L65,20 L75,28 L90,28 L93,25 L80,14 L60,14 C58,14 42,12 35,16 L12,23 Z" fill="none" stroke="#FFB800" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="30" cy="28" r="4" fill="#FFB800" />
+                        <circle cx="70" cy="28" r="4" fill="#FFB800" />
+                    </svg>
+                </div>
+                <span class="logo-text">TRAVICE</span>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html" class="nav-link">HOME</a></li>
+                    <li><a href="home-2.html" class="nav-link">HOME 2</a></li>
+                    <li><a href="about.html" class="nav-link active">ABOUT US</a></li>
+                    <li><a href="services.html" class="nav-link">SERVICES</a></li>
+                    <li><a href="gallery.html" class="nav-link">GALLERY</a></li>
+                    <li><a href="blog.html" class="nav-link">BLOG</a></li>
+                    <li><a href="contact.html" class="nav-link">CONTACT US</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <!-- Premium Redesigned Animated Capsule Theme Switcher -->
+                <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle Theme">
+                    <div class="theme-toggle-bubble">
+                        <i class="fas fa-moon moon-icon"></i>
+                        <i class="fas fa-sun sun-icon"></i>
+                    </div>
+                </button>
+                <a href="contact.html" class="btn-header">BOOK NOW</a>
+                <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu">
+                    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE NAVIGATION DROPDOWN -->
+    <div class="mobile-nav" id="mobile-menu">
+        <ul>
+            <li><a href="index.html" class="mobile-link">HOME</a></li>
+            <li><a href="home-2.html" class="mobile-link">HOME 2</a></li>
+            <li><a href="about.html" class="mobile-link">ABOUT US</a></li>
+            <li><a href="services.html" class="mobile-link">SERVICES</a></li>
+            <li><a href="gallery.html" class="mobile-link">GALLERY</a></li>
+            <li><a href="blog.html" class="mobile-link">BLOG</a></li>
+            <li><a href="contact.html" class="mobile-link">CONTACT US</a></li>
+        </ul>
+    </div>
+
+    <!-- INNER PAGE HERO -->
+    <section class="inner-hero">
+        <div class="inner-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1507136566006-cfc505b114fc?q=80&w=2070&auto=format&fit=crop');"></div>
+        <div class="inner-hero-overlay"></div>
+        <div class="inner-hero-content animate-on-load">
+            <h1 class="inner-page-title">About Our <span class="highlight">Heritage</span></h1>
+            <div class="breadcrumb">
+                <a href="index.html">HOME</a>
+                <span>/</span>
+                <span class="current">ABOUT US</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT INTRODUCTION -->
+    <section class="about" id="about">
+        <div class="section-container">
+            <div class="about-grid">
+                
+                <div class="about-content animate-on-scroll">
+                    <span class="section-subhead">THE TRAVICE STANDARD</span>
+                    <h2 class="section-title">Pioneering Automotive Paint Correction Since 2010</h2>
+                    <p class="about-desc">What started as a boutique car wash has evolved into a state-of-the-art laboratory for automotive preservation. We combine aerospace-grade chemical engineering with surgical precision to ensure every vehicle that enters our facility leaves with a permanent, flawless, glass-like finish.</p>
+                    
+                    <div class="progress-container">
+                        <div class="progress-header">
+                            <span class="progress-title">Mastery of Detailing</span>
+                            <span class="progress-val">100%</span>
+                        </div>
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill" data-progress="100%"></div>
+                        </div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-header">
+                            <span class="progress-title">Customer Retention Rate</span>
+                            <span class="progress-val">98%</span>
+                        </div>
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill" data-progress="98%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-graphic-container animate-on-scroll">
+                    <div class="tech-graphic-wrapper">
+                        <img class="tech-image" src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=600&auto=format&fit=crop" alt="Car detailing technician at work">
+                        <div class="tech-card-badge" style="bottom: 30px; top: auto; right: 30px; left: auto;">
+                            <span class="badge-num">15+</span>
+                            <span class="badge-text">Years Experience</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Mission & Vision -->
+            <div class="mission-vision-grid animate-on-scroll">
+                <div class="mission-card">
+                    <i class="fas fa-bullseye" style="font-size: 2.5rem; color: var(--color-accent); margin-bottom: 20px;"></i>
+                    <h3 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 15px;">Our Mission</h3>
+                    <p style="color: var(--color-text-light);">To revolutionize the standard of car care by offering meticulous, transparent, and permanent exterior preservation solutions utilizing the highest grade nanotechnology and machine correction tools available in the industry.</p>
+                </div>
+                <div class="mission-card">
+                    <i class="fas fa-eye" style="font-size: 2.5rem; color: var(--color-accent); margin-bottom: 20px;"></i>
+                    <h3 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 15px;">Our Vision</h3>
+                    <p style="color: var(--color-text-light);">To remain the undisputed apex destination for exotic car collectors and enthusiasts globally, forging lifelong partnerships with drivers who demand uncompromising automotive aesthetic perfection.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM SECTION -->
+    <section class="team" style="background-color: var(--color-primary-dark); border-top: 1px solid rgba(255,255,255,0.05);">
+        <div class="section-container">
+            <div style="text-align: center; max-width: 600px; margin: 0 auto 50px auto;" class="animate-on-scroll">
+                <span class="section-subhead">MEET THE MASTERS</span>
+                <h2 class="section-title">Our Certified <span class="highlight">Technicians</span></h2>
+            </div>
+
+            <div class="team-grid">
+                <!-- Team 1 -->
+                <div class="team-card animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=500&auto=format&fit=crop" alt="Team Member" class="team-img">
+                    <div class="team-info">
+                        <h4>James Anderson</h4>
+                        <span>Master Detailer</span>
+                    </div>
+                </div>
+                <!-- Team 2 -->
+                <div class="team-card animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=500&auto=format&fit=crop" alt="Team Member" class="team-img">
+                    <div class="team-info">
+                        <h4>Sarah Jenkins</h4>
+                        <span>Ceramic Specialist</span>
+                    </div>
+                </div>
+                <!-- Team 3 -->
+                <div class="team-card animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=500&auto=format&fit=crop" alt="Team Member" class="team-img">
+                    <div class="team-info">
+                        <h4>Michael Ross</h4>
+                        <span>PPF Installer</span>
+                    </div>
+                </div>
+                <!-- Team 4 -->
+                <div class="team-card animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=500&auto=format&fit=crop" alt="Team Member" class="team-img">
+                    <div class="team-info">
+                        <h4>David Chen</h4>
+                        <span>Interior Restoration</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="footer-top">
+            <div class="section-container">
+                <div class="footer-grid">
+
+                    <!-- Col 1: About & Newsletter -->
+                    <div class="footer-col about-col">
+                        <a href="index.html" class="logo footer-logo">
+                            <div class="logo-icon">
+                                <svg viewBox="0 0 100 40" width="80" height="32" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M10,28 L25,28 L32,20 L65,20 L75,28 L90,28 L93,25 L80,14 L60,14 C58,14 42,12 35,16 L12,23 Z"
+                                        fill="none" stroke="#FFB800" stroke-width="3" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <circle cx="30" cy="28" r="4" fill="#FFB800" />
+                                    <circle cx="70" cy="28" r="4" fill="#FFB800" />
+                                </svg>
+                            </div>
+                            <span class="logo-text">TRAVICE</span>
+                        </a>
+                        <p class="footer-text">State-of-the-art detailing laboratorial chambers specializing in
+                            ultra-gloss correction and quartz barrier preservation.</p>
+
+                        <div class="newsletter-wrapper">
+                            <h4>Subscribe To Newsletter</h4>
+                            <form id="newsletter-form">
+                                <div class="newsletter-input-group">
+                                    <input type="email" placeholder="Your email address" aria-label="Newsletter email"
+                                        required>
+                                    <button type="submit" aria-label="Subscribe"><i
+                                            class="fas fa-chevron-right"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Col 2: Services Quick Links -->
+                    <div class="footer-col links-col">
+                        <h3>Our Services</h3>
+                        <ul>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Exterior Detailing</a></li>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Interior Rejuvenation</a></li>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Multi-Stage Correction</a></li>
+                            <li><a href="index.html#pricing"><i class="fas fa-chevron-right"></i> 9H Ceramic Quartz Coating</a>
+                            </li>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Engine Bay Steam Prep</a></li>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Alloy Caliper Coating</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Col 3: Quick Navigation -->
+                    <div class="footer-col links-col">
+                        <h3>Quick Navigation</h3>
+                        <ul>
+                            <li><a href="index.html"><i class="fas fa-chevron-right"></i> Homepage</a></li>
+                            <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us Portfolio</a></li>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Luxury Detailing Services</a>
+                            </li>
+                            <li><a href="index.html#pricing"><i class="fas fa-chevron-right"></i> Ceramic Coating Plans</a></li>
+                            <li><a href="index.html#faq"><i class="fas fa-chevron-right"></i> Detailing FAQ Center</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Col 4: Working Hours & Socials -->
+                    <div class="footer-col hours-col">
+                        <h3>Laboratory Hours</h3>
+                        <ul class="hours-list">
+                            <li><span>Monday:</span> <span>08.00 AM - 17.00 PM</span></li>
+                            <li><span>Tuesday:</span> <span>08.00 AM - 17.00 PM</span></li>
+                            <li><span>Wednesday:</span> <span>08.00 AM - 17.00 PM</span></li>
+                            <li><span>Thursday:</span> <span>08.00 AM - 17.00 PM</span></li>
+                            <li><span>Friday:</span> <span>08.00 AM - 17.00 PM</span></li>
+                            <li><span>Saturday:</span> <span>08.00 AM - 16.00 PM</span></li>
+                            <li class="closed"><span>Sunday:</span> <span>Closed Concierge</span></li>
+                        </ul>
+
+                        <div class="footer-socials">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="section-container">
+                <div class="footer-bottom-flex">
+                    <p>&copy; 2026 TRAVICE Detailing Lab. All Rights Reserved. Crafted with absolute automotive
+                        precision.</p>
+                    <div class="footer-legal-links">
+                        <a href="#">Privacy Policy</a>
+                        <span>|</span>
+                        <a href="#">Terms & Conditions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CUSTOM JAVASCRIPT -->
+    <script src="script.js"></script>
+    <script src="pages.js"></script>
+</body>
+</html>

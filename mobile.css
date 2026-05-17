@@ -1,0 +1,1044 @@
+/* ==========================================================================
+   TRAVICE - MOBILE RESPONSIVE FIX (360px+)
+   Dedicated stylesheet for small mobile viewport optimization.
+   Loaded after style.css and pages.css — overrides only where needed.
+   Does NOT affect desktop (992px+), tablet (768px-991px), dark/light mode,
+   animations, branding, or premium design style.
+   ========================================================================== */
+
+/* ============================================================
+   1. GLOBAL BASE — Prevent all horizontal overflow
+   ============================================================ */
+@media (max-width: 575px) {
+
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    /* Prevent any element from exceeding the viewport */
+    *, *::before, *::after {
+        max-width: 100%;
+        overflow-wrap: break-word;
+    }
+
+    /* Tighten the global section container */
+    .section-container {
+        width: 100%;
+        padding: 60px 16px;
+    }
+
+    /* Scale down all section headings */
+    .section-title {
+        font-size: 1.7rem;
+        line-height: 1.25;
+    }
+
+    .section-subhead {
+        font-size: 0.72rem;
+        letter-spacing: 2.5px;
+    }
+
+    /* ============================================================
+       2. TOP UTILITY BAR
+       ============================================================ */
+    .top-bar {
+        display: none; /* Hide on very small screens to save space */
+    }
+
+    /* ============================================================
+       3. HEADER / NAVBAR — Fix overlapping logo, toggle, hamburger
+       ============================================================ */
+    .header {
+        top: 0;
+    }
+
+    .nav-container {
+        width: 100%;
+        padding: 0 16px;
+        height: 64px;
+    }
+
+    .header.scrolled .nav-container {
+        height: 60px;
+    }
+
+    /* Logo — shrink SVG and text to fit */
+    .logo {
+        gap: 6px;
+        flex-shrink: 0;
+    }
+
+    .logo svg {
+        width: 72px !important;
+        height: 29px !important;
+    }
+
+    .logo-text {
+        font-size: 1.25rem;
+        letter-spacing: 1px;
+    }
+
+    /* Nav actions — keep theme toggle + hamburger only, tight gap */
+    .nav-actions {
+        gap: 10px;
+    }
+
+    /* Theme Toggle — ensure it's visible and not clipped */
+    .theme-toggle {
+        width: 52px;
+        height: 28px;
+        margin-right: 0;
+        flex-shrink: 0;
+    }
+
+    .theme-toggle-bubble {
+        width: 18px;
+        height: 18px;
+    }
+
+    html[data-theme="light"] .theme-toggle-bubble {
+        transform: translateX(24px);
+    }
+
+    /* Hide BOOK NOW CTA button from navbar on mobile */
+    .nav-actions .btn-header {
+        display: none !important;
+    }
+
+    /* Hamburger visible */
+    .hamburger {
+        display: flex;
+        flex-shrink: 0;
+    }
+
+    /* ============================================================
+       4. MOBILE NAV DRAWER — Full-width, readable, touch-friendly
+       ============================================================ */
+    .mobile-nav {
+        top: 64px;
+        padding: 28px 20px;
+        height: calc(100vh - 64px);
+    }
+
+    .mobile-nav ul {
+        gap: 4px;
+    }
+
+    .mobile-link {
+        font-size: 1.05rem;
+        padding: 14px 10px;
+        letter-spacing: 1px;
+        display: block;
+    }
+
+    /* ============================================================
+       5. HERO SECTION (Home / Home-2)
+       ============================================================ */
+    .hero {
+        padding-top: 100px;
+        padding-bottom: 50px;
+        min-height: auto;
+    }
+
+    .hero-content {
+        width: 100%;
+        padding: 0 16px;
+        margin-bottom: 30px;
+        max-width: 100%;
+    }
+
+    .hero-subhead {
+        font-size: 0.7rem;
+        letter-spacing: 3px;
+        margin-bottom: 12px;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+        line-height: 1.15;
+        margin-bottom: 16px;
+    }
+
+    .hero-subtitle {
+        font-size: 0.88rem;
+        margin-bottom: 28px;
+        max-width: 100%;
+    }
+
+    .hero-ctas {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+    }
+
+    .hero-ctas .btn-primary,
+    .hero-ctas .btn-outline,
+    .hero-ctas a {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        padding: 14px 20px;
+        font-size: 0.82rem;
+    }
+
+    /* Hero floating stats bar */
+    .hero-floater-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin: 20px 16px 0;
+    }
+
+    .hero-floater {
+        padding: 14px 12px;
+    }
+
+    .hero-floater-number {
+        font-size: 1.5rem;
+    }
+
+    .hero-floater-label {
+        font-size: 0.7rem;
+    }
+
+    /* ============================================================
+       6. ABOUT SECTION
+       ============================================================ */
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .about-features {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .about-img-wrapper {
+        order: -1;
+    }
+
+    .about-list {
+        gap: 10px;
+    }
+
+    .about-list li {
+        font-size: 0.88rem;
+    }
+
+    .about-cta-group {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .about-cta-group .btn-primary,
+    .about-cta-group .btn-outline {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    /* ============================================================
+       7. STATS / COUNTERS
+       ============================================================ */
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+
+    .stat-item {
+        padding: 20px 12px;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .stat-label {
+        font-size: 0.78rem;
+    }
+
+    /* ============================================================
+       8. SERVICES SECTION
+       ============================================================ */
+    .services-header {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-bottom: 40px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .service-card {
+        padding: 24px 18px;
+    }
+
+    .service-card-title {
+        font-size: 1.1rem;
+    }
+
+    .service-card-desc {
+        font-size: 0.88rem;
+    }
+
+    /* ============================================================
+       9. WHY CHOOSE US / FEATURES
+       ============================================================ */
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .feature-card {
+        padding: 24px 18px;
+    }
+
+    /* ============================================================
+       10. TESTIMONIALS / REVIEWS
+       ============================================================ */
+    .testimonial-track {
+        gap: 12px;
+    }
+
+    .testimonial-card {
+        min-width: 280px;
+        padding: 20px 16px;
+    }
+
+    .testimonial-text {
+        font-size: 0.88rem;
+    }
+
+    .testimonial-controls {
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    /* ============================================================
+       11. PRICING SECTION / PACKAGES
+       ============================================================ */
+    .pricing-grid,
+    .packages-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .pricing-card {
+        padding: 24px 18px;
+    }
+
+    .pricing-price {
+        font-size: 2rem;
+    }
+
+    .pricing-features li {
+        font-size: 0.88rem;
+    }
+
+    /* Pricing Calculator */
+    .calculator-wrapper {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .calc-panel {
+        width: 100%;
+    }
+
+    .calc-form-group label {
+        font-size: 0.82rem;
+    }
+
+    .calc-select,
+    .calc-input {
+        font-size: 0.88rem;
+        padding: 10px 12px;
+    }
+
+    .calc-result-price {
+        font-size: 2.2rem;
+    }
+
+    /* ============================================================
+       12. BOOKING / MULTI-STEP FORM
+       ============================================================ */
+    .booking-modal-content {
+        width: calc(100% - 24px);
+        margin: 12px;
+        padding: 20px 16px;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .booking-steps {
+        flex-direction: row;
+        gap: 4px;
+        overflow-x: auto;
+        padding-bottom: 8px;
+    }
+
+    .booking-step-label {
+        font-size: 0.68rem;
+    }
+
+    .booking-step-number {
+        width: 28px;
+        height: 28px;
+        font-size: 0.75rem;
+    }
+
+    .form-grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 0.9rem;
+        padding: 11px 12px;
+        width: 100%;
+    }
+
+    .form-group label {
+        font-size: 0.82rem;
+    }
+
+    /* ============================================================
+       13. GALLERY SECTION — Filter buttons + grid
+       ============================================================ */
+    .gallery-filters {
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 0 16px;
+        justify-content: center;
+    }
+
+    .filter-btn {
+        font-size: 0.75rem;
+        padding: 8px 14px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 0 16px;
+    }
+
+    .gallery-item.wide,
+    .gallery-item.tall {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    /* Gallery comparison cards */
+    .comparison-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .comparison-card {
+        padding: 18px 14px;
+    }
+
+    .comparison-images-wrapper {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .comparison-panel {
+        height: 180px;
+    }
+
+    .comparison-header {
+        margin-bottom: 14px;
+    }
+
+    .comparison-title {
+        font-size: 1.05rem;
+    }
+
+    .comparison-category {
+        font-size: 0.65rem;
+    }
+
+    .comparison-info p {
+        font-size: 0.88rem;
+    }
+
+    .comparison-meta {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .comparison-meta span {
+        font-size: 0.78rem;
+    }
+
+    .btn-comparison-book {
+        font-size: 0.75rem;
+        padding: 11px 16px;
+    }
+
+    /* Pagination */
+    .pagination-wrapper {
+        gap: 6px;
+        flex-wrap: wrap;
+        margin-top: 40px;
+    }
+
+    .pagination-btn {
+        min-width: 38px;
+        height: 38px;
+        padding: 0 10px;
+        font-size: 0.75rem;
+    }
+
+    /* ============================================================
+       14. BLOG SECTION
+       ============================================================ */
+    .blog-grid,
+    .blog-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .blog-card {
+        border-radius: var(--border-radius-md);
+    }
+
+    .blog-card-content {
+        padding: 18px 16px;
+    }
+
+    .blog-card-title {
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+
+    .blog-card-excerpt {
+        font-size: 0.85rem;
+    }
+
+    /* Blog single page layout */
+    .blog-layout {
+        grid-template-columns: 1fr;
+    }
+
+    /* ============================================================
+       15. CONTACT SECTION / FORM
+       ============================================================ */
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .contact-form-wrapper {
+        padding: 24px 16px;
+    }
+
+    .contact-info-item {
+        gap: 14px;
+    }
+
+    .contact-info-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 1rem;
+        flex-shrink: 0;
+    }
+
+    .contact-info-title {
+        font-size: 0.9rem;
+    }
+
+    .contact-info-value {
+        font-size: 0.85rem;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .form-field {
+        width: 100%;
+    }
+
+    .form-input,
+    .form-textarea,
+    .form-select {
+        font-size: 0.9rem;
+        padding: 12px 14px;
+        width: 100%;
+    }
+
+    .form-label {
+        font-size: 0.82rem;
+    }
+
+    .btn-submit,
+    .btn-form-submit {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        padding: 14px 20px;
+        font-size: 0.85rem;
+    }
+
+    /* ============================================================
+       16. INNER PAGE HERO (Services, About, Gallery, Blog, Contact)
+       ============================================================ */
+    .inner-hero {
+        min-height: 220px;
+        padding: 90px 16px 40px;
+    }
+
+    .inner-hero-content {
+        padding: 0;
+    }
+
+    .inner-page-title {
+        font-size: 1.9rem;
+        line-height: 1.2;
+    }
+
+    .breadcrumb {
+        font-size: 0.8rem;
+        gap: 6px;
+        flex-wrap: wrap;
+    }
+
+    /* ============================================================
+       17. ABOUT PAGE — Mission/Vision, Team, Timeline
+       ============================================================ */
+    .mission-vision-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .mission-card,
+    .vision-card {
+        padding: 24px 18px;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+    }
+
+    .team-card {
+        padding-bottom: 14px;
+    }
+
+    .team-card-name {
+        font-size: 0.95rem;
+    }
+
+    .team-card-role {
+        font-size: 0.75rem;
+    }
+
+    /* Timeline */
+    .timeline {
+        padding-left: 10px;
+    }
+
+    .timeline-container::after {
+        left: 23px;
+    }
+
+    .timeline-item {
+        padding-left: 65px;
+        margin-bottom: 32px;
+    }
+
+    .timeline-badge {
+        width: 48px;
+        height: 48px;
+        font-size: 1rem;
+    }
+
+    .timeline-year {
+        font-size: 0.85rem;
+    }
+
+    .timeline-title {
+        font-size: 1rem;
+    }
+
+    .timeline-desc {
+        font-size: 0.85rem;
+    }
+
+    /* ============================================================
+       18. SERVICES PAGE — Service Zone / Map
+       ============================================================ */
+    .floating-services-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        margin-top: 20px;
+    }
+
+    .split-section {
+        flex-direction: column;
+    }
+
+    .split-section > * {
+        width: 100%;
+    }
+
+    /* ============================================================
+       19. FAQ ACCORDION
+       ============================================================ */
+    .faq-item {
+        border-radius: var(--border-radius-md);
+    }
+
+    .faq-question {
+        font-size: 0.9rem;
+        padding: 16px 14px;
+        gap: 10px;
+    }
+
+    .faq-answer {
+        padding: 0 14px 16px;
+        font-size: 0.88rem;
+    }
+
+    /* ============================================================
+       20. BUTTONS — Global mobile touch target & sizing
+       ============================================================ */
+    .btn-primary,
+    .btn-outline,
+    .btn-secondary {
+        padding: 13px 20px;
+        font-size: 0.82rem;
+        min-height: 46px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* ============================================================
+       21. FOOTER
+       ============================================================ */
+    .footer-grid,
+    .footer-top {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .footer-col {
+        padding: 0;
+    }
+
+    .footer-col-title {
+        font-size: 0.9rem;
+        margin-bottom: 14px;
+    }
+
+    .footer-links li {
+        margin-bottom: 8px;
+    }
+
+    .footer-links a {
+        font-size: 0.88rem;
+    }
+
+    .footer-bottom-flex {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .footer-bottom p {
+        font-size: 0.82rem;
+    }
+
+    /* ============================================================
+       22. HOME-2 SPECIFIC — About section, services column
+       ============================================================ */
+    .home2-about-grid,
+    .home2-services-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    /* ============================================================
+       23. PROCESS / HOW IT WORKS TIMELINE (Horizontal)
+       ============================================================ */
+    .process-steps {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .process-step {
+        width: 100%;
+        text-align: left;
+        padding: 0;
+    }
+
+    .process-step-number {
+        font-size: 2rem;
+    }
+
+    /* Process connector line */
+    .process-connector {
+        display: none;
+    }
+
+    /* ============================================================
+       24. SERVICE ZONE / COVERAGE MAP SECTION
+       ============================================================ */
+    .zone-section {
+        padding: 60px 16px;
+    }
+
+    .zone-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .zone-map-wrapper {
+        height: 240px;
+    }
+
+    .zone-list {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .zone-item {
+        font-size: 0.82rem;
+        padding: 10px 12px;
+    }
+
+    /* ============================================================
+       25. APPOINTMENT REMINDER TOAST
+       ============================================================ */
+    .reminder-toast {
+        width: calc(100% - 32px);
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+        padding: 16px 14px;
+    }
+
+    .reminder-toast-title {
+        font-size: 0.92rem;
+    }
+
+    .reminder-toast-body {
+        font-size: 0.82rem;
+    }
+
+    .reminder-actions {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .btn-reminder-dismiss,
+    .btn-reminder-snooze {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        padding: 10px 14px;
+        font-size: 0.8rem;
+    }
+
+    /* ============================================================
+       26. MOBILE MENU CTA BUTTON — Show BOOK NOW inside drawer
+       ============================================================ */
+    .mobile-nav-footer {
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .mobile-nav-footer .btn-primary {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        padding: 14px 20px;
+    }
+
+    /* ============================================================
+       27. LIGHT MODE ADJUSTMENTS (360px only)
+       ============================================================ */
+    html[data-theme="light"] .mobile-nav {
+        background-color: #FFFFFF;
+        border-top: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    html[data-theme="light"] .mobile-link {
+        color: #1E293B;
+    }
+
+    html[data-theme="light"] .section-title {
+        color: var(--color-text-dark, #0F172A);
+    }
+
+    html[data-theme="light"] .pagination-wrapper {
+        border-top-color: rgba(0, 0, 0, 0.06);
+    }
+
+    /* ============================================================
+       28. LIGHTBOX (Gallery)
+       ============================================================ */
+    .lightbox-content {
+        width: calc(100% - 24px);
+        max-height: 85vh;
+        object-fit: contain;
+    }
+
+    .lightbox-close {
+        top: 12px;
+        right: 12px;
+        font-size: 1.2rem;
+    }
+
+    /* ============================================================
+       29. COUNTERS / ACHIEVEMENT NUMBERS
+       ============================================================ */
+    .counter-section {
+        padding: 50px 16px;
+    }
+
+    .counter-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+
+    .counter-number {
+        font-size: 2rem;
+    }
+
+    .counter-label {
+        font-size: 0.78rem;
+    }
+
+    /* ============================================================
+       30. TOP BAR (if shown) / Promo Ticker
+       ============================================================ */
+    .top-bar-container {
+        flex-direction: column;
+        gap: 4px;
+        padding: 6px 16px;
+        font-size: 0.75rem;
+    }
+
+    .bar-separator {
+        display: none;
+    }
+
+    /* ============================================================
+       31. CARD & IMAGE HOVER OVERLAYS
+       ============================================================ */
+    /* Ensure hover overlays don't bleed outside */
+    .gallery-overlay,
+    .service-card-overlay,
+    .team-card-overlay {
+        border-radius: inherit;
+    }
+
+    /* ============================================================
+       32. ANIMATE-ON-SCROLL — Prevent transform overflow on 360px
+       ============================================================ */
+    .animate-on-scroll,
+    .animate-on-load {
+        /* Prevent translateY from causing horizontal bars */
+        overflow: hidden;
+    }
+
+} /* END @media (max-width: 575px) */
+
+
+/* ============================================================
+   ADDITIONAL: Narrow 360px specific tweaks
+   ============================================================ */
+@media (max-width: 400px) {
+
+    .hero-title {
+        font-size: 1.75rem;
+    }
+
+    .section-title {
+        font-size: 1.55rem;
+    }
+
+    .hero-floater-container {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .counter-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .zone-list {
+        grid-template-columns: 1fr;
+    }
+
+    .pagination-wrapper {
+        gap: 4px;
+    }
+
+    .pagination-btn {
+        min-width: 34px;
+        height: 34px;
+        padding: 0 8px;
+        font-size: 0.7rem;
+    }
+
+    .logo-text {
+        font-size: 1.1rem;
+    }
+
+    .logo svg {
+        width: 60px !important;
+        height: 24px !important;
+    }
+
+    .nav-container {
+        height: 58px;
+        padding: 0 12px;
+    }
+
+    .inner-page-title {
+        font-size: 1.6rem;
+    }
+
+    .comparison-panel {
+        height: 150px;
+    }
+
+    .mobile-link {
+        font-size: 0.95rem;
+        padding: 12px 8px;
+    }
+
+    .theme-toggle {
+        width: 46px;
+        height: 26px;
+    }
+
+    .theme-toggle-bubble {
+        width: 16px;
+        height: 16px;
+    }
+
+    html[data-theme="light"] .theme-toggle-bubble {
+        transform: translateX(20px);
+    }
+
+} /* END @media (max-width: 400px) */

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TRAVICE Gallery - See our stunning before & after transformations and premium exotic car detailing portfolio.">
+    <title>Gallery Showcase | TRAVICE Premium Detailing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="mobile.css">
+    <!-- Theme Switcher Script (Instantly runs to avoid FOIT flashing) -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+</head>
+<body>
+
+    <!-- TOP UTILITY BAR -->
+    <div class="top-bar">
+        <div class="top-bar-container">
+            <div class="top-bar-info">
+                <span><i class="fas fa-map-marker-alt"></i> 99 Roving St., Big City, PKU2345</span>
+                <span class="bar-separator">|</span>
+                <span><i class="fas fa-phone-alt"></i> For Emergency: +123-456-7890</span>
+            </div>
+            <div class="top-bar-promo">
+                <span><i class="fas fa-percentage"></i> Discount 25% for every service</span>
+                <span class="bar-separator">|</span>
+                <span><i class="far fa-clock"></i> 08.00AM - 17.00PM</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 100 40" width="100" height="40" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10,28 L25,28 L32,20 L65,20 L75,28 L90,28 L93,25 L80,14 L60,14 C58,14 42,12 35,16 L12,23 Z" fill="none" stroke="#FFB800" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="30" cy="28" r="4" fill="#FFB800" />
+                        <circle cx="70" cy="28" r="4" fill="#FFB800" />
+                    </svg>
+                </div>
+                <span class="logo-text">TRAVICE</span>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html" class="nav-link">HOME</a></li>
+                    <li><a href="home-2.html" class="nav-link">HOME 2</a></li>
+                    <li><a href="about.html" class="nav-link">ABOUT US</a></li>
+                    <li><a href="services.html" class="nav-link">SERVICES</a></li>
+                    <li><a href="gallery.html" class="nav-link active">GALLERY</a></li>
+                    <li><a href="blog.html" class="nav-link">BLOG</a></li>
+                    <li><a href="contact.html" class="nav-link">CONTACT US</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <!-- Premium Redesigned Animated Capsule Theme Switcher -->
+                <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle Theme">
+                    <div class="theme-toggle-bubble">
+                        <i class="fas fa-moon moon-icon"></i>
+                        <i class="fas fa-sun sun-icon"></i>
+                    </div>
+                </button>
+                <a href="contact.html" class="btn-header">BOOK NOW</a>
+                <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu">
+                    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE NAVIGATION DROPDOWN -->
+    <div class="mobile-nav" id="mobile-menu">
+        <ul>
+            <li><a href="index.html" class="mobile-link">HOME</a></li>
+            <li><a href="home-2.html" class="mobile-link">HOME 2</a></li>
+            <li><a href="about.html" class="mobile-link">ABOUT US</a></li>
+            <li><a href="services.html" class="mobile-link">SERVICES</a></li>
+            <li><a href="gallery.html" class="mobile-link">GALLERY</a></li>
+            <li><a href="blog.html" class="mobile-link">BLOG</a></li>
+            <li><a href="contact.html" class="mobile-link">CONTACT US</a></li>
+        </ul>
+    </div>
+
+    <!-- INNER PAGE HERO -->
+    <section class="inner-hero">
+        <div class="inner-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1617531653332-bd46c24f2068?q=80&w=2070&auto=format&fit=crop');"></div>
+        <div class="inner-hero-overlay"></div>
+        <div class="inner-hero-content animate-on-load">
+            <h1 class="inner-page-title">Project <span class="highlight">Showcase</span></h1>
+            <div class="breadcrumb">
+                <a href="index.html">HOME</a>
+                <span>/</span>
+                <span class="current">GALLERY</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- BEFORE & AFTER SLIDERS SECTION -->
+    <section class="before-after-gallery" style="background-color: var(--color-primary-dark); padding: 80px 0;">
+        <div class="section-container">
+            <div class="services-header animate-on-scroll">
+                <div>
+                    <span class="section-subhead">INTERACTIVE TRANSFORMATIONS</span>
+                    <h2 class="section-title">Before & After <span class="highlight">Comparisons</span></h2>
+                </div>
+                <p class="services-header-desc">Drag the sliders to see the uncompromising difference our multi-stage paint correction and ceramic coatings make on severely damaged exotics.</p>
+            </div>
+            
+            <div class="comparison-grid">
+                
+                <!-- Card 1: Paint Correction -->
+                <div class="comparison-card animate-on-scroll">
+                    <div class="comparison-header">
+                        <span class="comparison-category">PAINT CORRECTION & CERAMIC COATING</span>
+                        <h3 class="comparison-title">Multi-Stage Swirl Correction</h3>
+                    </div>
+                    
+                    <div class="comparison-images-wrapper">
+                        <!-- Before Panel -->
+                        <div class="comparison-panel before-panel">
+                            <img src="assets/paint_correction_before.png" alt="Heavy Swirl Marks & Dust Damage Before Detailing" class="comparison-img">
+                            <span class="panel-badge before-badge"><i class="fas fa-exclamation-triangle"></i> BEFORE (DAMAGE)</span>
+                        </div>
+                        
+                        <!-- After Panel -->
+                        <div class="comparison-panel after-panel">
+                            <img src="assets/paint_correction_after.png" alt="Mirror Gloss Porsche Finish After Detailing" class="comparison-img">
+                            <span class="panel-badge after-badge"><i class="fas fa-check-circle"></i> AFTER (WORK)</span>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-info">
+                        <p>Severely scratched clearcoat undergoes multi-stage machine compounding and compounding polishing, topped with our flagship Aerospace Graphene 10H ceramic shield.</p>
+                        <div class="comparison-meta">
+                            <span><i class="fas fa-clock"></i> 16 Hours</span>
+                            <span><i class="fas fa-shield-alt"></i> Graphene 10H</span>
+                        </div>
+                        <a href="contact.html" class="btn-comparison-book">
+                            <span>BOOK THIS SPECIFICATION</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2: Luxury Interior Care -->
+                <div class="comparison-card animate-on-scroll">
+                    <div class="comparison-header">
+                        <span class="comparison-category">INTERIOR RESTORATION & LEATHER TREATMENT</span>
+                        <h3 class="comparison-title">Neglected Cabin Rejuvenation</h3>
+                    </div>
+                    
+                    <div class="comparison-images-wrapper">
+                        <!-- Before Panel -->
+                        <div class="comparison-panel before-panel">
+                            <img src="assets/interior_before.png" alt="Dusty & Cracked Car Interior Leather Before Cleaning" class="comparison-img">
+                            <span class="panel-badge before-badge"><i class="fas fa-exclamation-triangle"></i> BEFORE (DAMAGE)</span>
+                        </div>
+                        
+                        <!-- After Panel -->
+                        <div class="comparison-panel after-panel">
+                            <img src="assets/interior_after.png" alt="Pristine Matte Restored Leather Interior After Detailing" class="comparison-img">
+                            <span class="panel-badge after-badge"><i class="fas fa-check-circle"></i> AFTER (WORK)</span>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-info">
+                        <p>Complete luxury leather rejuvenation, deep fiber extraction, dry steam sanitization, and premium UV barriers applied to dash, console, and upholstery.</p>
+                        <div class="comparison-meta">
+                            <span><i class="fas fa-clock"></i> 8 Hours</span>
+                            <span><i class="fas fa-magic"></i> Steam Sanitized</span>
+                        </div>
+                        <a href="contact.html" class="btn-comparison-book">
+                            <span>BOOK THIS SPECIFICATION</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3: High-Performance Engine Bay Detail -->
+                <div class="comparison-card animate-on-scroll">
+                    <div class="comparison-header">
+                        <span class="comparison-category">ENGINE BAY STEAM CLEANING</span>
+                        <h3 class="comparison-title">Performance Engine Bay Steam Detail</h3>
+                    </div>
+                    
+                    <div class="comparison-images-wrapper">
+                        <!-- Before Panel -->
+                        <div class="comparison-panel before-panel">
+                            <img src="assets/engine_before.png" alt="Greasy & Dusty Car Engine Compartment Before Detailing" class="comparison-img">
+                            <span class="panel-badge before-badge"><i class="fas fa-exclamation-triangle"></i> BEFORE (DAMAGE)</span>
+                        </div>
+                        
+                        <!-- After Panel -->
+                        <div class="comparison-panel after-panel">
+                            <img src="assets/engine_after.png" alt="Clean Carbon Fiber Engine Details After Detailing" class="comparison-img">
+                            <span class="panel-badge after-badge"><i class="fas fa-check-circle"></i> AFTER (WORK)</span>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-info">
+                        <p>Safe degreasing, multi-nozzle high-pressure steam extraction, plastic dressing, and high-temp heat shield barrier protection for factory new engine compartments.</p>
+                        <div class="comparison-meta">
+                            <span><i class="fas fa-clock"></i> 3 Hours</span>
+                            <span><i class="fas fa-cogs"></i> Heat Shielded</span>
+                        </div>
+                        <a href="contact.html" class="btn-comparison-book">
+                            <span>BOOK THIS SPECIFICATION</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 4: Wheel & Caliper Protection -->
+                <div class="comparison-card animate-on-scroll">
+                    <div class="comparison-header">
+                        <span class="comparison-category">WHEEL DECONTAMINATION & CALIPER PROTECTION</span>
+                        <h3 class="comparison-title">Alloy Decontamination & Shielding</h3>
+                    </div>
+                    
+                    <div class="comparison-images-wrapper">
+                        <!-- Before Panel -->
+                        <div class="comparison-panel before-panel">
+                            <img src="assets/wheel_before.png" alt="Dirty Brake Dust Caked Rim & Rusty Caliper Before Cleaning" class="comparison-img">
+                            <span class="panel-badge before-badge"><i class="fas fa-exclamation-triangle"></i> BEFORE (DAMAGE)</span>
+                        </div>
+                        
+                        <!-- After Panel -->
+                        <div class="comparison-panel after-panel">
+                            <img src="assets/wheel_after.png" alt="Clean Shiny Alloy Rim & Yellow Coated Caliper After Detailing" class="comparison-img">
+                            <span class="panel-badge after-badge"><i class="fas fa-check-circle"></i> AFTER (WORK)</span>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-info">
+                        <p>Intense iron fallout chemical decontamination, wheel-off barrel correction, bright brake caliper painting/cleansing, and high-temp ceramic coating.</p>
+                        <div class="comparison-meta">
+                            <span><i class="fas fa-clock"></i> 5 Hours</span>
+                            <span><i class="fas fa-shield-alt"></i> Caliper Shielded</span>
+                        </div>
+                        <a href="contact.html" class="btn-comparison-book">
+                            <span>BOOK THIS SPECIFICATION</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- PAGINATION -->
+            <div class="pagination-wrapper animate-on-scroll">
+                <span class="pagination-btn disabled"><i class="fas fa-chevron-left"></i> PREV</span>
+                <a href="gallery.html" class="pagination-btn active">1</a>
+                <a href="gallery-page-2.html" class="pagination-btn">2</a>
+                <a href="gallery-page-2.html" class="pagination-btn">NEXT <i class="fas fa-chevron-right"></i></a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- GALLERY GRID SECTION -->
+    <section class="gallery-section" style="background-color: var(--color-secondary-dark); padding: 80px 0;">
+        <div class="section-container" style="padding: 0;">
+            
+            <div class="gallery-filters animate-on-scroll">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="ceramic">Ceramic Coating</button>
+                <button class="filter-btn" data-filter="correction">Paint Correction</button>
+                <button class="filter-btn" data-filter="interior">Interior Care</button>
+            </div>
+
+            <div class="gallery-grid">
+                <!-- Gallery items with data attributes for filtering -->
+                <div class="gallery-item ceramic animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=1000&auto=format&fit=crop" alt="Ceramic Coating on AMG">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item correction animate-on-scroll">
+                    <img src="assets/paint_correction_after.png" alt="Paint Correction Polish">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item interior animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1589739900243-4b52cd9b104e?q=80&w=800&auto=format&fit=crop" alt="Interior Details">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item ceramic animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=800&auto=format&fit=crop" alt="Water Beading Ceramic">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item correction animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=800&auto=format&fit=crop" alt="Correction Work">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item ceramic animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=1000&auto=format&fit=crop" alt="Finished Glossy Hood">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- LIGHTBOX MODAL -->
+    <div class="lightbox" id="lightbox">
+        <i class="fas fa-times lightbox-close" id="lightbox-close"></i>
+        <img src="" alt="Enlarged Image" class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="footer-top">
+            <div class="section-container">
+                <div class="footer-grid">
+
+                    <!-- Col 1: About & Newsletter -->
+                    <div class="footer-col about-col">
+                        <a href="index.html" class="logo footer-logo">
+                            <div class="logo-icon">
+                                <svg viewBox="0 0 100 40" width="80" height="32" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M10,28 L25,28 L32,20 L65,20 L75,28 L90,28 L93,25 L80,14 L60,14 C58,14 42,12 35,16 L12,23 Z"
+                                        fill="none" stroke="#FFB800" stroke-width="3" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <circle cx="30" cy="28" r="4" fill="#FFB800" />
+                                    <circle cx="70" cy="28" r="4" fill="#FFB800" />
+                                </svg>
+                            </div>
+                            <span class="logo-text">TRAVICE</span>
+                        </a>
+                        <p class="footer-text">State-of-the-art detailing laboratorial chambers specializing in
+                            ultra-gloss correction and quartz barrier preservation.</p>
+
+                        <div class="newsletter-wrapper">
+                            <h4>Subscribe To Newsletter</h4>
+                            <form id="newsletter-form">
+                                <div class="newsletter-input-group">
+                                    <input type="email" placeholder="Your email address" aria-label="Newsletter email"
+                                        required>
+                                    <button type="submit" aria-label="Subscribe"><i
+                                            class="fas fa-chevron-right"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Col 2: Services Quick Links -->
+                    <div class="footer-col links-col">
+                        <h3>Our Services</h3>
+                        <ul>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Exterior Detailing</a></li>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Interior Rejuvenation</a></li>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Multi-Stage Correction</a></li>
+                            <li><a href="index.html#pricing"><i class="fas fa-chevron-right"></i> 9H Ceramic Quartz Coating</a>
+                            </li>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Engine Bay Steam Prep</a></li>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Alloy Caliper Coating</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Col 3: Quick Navigation -->
+                    <div class="footer-col links-col">
+                        <h3>Quick Navigation</h3>
+                        <ul>
+                            <li><a href="index.html"><i class="fas fa-chevron-right"></i> Homepage</a></li>
+                            <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us Portfolio</a></li>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Luxury Detailing Services</a>
+                            </li>
+                            <li><a href="index.html#pricing"><i class="fas fa-chevron-right"></i> Ceramic Coating Plans</a></li>
+                            <li><a href="index.html#faq"><i class="fas fa-chevron-right"></i> Detailing FAQ Center</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Col 4: Working Hours & Socials -->
+                    <div class="footer-col hours-col">
+                        <h3>Laboratory Hours</h3>
+                        <ul class="hours-list">
+                            <li><span>Monday:</span> <span>08.00 AM - 17.00 PM</span></li>
+                            <li><span>Tuesday:</span> <span>08.00 AM - 17.00 PM</span></li>
+                            <li><span>Wednesday:</span> <span>08.00 AM - 17.00 PM</span></li>
+                            <li><span>Thursday:</span> <span>08.00 AM - 17.00 PM</span></li>
+                            <li><span>Friday:</span> <span>08.00 AM - 17.00 PM</span></li>
+                            <li><span>Saturday:</span> <span>08.00 AM - 16.00 PM</span></li>
+                            <li class="closed"><span>Sunday:</span> <span>Closed Concierge</span></li>
+                        </ul>
+
+                        <div class="footer-socials">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="section-container">
+                <div class="footer-bottom-flex">
+                    <p>&copy; 2026 TRAVICE Detailing Lab. All Rights Reserved. Crafted with absolute automotive
+                        precision.</p>
+                    <div class="footer-legal-links">
+                        <a href="#">Privacy Policy</a>
+                        <span>|</span>
+                        <a href="#">Terms & Conditions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="pages.js"></script>
+</body>
+</html>

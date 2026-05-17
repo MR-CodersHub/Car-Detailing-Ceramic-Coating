@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TRAVICE Services - Comprehensive automotive detailing, PPF, and ceramic coating solutions.">
+    <title>Our Services | TRAVICE Premium Detailing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="mobile.css">
+    <!-- Theme Switcher Script (Instantly runs to avoid FOIT flashing) -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+</head>
+<body>
+
+    <!-- TOP UTILITY BAR -->
+    <div class="top-bar">
+        <div class="top-bar-container">
+            <div class="top-bar-info">
+                <span><i class="fas fa-map-marker-alt"></i> 99 Roving St., Big City, PKU2345</span>
+                <span class="bar-separator">|</span>
+                <span><i class="fas fa-phone-alt"></i> For Emergency: +123-456-7890</span>
+            </div>
+            <div class="top-bar-promo">
+                <span><i class="fas fa-percentage"></i> Discount 25% for every service</span>
+                <span class="bar-separator">|</span>
+                <span><i class="far fa-clock"></i> 08.00AM - 17.00PM</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 100 40" width="100" height="40" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10,28 L25,28 L32,20 L65,20 L75,28 L90,28 L93,25 L80,14 L60,14 C58,14 42,12 35,16 L12,23 Z" fill="none" stroke="#FFB800" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="30" cy="28" r="4" fill="#FFB800" />
+                        <circle cx="70" cy="28" r="4" fill="#FFB800" />
+                    </svg>
+                </div>
+                <span class="logo-text">TRAVICE</span>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html" class="nav-link">HOME</a></li>
+                    <li><a href="home-2.html" class="nav-link">HOME 2</a></li>
+                    <li><a href="about.html" class="nav-link">ABOUT US</a></li>
+                    <li><a href="services.html" class="nav-link active">SERVICES</a></li>
+                    <li><a href="gallery.html" class="nav-link">GALLERY</a></li>
+                    <li><a href="blog.html" class="nav-link">BLOG</a></li>
+                    <li><a href="contact.html" class="nav-link">CONTACT US</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <!-- Premium Redesigned Animated Capsule Theme Switcher -->
+                <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle Theme">
+                    <div class="theme-toggle-bubble">
+                        <i class="fas fa-moon moon-icon"></i>
+                        <i class="fas fa-sun sun-icon"></i>
+                    </div>
+                </button>
+                <a href="contact.html" class="btn-header">BOOK NOW</a>
+                <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu">
+                    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE NAVIGATION DROPDOWN -->
+    <div class="mobile-nav" id="mobile-menu">
+        <ul>
+            <li><a href="index.html" class="mobile-link">HOME</a></li>
+            <li><a href="home-2.html" class="mobile-link">HOME 2</a></li>
+            <li><a href="about.html" class="mobile-link">ABOUT US</a></li>
+            <li><a href="services.html" class="mobile-link">SERVICES</a></li>
+            <li><a href="gallery.html" class="mobile-link">GALLERY</a></li>
+            <li><a href="blog.html" class="mobile-link">BLOG</a></li>
+            <li><a href="contact.html" class="mobile-link">CONTACT US</a></li>
+        </ul>
+    </div>
+
+    <!-- INNER PAGE HERO -->
+    <section class="inner-hero">
+        <div class="inner-hero-bg" style="background-image: url('assets/paint_correction_after.png');"></div>
+        <div class="inner-hero-overlay"></div>
+        <div class="inner-hero-content animate-on-load">
+            <h1 class="inner-page-title">Premium <span class="highlight">Services</span></h1>
+            <div class="breadcrumb">
+                <a href="index.html">HOME</a>
+                <span>/</span>
+                <span class="current">SERVICES</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FULL SERVICES GRID -->
+    <section class="services" style="background-color: var(--color-primary-dark);">
+        <div class="section-container">
+            <div class="services-header animate-on-scroll">
+                <div>
+                    <span class="section-subhead">OUR EXPERTISE</span>
+                    <h2 class="section-title">Comprehensive Detailing <span class="highlight">Portfolio</span></h2>
+                </div>
+                <p class="services-header-desc">From surgical interior steam cleaning to permanent 9H ceramic coatings and paint protection films, explore our complete range of specialized automotive preservation services.</p>
+            </div>
+
+            <!-- Dynamic Grid for all 10 Services -->
+            <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+                
+                <div class="service-card animate-on-scroll">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=800&auto=format&fit=crop" alt="Ceramic Coating">
+                        <div class="badge-icon"><i class="fas fa-spray-can"></i></div>
+                    </div>
+                    <div class="service-info">
+                        <h3>9H Ceramic Coating</h3>
+                        <p>Permanent hydrophobic nanotech bonding that repels chemicals and intensifies gloss.</p>
+                        <a href="contact.html" class="service-link">LEARN MORE <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="service-card animate-on-scroll">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=800&auto=format&fit=crop" alt="Paint Protection Film">
+                        <div class="badge-icon"><i class="fas fa-shield-alt"></i></div>
+                    </div>
+                    <div class="service-info">
+                        <h3>Paint Protection Film</h3>
+                        <p>Self-healing, optically clear polyurethane wrap defending against physical rock chips.</p>
+                        <a href="contact.html" class="service-link">LEARN MORE <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="service-card animate-on-scroll">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1589739900243-4b52cd9b104e?q=80&w=800&auto=format&fit=crop" alt="Interior Detailing">
+                        <div class="badge-icon"><i class="fas fa-couch"></i></div>
+                    </div>
+                    <div class="service-info">
+                        <h3>Interior Detailing</h3>
+                        <p>Complete leather feeding, extraction, and antimicrobial ozone treatments for the cabin.</p>
+                        <a href="contact.html" class="service-link">LEARN MORE <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="service-card animate-on-scroll">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=800&auto=format&fit=crop" alt="Paint Correction">
+                        <div class="badge-icon"><i class="fas fa-hands-wash"></i></div>
+                    </div>
+                    <div class="service-info">
+                        <h3>Paint Correction</h3>
+                        <p>Multi-stage compounding and polishing to permanently level swirls and oxidation.</p>
+                        <a href="contact.html" class="service-link">LEARN MORE <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="service-card animate-on-scroll">
+                    <div class="card-img-wrapper">
+                        <img src="assets/interior_after.png" alt="Steam Wash">
+                        <div class="badge-icon"><i class="fas fa-wind"></i></div>
+                    </div>
+                    <div class="service-info">
+                        <h3>Steam Wash</h3>
+                        <p>Eco-friendly high-pressure dry steam cleaning eliminating bacteria and stubborn grime.</p>
+                        <a href="contact.html" class="service-link">LEARN MORE <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="service-card animate-on-scroll">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=800&auto=format&fit=crop" alt="Engine Bay">
+                        <div class="badge-icon"><i class="fas fa-cogs"></i></div>
+                    </div>
+                    <div class="service-info">
+                        <h3>Engine Bay Cleaning</h3>
+                        <p>Safe degreasing, steam extraction, and plastics dressing for a factory-new engine compartment.</p>
+                        <a href="contact.html" class="service-link">LEARN MORE <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="service-card animate-on-scroll">
+                    <div class="card-img-wrapper">
+                        <img src="assets/paint_correction_after.png" alt="Scratch Removal">
+                        <div class="badge-icon"><i class="fas fa-eraser"></i></div>
+                    </div>
+                    <div class="service-info">
+                        <h3>Scratch Removal</h3>
+                        <p>Localized wet sanding and heavy compounding targeting specific deep clearcoat scratches.</p>
+                        <a href="contact.html" class="service-link">LEARN MORE <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="service-card animate-on-scroll">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=800&auto=format&fit=crop" alt="Headlight Restoration">
+                        <div class="badge-icon"><i class="fas fa-lightbulb"></i></div>
+                    </div>
+                    <div class="service-info">
+                        <h3>Headlight Restoration</h3>
+                        <p>Sanding out yellow UV oxidation and recoating the lenses with ceramic protection.</p>
+                        <a href="contact.html" class="service-link">LEARN MORE <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="service-card animate-on-scroll">
+                    <div class="card-img-wrapper">
+                        <img src="assets/engine_after.png" alt="Exterior Detailing">
+                        <div class="badge-icon"><i class="fas fa-car"></i></div>
+                    </div>
+                    <div class="service-info">
+                        <h3>Exterior Detailing</h3>
+                        <p>Two-bucket foam wash, iron fallout decontamination, and clay bar treatment.</p>
+                        <a href="contact.html" class="service-link">LEARN MORE <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="service-card animate-on-scroll">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=800&auto=format&fit=crop" alt="Full Car Spa">
+                        <div class="badge-icon"><i class="fas fa-gem"></i></div>
+                    </div>
+                    <div class="service-info">
+                        <h3>Full Car Spa</h3>
+                        <p>The ultimate bumper-to-bumper reset combining interior and exterior perfection.</p>
+                        <a href="contact.html" class="service-link">LEARN MORE <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- MOBILE SERVICE ZONES -->
+    <section class="zones-section section-padding animate-on-scroll" id="mobile-service-zones">
+        <div class="section-container">
+            <div class="ba-header text-center" style="margin-bottom: 40px;">
+                <span class="section-subhead">CLINICAL PRECISION AT YOUR DOORSTEP</span>
+                <h2 class="section-title">Mobile Detailing <span class="highlight">Service Zones</span></h2>
+                <p class="ba-desc" style="margin-left: auto; margin-right: auto;">Our custom, temperature-controlled
+                    laboratory detailing rigs bring world-class paint preservation services directly to your driveway or
+                    secure vehicle storage hangar.</p>
+            </div>
+
+            <div class="zones-grid">
+                <!-- Informational Cards -->
+                <div class="zones-content-cards">
+                    <div class="zone-feature-card">
+                        <div class="zone-card-icon">
+                            <i class="fas fa-truck-loading"></i>
+                        </div>
+                        <div class="zone-card-info">
+                            <h3>Fully Self-Powered Detailing Vans</h3>
+                            <p>Our bespoke mobile rigs are entirely self-contained. Outfitted with onboard deionized
+                                spot-free water filtration systems, industrial generators, and clinical
+                                temperature-controlled toolkits, we require zero hookups to deliver concourse perfection
+                                in your driveway.</p>
+                        </div>
+                    </div>
+
+                    <div class="zone-feature-card">
+                        <div class="zone-card-icon">
+                            <i class="fas fa-trailer"></i>
+                        </div>
+                        <div class="zone-card-info">
+                            <h3>Secure Enclosed Hydraulic Transporters</h3>
+                            <p>For vehicles requiring multi-stage surgical correction or ceramic coatings that require
+                                controlled laboratory infrared baking, we provide low-clearance, fully enclosed enclosed
+                                transportation carrier pickups and dropoffs.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Simulated Tactile Map Card -->
+                <div class="map-visual-card">
+                    <div class="map-visual-header">
+                        <span class="map-badge">Live Detailing Coverage Radar</span>
+                        <div class="timing-info" style="margin-bottom: 0;">
+                            <span class="map-badge"
+                                style="background-color: rgba(34, 197, 94, 0.08); border-color: rgba(34, 197, 94, 0.2); color: #22C55E;">
+                                <i class="fas fa-circle"
+                                    style="font-size: 0.5rem; margin-right: 5px; animation: markerPulse 1.5s infinite;"></i>
+                                Doorstep Service Active
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="map-canvas-container">
+                        <!-- Custom high-end interactive CSS radar animation representing coverage -->
+                        <div class="map-radar-ring"></div>
+                        <div class="map-radar-ring" style="animation-delay: 1.5s;"></div>
+                        <div class="map-radar-ring" style="animation-delay: 3s;"></div>
+
+                        <!-- Pulse Pin Markers -->
+                        <div class="map-pulse-marker marker-central active" data-region="central">
+                            <div class="marker-label">HQ STUDIO & LAB</div>
+                        </div>
+                        <div class="map-pulse-marker marker-north" data-region="north">
+                            <div class="marker-label">NORTH REGION (SUBURBS)</div>
+                        </div>
+                        <div class="map-pulse-marker marker-west" data-region="west">
+                            <div class="marker-label">WEST HILLS & LAKESIDE</div>
+                        </div>
+                        <div class="map-pulse-marker marker-south" data-region="south">
+                            <div class="marker-label">SOUTH COAST & BAY</div>
+                        </div>
+                        <div class="map-pulse-marker marker-east" data-region="east">
+                            <div class="marker-label">EAST VALLEY & HIGHPOINT</div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Regions drawer -->
+                    <div class="map-regions-drawer">
+                        <div class="map-regions-title">
+                            <span>Select Coverage Region</span>
+                            <span id="active-region-name">HQ Studio</span>
+                        </div>
+                        <div class="regions-badges-grid">
+                            <div class="region-badge active" data-region="central">HQ Studio Lab</div>
+                            <div class="region-badge" data-region="north">North Region</div>
+                            <div class="region-badge" data-region="west">West Region</div>
+                            <div class="region-badge" data-region="south">South Region</div>
+                            <div class="region-badge" data-region="east">East Region</div>
+                        </div>
+                    </div>
+
+                    <div class="map-timing-footer">
+                        <div class="timing-info">
+                            <i class="far fa-clock"></i>
+                            <span>Mobile Operations: <strong>Mon-Sat: 08:00 AM - 06:00 PM</strong></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="footer-top">
+            <div class="section-container">
+                <div class="footer-grid">
+
+                    <!-- Col 1: About & Newsletter -->
+                    <div class="footer-col about-col">
+                        <a href="index.html" class="logo footer-logo">
+                            <div class="logo-icon">
+                                <svg viewBox="0 0 100 40" width="80" height="32" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M10,28 L25,28 L32,20 L65,20 L75,28 L90,28 L93,25 L80,14 L60,14 C58,14 42,12 35,16 L12,23 Z"
+                                        fill="none" stroke="#FFB800" stroke-width="3" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <circle cx="30" cy="28" r="4" fill="#FFB800" />
+                                    <circle cx="70" cy="28" r="4" fill="#FFB800" />
+                                </svg>
+                            </div>
+                            <span class="logo-text">TRAVICE</span>
+                        </a>
+                        <p class="footer-text">State-of-the-art detailing laboratorial chambers specializing in
+                            ultra-gloss correction and quartz barrier preservation.</p>
+
+                        <div class="newsletter-wrapper">
+                            <h4>Subscribe To Newsletter</h4>
+                            <form id="newsletter-form">
+                                <div class="newsletter-input-group">
+                                    <input type="email" placeholder="Your email address" aria-label="Newsletter email"
+                                        required>
+                                    <button type="submit" aria-label="Subscribe"><i
+                                            class="fas fa-chevron-right"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Col 2: Services Quick Links -->
+                    <div class="footer-col links-col">
+                        <h3>Our Services</h3>
+                        <ul>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Exterior Detailing</a></li>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Interior Rejuvenation</a></li>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Multi-Stage Correction</a></li>
+                            <li><a href="index.html#pricing"><i class="fas fa-chevron-right"></i> 9H Ceramic Quartz Coating</a>
+                            </li>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Engine Bay Steam Prep</a></li>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Alloy Caliper Coating</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Col 3: Quick Navigation -->
+                    <div class="footer-col links-col">
+                        <h3>Quick Navigation</h3>
+                        <ul>
+                            <li><a href="index.html"><i class="fas fa-chevron-right"></i> Homepage</a></li>
+                            <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us Portfolio</a></li>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Luxury Detailing Services</a>
+                            </li>
+                            <li><a href="index.html#pricing"><i class="fas fa-chevron-right"></i> Ceramic Coating Plans</a></li>
+                            <li><a href="index.html#faq"><i class="fas fa-chevron-right"></i> Detailing FAQ Center</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Col 4: Working Hours & Socials -->
+                    <div class="footer-col hours-col">
+                        <h3>Laboratory Hours</h3>
+                        <ul class="hours-list">
+                            <li><span>Monday:</span> <span>08.00 AM - 17.00 PM</span></li>
+                            <li><span>Tuesday:</span> <span>08.00 AM - 17.00 PM</span></li>
+                            <li><span>Wednesday:</span> <span>08.00 AM - 17.00 PM</span></li>
+                            <li><span>Thursday:</span> <span>08.00 AM - 17.00 PM</span></li>
+                            <li><span>Friday:</span> <span>08.00 AM - 17.00 PM</span></li>
+                            <li><span>Saturday:</span> <span>08.00 AM - 16.00 PM</span></li>
+                            <li class="closed"><span>Sunday:</span> <span>Closed Concierge</span></li>
+                        </ul>
+
+                        <div class="footer-socials">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="section-container">
+                <div class="footer-bottom-flex">
+                    <p>&copy; 2026 TRAVICE Detailing Lab. All Rights Reserved. Crafted with absolute automotive
+                        precision.</p>
+                    <div class="footer-legal-links">
+                        <a href="#">Privacy Policy</a>
+                        <span>|</span>
+                        <a href="#">Terms & Conditions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MULTI-STEP PREMIUM BOOKING MODAL -->
+    <div class="booking-modal-overlay" id="booking-modal">
+        <div class="booking-modal-box">
+            <!-- Stepper Header -->
+            <div class="stepper-header">
+                <div class="stepper-header-title">
+                    <h3><i class="fas fa-calendar-alt"></i> Detailing Lab Reservation</h3>
+                    <button class="modal-close-btn" id="close-booking-modal" aria-label="Close booking modal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+
+                <div class="stepper-progress-row">
+                    <div class="stepper-progress-bar" id="stepper-progress-bar"></div>
+                    <div class="stepper-step active" id="step-ind-1">
+                        <div class="step-number">1</div>
+                        <div class="step-label">Specs</div>
+                    </div>
+                    <div class="stepper-step" id="step-ind-2">
+                        <div class="step-number">2</div>
+                        <div class="step-label">Schedule</div>
+                    </div>
+                    <div class="stepper-step" id="step-ind-3">
+                        <div class="step-number">3</div>
+                        <div class="step-label">Contact</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stepper Content Form -->
+            <div class="booking-form-wrapper">
+                <!-- SPEEDOMETER LOADING SCREEN -->
+                <div class="booking-loading-screen" id="booking-loading">
+                    <div class="speedometer-wrapper">
+                        <div class="speed-dial"></div>
+                        <div class="speed-needle"></div>
+                    </div>
+                    <div class="loading-text">CALIBRATING DETAILING RIGS...</div>
+                    <div class="loading-subtext">Securing lab allocation slots and preparing customized chemical formulations.</div>
+                </div>
+
+                <!-- SUCCESS CONFIRMATION RECEIPT -->
+                <div class="confirmation-receipt-box" id="confirmation-receipt">
+                    <div class="receipt-card">
+                        <div class="receipt-success-badge">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <h3>Reservation Confirmed</h3>
+                        <p>Your secure detailing laboratory slot has been officially registered in our global system. A digital copy has been dispatched to your email.</p>
+                        
+                        <div class="receipt-grid">
+                            <div class="receipt-row">
+                                <span class="receipt-label">Client Name</span>
+                                <span class="receipt-val" id="rec-name">John Doe</span>
+                            </div>
+                            <div class="receipt-row">
+                                <span class="receipt-label">Vehicle Size</span>
+                                <span class="receipt-val" id="rec-vehicle">Sedan / Coupe</span>
+                            </div>
+                            <div class="receipt-row">
+                                <span class="receipt-label">Detailing Package</span>
+                                <span class="receipt-val" id="rec-package">Silver Shield Package</span>
+                            </div>
+                            <div class="receipt-row">
+                                <span class="receipt-label">Coating Shield</span>
+                                <span class="receipt-val" id="rec-coating">Self-Healing Hydrophobic Layer</span>
+                            </div>
+                            <div class="receipt-row">
+                                <span class="receipt-label">Scheduled Date & Time</span>
+                                <span class="receipt-val highlight-text" id="rec-date-time">May 20, 10:30 AM</span>
+                            </div>
+                            <div class="receipt-row">
+                                <span class="receipt-label">Service Mode</span>
+                                <span class="receipt-val" id="rec-mode">HQ Studio Lab</span>
+                            </div>
+                            <div class="receipt-row" style="grid-column: span 2;">
+                                <span class="receipt-label">Detailing Address / Location</span>
+                                <span class="receipt-val" id="rec-address">99 Roving St., Big City, HQ Lab</span>
+                            </div>
+                        </div>
+
+                        <div class="summary-total-box" style="margin-bottom: 0; border-color: rgba(255, 184, 0, 0.4);">
+                            <span class="summary-total-label" style="font-size: 0.72rem; letter-spacing: 1px;">TOTAL CUSTOM PRICE ESTIMATED</span>
+                            <div class="summary-total-price" id="rec-price" style="font-size: 2.2rem;">$1,248</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MAIN INTERACTIVE FORM -->
+                <form id="modal-booking-form" novalidate>
+                    <!-- STEP PANE 1 -->
+                    <div class="step-pane active" id="step-pane-1">
+                        <div style="margin-bottom: 25px;">
+                            <h4 style="font-family: var(--font-heading); color: var(--color-text-white); font-weight: 800; font-size: 1.1rem; text-transform: uppercase; margin-bottom: 8px;">Select Detailing Configuration</h4>
+                            <p style="font-size: 0.8rem; color: var(--color-text-muted); line-height: 1.4;">Configure your baseline service requirements. These options define the starting pricing and laboratory prep steps.</p>
+                        </div>
+
+                        <div class="form-row-dual" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 20px;">
+                            <div class="form-group" style="margin-bottom: 0;">
+                                <label for="modal-vehicle-type">Vehicle Size / Type <span class="req">*</span></label>
+                                <select id="modal-vehicle-type" class="calc-select" required>
+                                    <option value="sedan">Sedan / Coupe</option>
+                                    <option value="suv">SUV / Crossover</option>
+                                    <option value="truck">Truck / Large SUV</option>
+                                    <option value="exotic">Exotic / Supercar</option>
+                                </select>
+                            </div>
+                            <div class="form-group" style="margin-bottom: 0;">
+                                <label for="modal-package">Detailing Package <span class="req">*</span></label>
+                                <select id="modal-package" class="calc-select" required>
+                                    <option value="none">None / Custom A-la-Carte</option>
+                                    <option value="bronze">Bronze Protection ($399)</option>
+                                    <option value="silver">Silver Shield ($699)</option>
+                                    <option value="gold">Gold Elite ($1,199)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 25px;">
+                            <label for="modal-coating">Coating Specification <span class="req">*</span></label>
+                            <select id="modal-coating" class="calc-select" required>
+                                <option value="none">Standard Polymer Polish Sealant (+$0)</option>
+                                <option value="nano-9h">Standard 9H Hardness Nanoceramic (+$200)</option>
+                                <option value="self-healing">Self-Healing Ultra-Hydrophobic Layer (+$399)</option>
+                                <option value="graphene">Aerospace Graphene Diamond Grade 10H (+$599)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label class="calc-label" style="margin-bottom: 12px;">Optional Detailing Add-ons</label>
+                            <div class="addons-grid" style="grid-template-columns: repeat(2, 1fr);">
+                                <div class="addon-card" id="modal-addon-card-leather" data-addon="leather">
+                                    <input type="checkbox" id="modal-addon-leather" class="addon-checkbox">
+                                    <div class="addon-custom-check">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                    <div class="addon-info">
+                                        <span class="addon-name" style="font-size: 0.8rem;">Leather Guard</span>
+                                        <span class="addon-price" style="font-size: 0.72rem;">+$150</span>
+                                    </div>
+                                </div>
+                                <div class="addon-card" id="modal-addon-card-wheels" data-addon="wheels">
+                                    <input type="checkbox" id="modal-addon-wheels" class="addon-checkbox">
+                                    <div class="addon-custom-check">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                    <div class="addon-info">
+                                        <span class="addon-name" style="font-size: 0.8rem;">Wheel & Caliper</span>
+                                        <span class="addon-price" style="font-size: 0.72rem;">+$250</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP PANE 2 -->
+                    <div class="step-pane" id="step-pane-2">
+                        <div style="margin-bottom: 25px;">
+                            <h4 style="font-family: var(--font-heading); color: var(--color-text-white); font-weight: 800; font-size: 1.1rem; text-transform: uppercase; margin-bottom: 8px;">Schedule & Service Location</h4>
+                            <p style="font-size: 0.8rem; color: var(--color-text-muted); line-height: 1.4;">Specify when and where you want your detailing session executed. For doorstep mobile service, we require a secure storage driveway or garage.</p>
+                        </div>
+
+                        <div class="form-row-dual" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 20px;">
+                            <div class="form-group" style="margin-bottom: 0;">
+                                <label for="modal-service-mode">Detailing Location Mode <span class="req">*</span></label>
+                                <select id="modal-service-mode" class="calc-select" required>
+                                    <option value="studio">HQ Studio Laboratory (+$0)</option>
+                                    <option value="mobile">Doorstep Mobile Detailing (+$50)</option>
+                                </select>
+                            </div>
+                            <div class="form-group" style="margin-bottom: 0;">
+                                <label for="modal-time">Preferred Time Slot <span class="req">*</span></label>
+                                <select id="modal-time" class="calc-select" required>
+                                    <option value="08:00 AM">Morning Early Slot: 08:00 AM</option>
+                                    <option value="10:30 AM">Morning Mid Slot: 10:30 AM</option>
+                                    <option value="01:00 PM">Afternoon Slot: 01:00 PM</option>
+                                    <option value="03:30 PM">Evening Slot: 03:30 PM</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label for="modal-date">Preferred Detailing Date <span class="req">*</span></label>
+                            <input type="date" id="modal-date" class="calc-select" style="font-family: var(--font-body);" required>
+                        </div>
+
+                        <div class="form-group" id="modal-address-group" style="display: none; margin-bottom: 0;">
+                            <label for="modal-address">Doorstep Detailing Address <span class="req">*</span></label>
+                            <input type="text" id="modal-address" class="calc-select" placeholder="e.g. 123 Luxury Dr., North Shore Suburbs" style="font-family: var(--font-body);">
+                        </div>
+                    </div>
+
+                    <!-- STEP PANE 3 -->
+                    <div class="step-pane" id="step-pane-3">
+                        <div style="margin-bottom: 25px;">
+                            <h4 style="font-family: var(--font-heading); color: var(--color-text-white); font-weight: 800; font-size: 1.1rem; text-transform: uppercase; margin-bottom: 8px;">Personal Information</h4>
+                            <p style="font-size: 0.8rem; color: var(--color-text-muted); line-height: 1.4;">Provide your contact details so our lab technicians can confirm your spot and prepare specialized delivery.</p>
+                        </div>
+
+                        <div class="form-row-dual" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 20px;">
+                            <div class="form-group" style="margin-bottom: 0;">
+                                <label for="modal-name">Full Name <span class="req">*</span></label>
+                                <input type="text" id="modal-name" class="calc-select" placeholder="John Doe" style="font-family: var(--font-body);" required>
+                            </div>
+                            <div class="form-group" style="margin-bottom: 0;">
+                                <label for="modal-phone">Phone Number <span class="req">*</span></label>
+                                <input type="tel" id="modal-phone" class="calc-select" placeholder="+1 (234) 567-890" style="font-family: var(--font-body);" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label for="modal-email">Email Address <span class="req">*</span></label>
+                            <input type="email" id="modal-email" class="calc-select" placeholder="john@example.com" style="font-family: var(--font-body);" required>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label for="modal-notes">Additional Notes / Vehicle Specifics</label>
+                            <textarea id="modal-notes" class="calc-select" placeholder="e.g. Any custom wraps, matte paint clearcoats, or chemical considerations..." style="height: 90px; resize: none; font-family: var(--font-body);"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Stepper Footer Buttons -->
+            <div class="stepper-footer" id="modal-stepper-footer">
+                <button type="button" class="btn-secondary btn-prev-step" id="prev-step-btn" style="visibility: hidden;">
+                    <i class="fas fa-chevron-left" style="margin-right: 8px;"></i>
+                    <span>PREVIOUS</span>
+                </button>
+                
+                <button type="button" class="btn-primary" id="next-step-btn">
+                    <span>NEXT STEP</span>
+                    <i class="fas fa-chevron-right" style="margin-left: 8px;"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FLOATING APPOINTMENT REMINDER TOAST CARD -->
+    <div class="reminder-toast" id="reminder-toast">
+        <div class="reminder-header">
+            <i class="fas fa-bell reminder-icon"></i>
+            <h4 class="reminder-title">Detailing Reminder</h4>
+        </div>
+        <div class="reminder-body" id="reminder-toast-body">
+            Your laboratory detailing appointment is scheduled for **May 20** at **10:30 AM** in **HQ Studio Lab** mode. Final rig checks complete.
+        </div>
+        <div class="reminder-actions">
+            <button class="btn-reminder-action btn-reminder-dismiss" id="reminder-dismiss-btn">Dismiss</button>
+            <button class="btn-reminder-action btn-reminder-snooze" id="reminder-snooze-btn">Snooze (1h)</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="pages.js"></script>
+</body>
+</html>
