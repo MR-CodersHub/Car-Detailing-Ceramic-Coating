@@ -1869,6 +1869,23 @@ img {
     -webkit-appearance: none;
     -moz-appearance: none;
     cursor: pointer;
+    /* Dark mode styling for option list */
+    color-scheme: dark;
+    accent-color: var(--color-accent);
+}
+
+/* Styles for option elements in select dropdown */
+.custom-select-wrapper select option {
+    background-color: var(--color-secondary-dark);
+    color: var(--color-text-white);
+    padding: 8px 12px;
+}
+
+/* Checked/selected option styling */
+.custom-select-wrapper select option:checked {
+    background: linear-gradient(var(--color-accent), var(--color-accent));
+    background-color: var(--color-accent);
+    color: var(--color-primary-dark);
 }
 
 .custom-select-wrapper::after {
@@ -1881,6 +1898,7 @@ img {
     transform: translateY(-50%);
     color: var(--color-accent);
     pointer-events: none;
+    z-index: 1;
 }
 
 /* Input Focus States */
@@ -1979,16 +1997,182 @@ img {
     line-height: 1.5;
 }
 
-/* Luxury Google Maps Embed Placeholder Styling */
-.map-placeholder-wrapper {
+/* Luxury Google Maps Embed Placeholder & Interactive Wrapper Styling */
+.map-placeholder-wrapper,
+.map-wrapper-container {
     position: relative;
-    height: 250px;
+    height: 380px;
     border-radius: var(--border-radius-lg);
     border: 1px solid var(--color-card-border);
     background-color: var(--color-secondary-dark);
     overflow: hidden;
-    box-shadow: var(--shadow-premium);
+    box-shadow: var(--shadow-premium), 0 10px 30px rgba(0, 0, 0, 0.4);
+    z-index: 5;
+    isolation: isolate;
 }
+
+#interactive-studio-map {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* Customize Leaflet styles to match TRAVICE premium design */
+.leaflet-container {
+    background: #060912 !important;
+    font-family: var(--font-body) !important;
+}
+
+.leaflet-tile-container {
+    opacity: 0.85;
+}
+
+.leaflet-bar {
+    border: 1px solid rgba(255, 184, 0, 0.25) !important;
+    box-shadow: var(--shadow-premium) !important;
+    background-color: rgba(6, 9, 18, 0.85) !important;
+    backdrop-filter: blur(8px);
+}
+
+.leaflet-bar a {
+    background-color: transparent !important;
+    color: var(--color-accent) !important;
+    border-bottom: 1px solid rgba(255, 184, 0, 0.15) !important;
+    transition: var(--transition-snappy) !important;
+}
+
+.leaflet-bar a:hover {
+    background-color: var(--color-accent) !important;
+    color: #060912 !important;
+}
+
+/* Custom Pulsing Golden Pin for Leaflet */
+.custom-gps-pin {
+    width: 20px;
+    height: 20px;
+    position: relative;
+}
+
+.gps-dot {
+    width: 12px;
+    height: 12px;
+    background-color: var(--color-accent);
+    border: 2px solid #FFFFFF;
+    border-radius: 50%;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    box-shadow: 0 0 15px var(--color-accent), 0 0 25px rgba(255, 184, 0, 0.5);
+    z-index: 3;
+}
+
+.gps-pulse {
+    width: 36px;
+    height: 36px;
+    border: 2px solid var(--color-accent);
+    border-radius: 50%;
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    animation: gpsMarkerPulse 2.2s infinite ease-out;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes gpsMarkerPulse {
+    0% { transform: scale(0.4); opacity: 0; }
+    30% { opacity: 0.7; }
+    100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* Custom styled Leaflet popups */
+.leaflet-popup-content-wrapper {
+    background: rgba(10, 17, 32, 0.9) !important;
+    border: 1px solid var(--color-accent) !important;
+    color: var(--color-text-white) !important;
+    backdrop-filter: blur(8px);
+    border-radius: var(--border-radius-md) !important;
+    box-shadow: var(--shadow-premium) !important;
+}
+
+.leaflet-popup-tip {
+    background: rgba(10, 17, 32, 0.9) !important;
+    border-left: 1px solid var(--color-accent) !important;
+    border-bottom: 1px solid var(--color-accent) !important;
+}
+
+.leaflet-popup-content h4 {
+    font-family: var(--font-heading);
+    color: var(--color-accent);
+    font-weight: 800;
+    margin: 0 0 6px 0;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.leaflet-popup-content p {
+    margin: 0;
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+    line-height: 1.4;
+}
+
+/* Cyber overlays for map */
+.map-cyber-overlay {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    pointer-events: none;
+}
+
+.map-coordinates {
+    background: rgba(6, 9, 18, 0.85);
+    border: 1px solid rgba(255, 184, 0, 0.2);
+    border-radius: 4px;
+    padding: 6px 12px;
+    font-family: monospace;
+    font-size: 0.7rem;
+    color: var(--color-accent);
+    backdrop-filter: blur(4px);
+    letter-spacing: 0.5px;
+}
+
+.map-status-glow {
+    background: rgba(6, 9, 18, 0.85);
+    border: 1px solid rgba(255, 184, 0, 0.2);
+    border-radius: 4px;
+    padding: 6px 12px;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 0.65rem;
+    color: var(--color-text-white);
+    backdrop-filter: blur(4px);
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.pulse-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #22c55e;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 8px #22c55e;
+    animation: statusMarkerPulse 1.5s infinite ease-out;
+}
+
+@keyframes statusMarkerPulse {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(2.5); opacity: 0; }
+}
+
 
 .grid-texture {
     position: absolute;
@@ -3411,7 +3595,8 @@ html[data-theme="light"] .service-mode-btn.active {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 5;
+    z-index: 10;
+    position: relative;
 }
 
 .map-badge {
@@ -3428,46 +3613,73 @@ html[data-theme="light"] .service-mode-btn.active {
 }
 
 .map-canvas-container {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative;
     width: 100%;
     height: 100%;
+    pointer-events: none;
+}
+
+/* Simulated interactive radar ripple rings centered on central marker */
+.map-radar-ring {
+    position: absolute;
+    top: 46%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 1.5px solid rgba(var(--color-accent-rgb), 0.25);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: radarRipple 4.5s infinite cubic-bezier(0.1, 0.8, 0.3, 1);
+    pointer-events: none;
     z-index: 1;
+}
+
+@keyframes radarRipple {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 0.8;
+    }
+    100% {
+        width: 320px;
+        height: 320px;
+        opacity: 0;
+    }
 }
 
 /* Glassmorphic SVG dynamic automotive map representation */
 .map-grid-svg {
     width: 100%;
     height: 100%;
-    opacity: 0.12;
-    stroke: var(--color-accent);
-    stroke-width: 0.5px;
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 0;
+    pointer-events: none;
 }
 
-.map-radar-ring {
-    position: absolute;
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    border: 1px solid rgba(var(--color-accent-rgb), 0.15);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation: radarExpand 4s infinite linear;
+.cyber-road-path {
+    stroke: rgba(255, 184, 0, 0.12);
+    stroke-width: 1.5px;
+    transition: var(--transition-smooth);
 }
 
-.map-radar-ring:nth-child(2) {
-    animation-delay: 2s;
+.cyber-road-pulse {
+    stroke: var(--color-accent);
+    stroke-width: 2.5px;
+    stroke-dasharray: 10 50;
+    stroke-dashoffset: 100;
+    animation: flowPulse 5s infinite linear;
+    opacity: 0.8;
 }
 
-@keyframes radarExpand {
-    0% { width: 0; height: 0; opacity: 1; }
-    100% { width: 450px; height: 450px; opacity: 0; }
+@keyframes flowPulse {
+    to {
+        stroke-dashoffset: 0;
+    }
 }
+
+
 
 /* Pulsing map markers for coverage zones */
 .map-pulse-marker {
@@ -3476,7 +3688,7 @@ html[data-theme="light"] .service-mode-btn.active {
     height: 14px;
     border-radius: 50%;
     background-color: var(--color-accent);
-    z-index: 3;
+    z-index: 2;
     cursor: pointer;
     box-shadow: 0 0 15px var(--color-accent);
 }
@@ -3491,6 +3703,7 @@ html[data-theme="light"] .service-mode-btn.active {
     top: 0;
     left: 0;
     animation: markerPulse 1.8s infinite ease-in-out;
+    z-index: -1;
 }
 
 @keyframes markerPulse {
@@ -3525,6 +3738,7 @@ html[data-theme="light"] .service-mode-btn.active {
     visibility: hidden;
     transition: var(--transition-smooth);
     box-shadow: var(--shadow-premium), 0 0 15px rgba(var(--color-accent-rgb), 0.15);
+    z-index: 10;
 }
 
 .map-pulse-marker:hover .marker-label,
@@ -3547,7 +3761,8 @@ html[data-theme="light"] .service-mode-btn.active {
 
 /* Interactive list of locations */
 .map-regions-drawer {
-    z-index: 5;
+    z-index: 1;
+    position: relative;
     background-color: rgba(var(--color-primary-dark), 0.85);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -3556,7 +3771,9 @@ html[data-theme="light"] .service-mode-btn.active {
     padding: 20px;
     max-height: 180px;
     overflow-y: auto;
+    overflow-x: hidden;
     box-shadow: var(--shadow-premium);
+    isolation: isolate;
 }
 
 .map-regions-title {
@@ -3579,6 +3796,10 @@ html[data-theme="light"] .service-mode-btn.active {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    overflow: hidden;
 }
 
 .region-badge {
@@ -3591,6 +3812,9 @@ html[data-theme="light"] .service-mode-btn.active {
     border-radius: 20px;
     cursor: pointer;
     transition: var(--transition-snappy);
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
 }
 
 .region-badge:hover, .region-badge.active {
@@ -3598,6 +3822,8 @@ html[data-theme="light"] .service-mode-btn.active {
     color: var(--color-primary-dark);
     border-color: var(--color-accent);
     box-shadow: 0 4px 10px rgba(var(--color-accent-rgb), 0.15);
+    position: relative;
+    z-index: 2;
 }
 
 /* Service Times overlay box */
@@ -3607,8 +3833,9 @@ html[data-theme="light"] .service-mode-btn.active {
     align-items: center;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     padding-top: 20px;
-    z-index: 5;
+    z-index: 10;
     background-color: transparent;
+    position: relative;
 }
 
 .timing-info {

@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="pages.css">
     <link rel="stylesheet" href="mobile.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <!-- Theme Switcher Script (Instantly runs to avoid FOIT flashing) -->
     <script>
         (function () {
@@ -714,20 +716,14 @@
                         </div>
                     </div>
 
-                    <!-- Luxury Map Placeholder Styling -->
-                    <div class="map-placeholder-wrapper">
-                        <!-- Luxury Dark Glassmap graphic -->
-                        <div class="map-overlay">
-                            <div class="map-indicator">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>TRAVICE DETAILING LAB</span>
-                            </div>
-                            <div class="map-btn">
-                                <a href="https://maps.google.com" target="_blank"><i
-                                        class="fas fa-external-link-alt"></i> VIEW FULL SCREEN MAP</a>
-                            </div>
+                    <!-- Interactive Premium Map -->
+                    <div class="map-wrapper-container">
+                        <div id="interactive-studio-map"></div>
+                        <div class="map-cyber-overlay">
+                            <div class="map-coordinates"><i class="fas fa-crosshairs"></i> LAT: 41.8781° N | LONG:
+                                87.6298° W</div>
+                            <div class="map-status-glow"><span class="pulse-dot"></span> LAB ACCESS ONLINE</div>
                         </div>
-                        <div class="grid-texture"></div>
                     </div>
                 </div>
 
@@ -1135,6 +1131,50 @@
         </div>
     </div>
 
+    <!-- LEAFLET MAP INITIALIZATION -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mapElement = document.getElementById('interactive-studio-map');
+            if (mapElement && typeof L !== 'undefined') {
+                // Initialize map centered at Chicago Lab Coordinates (41.8781, -87.6298)
+                const map = L.map('interactive-studio-map', {
+                    center: [41.8781, -87.6298],
+                    zoom: 15,
+                    zoomControl: true,
+                    scrollWheelZoom: false
+                });
+
+                // Add CartoDB Dark Matter tile layer
+                L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                    subdomains: 'abcd',
+                    maxZoom: 20
+                }).addTo(map);
+
+                // Custom div icon with pulsing concentric rings
+                const customIcon = L.divIcon({
+                    className: 'custom-gps-pin',
+                    html: '<div class="gps-dot"></div><div class="gps-pulse"></div>',
+                    iconSize: [20, 20],
+                    iconAnchor: [10, 10]
+                });
+
+                // Add custom pulsing marker pin
+                const marker = L.marker([41.8781, -87.6298], { icon: customIcon }).addTo(map);
+
+                // Bind custom popup card
+                marker.bindPopup(`
+                    <div style="padding: 5px;">
+                        <h4 style="margin:0 0 5px 0; color:#FFB800; font-family:\'Outfit\',sans-serif; font-weight:800; font-size:0.95rem; text-transform:uppercase; letter-spacing:0.5px;">TRAVICE Detailing Lab</h4>
+                        <p style="margin:0 0 4px 0; font-size:0.75rem; color:#BAC4D6; font-family:\'Inter\',sans-serif;">99 Roving St., Big City, PKU2345</p>
+                        <p style="margin:0; font-size:0.72rem; font-weight:700; color:#22c55e; font-family:\'Outfit\',sans-serif; text-transform:uppercase;"><i class="fas fa-check-circle"></i> Headquarters Chamber</p>
+                    </div>
+                `).openPopup();
+            }
+        });
+    </script>
     <!-- CUSTOM JAVASCRIPT -->
     <script src="script.js"></script>
 </body>

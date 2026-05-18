@@ -400,6 +400,21 @@
         font-size: 0.9rem;
         padding: 11px 12px;
         width: 100%;
+        max-width: 100%;
+    }
+
+    /* Ensure custom select wrapper doesn't overflow on mobile */
+    .custom-select-wrapper {
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .custom-select-wrapper select {
+        max-width: 100%;
+    }
+
+    .custom-select-wrapper::after {
+        right: 12px;
     }
 
     .form-group label {
@@ -934,7 +949,124 @@
     }
 
     /* ============================================================
-       31. CARD & IMAGE HOVER OVERLAYS
+       31. SERVICES PAGE — MAP & REGIONS
+       ============================================================ */
+    .zones-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .zone-feature-card {
+        padding: 20px 16px;
+    }
+
+    .zone-feature-card h3 {
+        font-size: 1rem;
+    }
+
+    .zone-feature-card p {
+        font-size: 0.82rem;
+    }
+
+    /* Map visual card — reduce height for mobile */
+    .map-visual-card {
+        height: auto !important;
+        min-height: 380px;
+        padding: 20px 16px;
+        overflow: hidden !important;
+        position: relative;
+        z-index: 0;
+        isolation: isolate;
+    }
+
+    .map-visual-header {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+        z-index: 10;
+        position: relative;
+    }
+
+    .map-badge {
+        font-size: 0.65rem;
+        padding: 4px 10px;
+    }
+
+    .map-canvas-container {
+        height: 185px !important;
+        position: relative;
+        overflow: hidden !important;
+    }
+
+    /* Map regions drawer — compact for mobile */
+    .map-regions-drawer {
+        height: auto !important;
+        max-height: none !important;
+        padding: 16px;
+        overflow: visible !important;
+        z-index: 15;
+        position: relative;
+        isolation: isolate;
+    }
+
+    .map-regions-title {
+        font-size: 0.75rem;
+        flex-direction: column;
+        gap: 6px;
+        z-index: 10;
+        position: relative;
+    }
+
+    .map-regions-title span {
+        display: block;
+        width: 100%;
+    }
+
+    /* Region badges — mobile optimized */
+    .regions-badges-grid {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 8px !important;
+        position: relative;
+        z-index: 1;
+        width: 100% !important;
+        overflow: visible !important;
+    }
+
+    .region-badge {
+        font-size: 0.65rem;
+        padding: 6px 12px !important;
+        white-space: nowrap !important;
+        flex: 0 1 auto !important;
+        position: relative;
+        z-index: 1;
+        flex-shrink: 0 !important;
+    }
+
+    .region-badge:hover,
+    .region-badge:active,
+    .region-badge.active {
+        position: relative;
+        z-index: 2;
+    }
+
+    .map-timing-footer {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+        padding-top: 16px;
+        z-index: 10;
+        position: relative;
+    }
+
+    .timing-info {
+        font-size: 0.75rem;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* ============================================================
+       32. CARD & IMAGE HOVER OVERLAYS
        ============================================================ */
     /* Ensure hover overlays don't bleed outside */
     .gallery-overlay,
@@ -953,6 +1085,110 @@
     }
 
 } /* END @media (max-width: 575px) */
+
+
+/* ============================================================
+   TABLET RESPONSIVE: 576px - 991px
+   ============================================================ */
+@media (min-width: 576px) and (max-width: 991px) {
+
+    /* Services page map regions - optimize for tablet */
+    .map-visual-card {
+        height: auto !important;
+        min-height: 450px;
+        padding: 30px 24px;
+        overflow: hidden !important;
+        position: relative;
+        z-index: 0;
+        isolation: isolate;
+    }
+
+    .map-visual-header {
+        flex-direction: row;
+        gap: 15px;
+        align-items: center;
+        z-index: 10;
+        position: relative;
+    }
+
+    .map-badge {
+        font-size: 0.68rem;
+        padding: 5px 12px;
+    }
+
+    .map-canvas-container {
+        height: 240px !important;
+        position: relative;
+        overflow: hidden !important;
+    }
+
+    .map-regions-drawer {
+        height: auto !important;
+        max-height: none !important;
+        padding: 18px;
+        overflow: visible !important;
+        z-index: 15;
+        position: relative;
+        isolation: isolate;
+    }
+
+    .map-regions-title {
+        font-size: 0.8rem;
+        flex-direction: row;
+        gap: 8px;
+        justify-content: space-between;
+        z-index: 10;
+        position: relative;
+    }
+
+    .map-regions-title span {
+        display: inline;
+        width: auto;
+    }
+
+    /* Region badges — tablet optimized */
+    .regions-badges-grid {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 8px !important;
+        position: relative;
+        z-index: 1;
+        width: 100% !important;
+        overflow: visible !important;
+    }
+
+    .region-badge {
+        font-size: 0.7rem;
+        padding: 6px 12px !important;
+        white-space: nowrap !important;
+        position: relative;
+        z-index: 1;
+        flex-shrink: 0 !important;
+    }
+
+    .region-badge:hover,
+    .region-badge:active,
+    .region-badge.active {
+        position: relative;
+        z-index: 2;
+    }
+
+    .map-timing-footer {
+        flex-direction: row;
+        gap: 15px;
+        align-items: center;
+        padding-top: 18px;
+        z-index: 10;
+        position: relative;
+    }
+
+    .timing-info {
+        font-size: 0.8rem;
+        position: relative;
+        z-index: 1;
+    }
+
+}
 
 
 /* ============================================================
@@ -1042,3 +1278,107 @@
     }
 
 } /* END @media (max-width: 400px) */
+
+/* ============================================================
+   28. FOOTER MOBILE ALIGNMENT FIX (Below 768px)
+   ============================================================ */
+@media (max-width: 767px) {
+    /* Center all footer content horizontally */
+    .footer-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0;
+    }
+
+    .footer-col h3, .footer-col-title {
+        text-align: center;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Logo and Newsletter centering */
+    .footer-logo {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .newsletter-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    .newsletter-wrapper h4 {
+        text-align: center;
+    }
+
+    .newsletter-input-group {
+        width: 100%;
+        max-width: 350px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Lists and Social centering */
+    .footer-links, .links-col ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .footer-socials {
+        justify-content: center;
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    /* Fixed Laboratory Hours Section */
+    .hours-list {
+        width: 100%;
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .hours-list li {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: nowrap !important; /* Force stay on one line */
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        padding-bottom: 8px;
+    }
+
+    .hours-list li span:nth-child(1) {
+        text-align: left;
+        flex: 0 0 auto;
+    }
+
+    .hours-list li span:nth-child(2) {
+        text-align: right;
+        flex: 1 1 auto;
+        white-space: nowrap; /* Prevent time from wrapping */
+        padding-left: 10px;
+    }
+
+    .footer-bottom-flex {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+    }
+}

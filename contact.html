@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="pages.css">
     <link rel="stylesheet" href="mobile.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <!-- Theme Switcher Script (Instantly runs to avoid FOIT flashing) -->
     <script>
         (function() {
@@ -256,19 +257,13 @@
                         </div>
                     </div>
 
-                    <!-- Map Overlay Representation -->
-                    <div class="map-container">
-                        <div class="map-overlay">
-                            <div class="map-marker">
-                                <i class="fas fa-map-pin"></i>
-                                <span>TRAVICE DETAILING LAB</span>
-                            </div>
-                            <div class="map-btn">
-                                <a href="https://maps.google.com" target="_blank"><i class="fas fa-external-link-alt"></i> VIEW FULL SCREEN MAP</a>
-                            </div>
+                    <!-- Interactive Premium Map -->
+                    <div class="map-wrapper-container">
+                        <div id="interactive-studio-map"></div>
+                        <div class="map-cyber-overlay">
+                            <div class="map-coordinates"><i class="fas fa-crosshairs"></i> LAT: 41.8781° N | LONG: 87.6298° W</div>
+                            <div class="map-status-glow"><span class="pulse-dot"></span> LAB ACCESS ONLINE</div>
                         </div>
-                        <div class="grid-texture"></div>
-                        <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=800&auto=format&fit=crop" alt="Map Location Background" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.3; filter: grayscale(100%);">
                     </div>
                 </div>
 
@@ -322,6 +317,35 @@
                     </div>
 
                     <div class="map-canvas-container">
+                        <!-- High-tech Custom SVG Cyber Blueprint Grid -->
+                        <svg class="map-grid-svg" viewBox="0 0 600 350" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Concentric range finder rings centered on HQ (300, 161) -->
+                            <circle cx="300" cy="161" r="50" fill="none" stroke="rgba(255, 184, 0, 0.08)" stroke-width="1" stroke-dasharray="3,3" />
+                            <circle cx="300" cy="161" r="100" fill="none" stroke="rgba(255, 184, 0, 0.06)" stroke-width="1" />
+                            <circle cx="300" cy="161" r="180" fill="none" stroke="rgba(255, 184, 0, 0.04)" stroke-width="1" stroke-dasharray="8,4" />
+                            <circle cx="300" cy="161" r="260" fill="none" stroke="rgba(255, 184, 0, 0.02)" stroke-width="1" />
+
+                            <!-- Crosshair coordinate ticks -->
+                            <line x1="300" y1="20" x2="300" y2="330" stroke="rgba(255, 184, 0, 0.04)" stroke-width="1" stroke-dasharray="4,4" />
+                            <line x1="50" y1="161" x2="550" y2="161" stroke="rgba(255, 184, 0, 0.04)" stroke-width="1" stroke-dasharray="4,4" />
+
+                            <!-- Dynamic Glowing Outer Beams linking Central HQ to outward stations -->
+                            <path class="cyber-road-path" d="M 300 161 L 285 120 L 270 77" fill="none" />
+                            <path class="cyber-road-pulse" d="M 300 161 L 285 120 L 270 77" fill="none" />
+
+                            <path class="cyber-road-path" d="M 300 161 L 220 180 L 144 168" fill="none" />
+                            <path class="cyber-road-pulse" d="M 300 161 L 220 180 L 144 168" fill="none" style="animation-delay: 1.2s;" />
+
+                            <path class="cyber-road-path" d="M 300 161 L 295 210 L 312 266" fill="none" />
+                            <path class="cyber-road-pulse" d="M 300 161 L 295 210 L 312 266" fill="none" style="animation-delay: 2.4s;" />
+
+                            <path class="cyber-road-path" d="M 300 161 L 380 130 L 468 147" fill="none" />
+                            <path class="cyber-road-pulse" d="M 300 161 L 380 130 L 468 147" fill="none" style="animation-delay: 3.6s;" />
+
+                            <!-- Center tactical blueprint hexagon anchor -->
+                            <polygon points="300,149 310,155 310,167 300,173 290,167 290,155" fill="none" stroke="rgba(255, 184, 0, 0.2)" stroke-width="1" />
+                        </svg>
+
                         <!-- Custom high-end interactive CSS radar animation representing coverage -->
                         <div class="map-radar-ring"></div>
                         <div class="map-radar-ring" style="animation-delay: 1.5s;"></div>
@@ -729,6 +753,48 @@
         </div>
     </div>
 
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mapElement = document.getElementById('interactive-studio-map');
+            if (mapElement && typeof L !== 'undefined') {
+                // Initialize map centered at Chicago Lab Coordinates (41.8781, -87.6298)
+                const map = L.map('interactive-studio-map', {
+                    center: [41.8781, -87.6298],
+                    zoom: 15,
+                    zoomControl: true,
+                    scrollWheelZoom: false
+                });
+
+                // Add CartoDB Dark Matter tile layer
+                L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                    subdomains: 'abcd',
+                    maxZoom: 20
+                }).addTo(map);
+
+                // Custom div icon with pulsing concentric rings
+                const customIcon = L.divIcon({
+                    className: 'custom-gps-pin',
+                    html: '<div class="gps-dot"></div><div class="gps-pulse"></div>',
+                    iconSize: [20, 20],
+                    iconAnchor: [10, 10]
+                });
+
+                // Add custom pulsing marker pin
+                const marker = L.marker([41.8781, -87.6298], { icon: customIcon }).addTo(map);
+
+                // Bind custom popup card
+                marker.bindPopup(`
+                    <div style="padding: 5px;">
+                        <h4 style="margin:0 0 5px 0; color:#FFB800; font-family:\'Outfit\',sans-serif; font-weight:800; font-size:0.95rem; text-transform:uppercase; letter-spacing:0.5px;">TRAVICE Detailing Lab</h4>
+                        <p style="margin:0 0 4px 0; font-size:0.75rem; color:#BAC4D6; font-family:\'Inter\',sans-serif;">99 Roving St., Big City, PKU2345</p>
+                        <p style="margin:0; font-size:0.72rem; font-weight:700; color:#22c55e; font-family:\'Outfit\',sans-serif; text-transform:uppercase;"><i class="fas fa-check-circle"></i> Headquarters Chamber</p>
+                    </div>
+                `).openPopup();
+            }
+        });
+    </script>
     <script src="script.js"></script>
     <script src="pages.js"></script>
 </body>
