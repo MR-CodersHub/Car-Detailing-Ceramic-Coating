@@ -301,6 +301,40 @@
                     </div>
 
                     <div class="map-canvas-container">
+                        <!-- High-tech Custom SVG Cyber Blueprint Grid -->
+                        <svg class="map-grid-svg" viewBox="0 0 600 350" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Concentric range finder rings centered on HQ (300, 161) -->
+                            <circle cx="300" cy="161" r="50" fill="none" stroke="rgba(255, 184, 0, 0.08)" stroke-width="1" stroke-dasharray="3,3" />
+                            <circle cx="300" cy="161" r="100" fill="none" stroke="rgba(255, 184, 0, 0.06)" stroke-width="1" />
+                            <circle cx="300" cy="161" r="180" fill="none" stroke="rgba(255, 184, 0, 0.04)" stroke-width="1" stroke-dasharray="8,4" />
+                            <circle cx="300" cy="161" r="260" fill="none" stroke="rgba(255, 184, 0, 0.02)" stroke-width="1" />
+
+                            <!-- Crosshair coordinate ticks -->
+                            <line x1="300" y1="20" x2="300" y2="330" stroke="rgba(255, 184, 0, 0.04)" stroke-width="1" stroke-dasharray="4,4" />
+                            <line x1="50" y1="161" x2="550" y2="161" stroke="rgba(255, 184, 0, 0.04)" stroke-width="1" stroke-dasharray="4,4" />
+
+                            <!-- Dynamic Glowing Outer Beams linking Central HQ to outward stations -->
+                            <path class="cyber-road-path" d="M 300 161 L 285 120 L 270 77" fill="none" />
+                            <path class="cyber-road-pulse" d="M 300 161 L 285 120 L 270 77" fill="none" />
+
+                            <path class="cyber-road-path" d="M 300 161 L 220 180 L 144 168" fill="none" />
+                            <path class="cyber-road-pulse" d="M 300 161 L 220 180 L 144 168" fill="none" style="animation-delay: 1.2s;" />
+
+                            <path class="cyber-road-path" d="M 300 161 L 295 210 L 312 266" fill="none" />
+                            <path class="cyber-road-pulse" d="M 300 161 L 295 210 L 312 266" fill="none" style="animation-delay: 2.4s;" />
+
+                            <path class="cyber-road-path" d="M 300 161 L 380 130 L 468 147" fill="none" />
+                            <path class="cyber-road-pulse" d="M 300 161 L 380 130 L 468 147" fill="none" style="animation-delay: 3.6s;" />
+
+                            <!-- Center tactical blueprint hexagon anchor -->
+                            <polygon points="300,149 310,155 310,167 300,173 290,167 290,155" fill="none" stroke="rgba(255, 184, 0, 0.2)" stroke-width="1" />
+                        </svg>
+
+                        <!-- Custom high-end interactive CSS radar animation representing coverage -->
+                        <div class="map-radar-ring"></div>
+                        <div class="map-radar-ring" style="animation-delay: 1.5s;"></div>
+                        <div class="map-radar-ring" style="animation-delay: 3s;"></div>
+
                         <!-- Pulse Pin Markers -->
                         <div class="map-pulse-marker marker-central active" data-region="central">
                             <div class="marker-label">HQ STUDIO & LAB</div>

@@ -2259,13 +2259,13 @@ img {
         gap: 50px;
     }
 }
-@media (max-width: 575px) {
+@media (max-width: 767px) {
     .contact-form-container {
         padding: 30px 20px;
     }
     .form-row-dual {
-        grid-template-columns: 1fr;
-        gap: 20px;
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
     }
 }
 
@@ -3104,6 +3104,11 @@ html[data-theme="light"] label {
     box-shadow: 0 0 15px rgba(var(--color-accent-rgb), 0.15), inset 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+.calc-select option {
+    background-color: #121824;
+    color: #ffffff;
+}
+
 /* Custom premium range slider */
 .calc-slider-wrapper {
     position: relative;
@@ -3370,6 +3375,8 @@ html[data-theme="light"] label {
 .summary-detail-row {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
     font-size: 0.85rem;
     margin-bottom: 14px;
     padding-bottom: 10px;
@@ -3383,11 +3390,15 @@ html[data-theme="light"] label {
 
 .summary-detail-label {
     color: var(--color-text-muted);
+    flex-shrink: 0;
+    white-space: nowrap;
 }
 
 .summary-detail-val {
     font-weight: 600;
     color: var(--color-text-white);
+    text-align: right;
+    word-break: break-word;
 }
 
 .summary-total-box {
@@ -3453,6 +3464,11 @@ html[data-theme="light"] .calc-select {
     border-color: rgba(15, 23, 42, 0.1);
     color: #0F172A;
     box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+html[data-theme="light"] .calc-select option {
+    background-color: #FFFFFF;
+    color: #0F172A;
 }
 
 html[data-theme="light"] .addon-card {

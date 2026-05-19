@@ -362,6 +362,26 @@
         font-size: 2.2rem;
     }
 
+    .summary-detail-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+
+    .summary-detail-label {
+        white-space: normal;
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .summary-detail-val {
+        text-align: left;
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: var(--color-accent);
+    }
+
     /* ============================================================
        12. BOOKING / MULTI-STEP FORM
        ============================================================ */
@@ -1380,5 +1400,10 @@
         align-items: center;
         text-align: center;
         gap: 12px;
+    }
+
+    .form-row-dual {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
     }
 }

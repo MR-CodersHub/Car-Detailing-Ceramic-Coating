@@ -64,10 +64,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Back to top indicator trigger
-        if (scrollPosition > 400) {
-            backToTopBtn.classList.add('active');
-        } else {
-            backToTopBtn.classList.remove('active');
+        if (backToTopBtn) {
+            if (scrollPosition > 400) {
+                backToTopBtn.classList.add('active');
+            } else {
+                backToTopBtn.classList.remove('active');
+            }
         }
     });
 
