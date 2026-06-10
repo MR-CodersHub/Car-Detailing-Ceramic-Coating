@@ -1,13 +1,14 @@
 import os
 import re
 
-footer_content = """    <!-- FOOTER -->
+footer_content = """    <!-- FOOTER SECTION -->
     <footer class="footer">
+
         <div class="footer-top">
             <div class="section-container">
                 <div class="footer-grid">
 
-                    <!-- Col 1: About & Newsletter -->
+                    <!-- Col 1: About -->
                     <div class="footer-col about-col">
                         <a href="index.html" class="logo footer-logo">
                             <div class="logo-icon">
@@ -24,18 +25,6 @@ footer_content = """    <!-- FOOTER -->
                         </a>
                         <p class="footer-text">State-of-the-art detailing laboratorial chambers specializing in
                             ultra-gloss correction and quartz barrier preservation.</p>
-
-                        <div class="newsletter-wrapper">
-                            <h4>Subscribe To Newsletter</h4>
-                            <form id="newsletter-form">
-                                <div class="newsletter-input-group">
-                                    <input type="email" placeholder="Your email address" aria-label="Newsletter email"
-                                        required>
-                                    <button type="submit" aria-label="Subscribe"><i
-                                            class="fas fa-chevron-right"></i></button>
-                                </div>
-                            </form>
-                        </div>
                     </div>
 
                     <!-- Col 2: Services Quick Links -->
@@ -43,12 +32,17 @@ footer_content = """    <!-- FOOTER -->
                         <h3>Our Services</h3>
                         <ul>
                             <li><a href="services.html"><i class="fas fa-chevron-right"></i> Exterior Detailing</a></li>
-                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Interior Rejuvenation</a></li>
-                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Multi-Stage Correction</a></li>
-                            <li><a href="index.html#pricing"><i class="fas fa-chevron-right"></i> 9H Ceramic Quartz Coating</a>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Interior Rejuvenation</a>
                             </li>
-                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Engine Bay Steam Prep</a></li>
-                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Alloy Caliper Coating</a></li>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Multi-Stage Correction</a>
+                            </li>
+                            <li><a href="index.html#pricing"><i class="fas fa-chevron-right"></i> 9H Ceramic Quartz
+                                    Coating</a>
+                            </li>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Engine Bay Steam Prep</a>
+                            </li>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Alloy Caliper Coating</a>
+                            </li>
                         </ul>
                     </div>
 
@@ -58,10 +52,13 @@ footer_content = """    <!-- FOOTER -->
                         <ul>
                             <li><a href="index.html"><i class="fas fa-chevron-right"></i> Homepage</a></li>
                             <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us Portfolio</a></li>
-                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Luxury Detailing Services</a>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Luxury Detailing
+                                    Services</a>
                             </li>
-                            <li><a href="index.html#pricing"><i class="fas fa-chevron-right"></i> Ceramic Coating Plans</a></li>
-                            <li><a href="index.html#faq"><i class="fas fa-chevron-right"></i> Detailing FAQ Center</a></li>
+                            <li><a href="index.html#pricing"><i class="fas fa-chevron-right"></i> Ceramic Coating
+                                    Plans</a></li>
+                            <li><a href="index.html#faq"><i class="fas fa-chevron-right"></i> Detailing FAQ Center</a>
+                            </li>
                         </ul>
                     </div>
 
@@ -83,6 +80,22 @@ footer_content = """    <!-- FOOTER -->
                             <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                             <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                             <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Col 5: Newsletter -->
+                    <div class="footer-col newsletter-col">
+                        <div class="newsletter-wrapper">
+                            <h3>Newsletter</h3>
+                            <p class="footer-text" style="margin-bottom: 20px;">Subscribe to receive exclusive insights and premium detailing offers.</p>
+                            <form id="newsletter-form">
+                                <div class="newsletter-input-group">
+                                    <input type="email" placeholder="Your email address" aria-label="Newsletter email"
+                                        required>
+                                    <button type="submit" aria-label="Subscribe"><i
+                                            class="fas fa-chevron-right"></i></button>
+                                </div>
+                            </form>
                         </div>
                     </div>
 
@@ -111,15 +124,7 @@ for file in html_files:
     with open(file, 'r', encoding='utf-8') as f:
         content = f.read()
 
-    # Regex to find <footer class="footer"> ... </footer>
-    # Wait, some pages might have <!-- FOOTER --> before it. 
-    # Let's replace from <footer class="footer"> to </footer>
-    
-    # We will replace from <footer class="footer"> to </footer>, 
-    # but the footer_content starts with <!-- FOOTER -->.
-    # It's better to just replace <footer class="footer"> ... </footer> 
-    # and strip the <!-- FOOTER --> from the replacement.
-    
+    # We will replace from <footer class="footer"> to </footer>
     clean_footer = footer_content.split('    <footer class="footer">')[1]
     replacement = '    <footer class="footer">\n' + clean_footer
 

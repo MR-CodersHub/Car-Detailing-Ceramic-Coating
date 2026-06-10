@@ -246,11 +246,11 @@
         gap: 16px;
     }
 
-    .stat-item {
+    .stat-card {
         padding: 20px 12px;
     }
 
-    .stat-number {
+    .stat-num {
         font-size: 2rem;
     }
 
@@ -273,15 +273,23 @@
     }
 
     .service-card {
-        padding: 24px 18px;
+        padding: 0;
     }
 
-    .service-card-title {
+    .why-choose .service-card {
+        padding: 30px 20px !important;
+    }
+
+    .service-info {
+        padding: 22px 18px 20px;
+    }
+
+    .service-info h3 {
         font-size: 1.1rem;
     }
 
-    .service-card-desc {
-        font-size: 0.88rem;
+    .service-info p {
+        font-size: 0.85rem;
     }
 
     /* ============================================================
@@ -565,31 +573,50 @@
     /* ============================================================
        15. CONTACT SECTION / FORM
        ============================================================ */
+    .contact {
+        padding: 60px 0 30px 0;
+    }
+
+    section.contact .section-container {
+        padding: 0 16px;
+    }
+
     .contact-grid {
         grid-template-columns: 1fr;
         gap: 32px;
+    }
+
+    .contact-form-container {
+        padding: 24px 16px;
+    }
+
+    .details-card {
+        padding: 24px 16px;
+        margin-bottom: 20px;
     }
 
     .contact-form-wrapper {
         padding: 24px 16px;
     }
 
-    .contact-info-item {
+    .info-link-item {
         gap: 14px;
     }
 
-    .contact-info-icon {
-        width: 44px;
-        height: 44px;
-        font-size: 1rem;
-        flex-shrink: 0;
+    .info-icon {
+        width: 42px;
+        height: 42px;
+        min-width: 42px;
+        font-size: 0.95rem;
+        border-radius: 8px;
     }
 
-    .contact-info-title {
-        font-size: 0.9rem;
+    .info-content h4 {
+        font-size: 0.75rem;
     }
 
-    .contact-info-value {
+    .info-content p,
+    .info-content a {
         font-size: 0.85rem;
     }
 
@@ -682,12 +709,14 @@
     }
 
     .timeline-container::after {
-        left: 23px;
+        left: 24px;
+        z-index: 1;
     }
 
     .timeline-item {
         padding-left: 65px;
         margin-bottom: 32px;
+        z-index: 2;
     }
 
     .timeline-badge {
@@ -764,6 +793,10 @@
     .footer-top {
         grid-template-columns: 1fr;
         gap: 32px;
+    }
+
+    .newsletter-col {
+        grid-column: span 1 !important;
     }
 
     .footer-col {
@@ -1208,6 +1241,120 @@
         z-index: 1;
     }
 
+    .contact-form-container {
+        padding: 36px 30px !important;
+    }
+
+    .details-card {
+        padding: 30px 24px !important;
+    }
+
+    /* ── Home-2 Hero Split Layout (Tablet) ─────────────────────────────────── */
+    .home2-hero {
+        min-height: auto;
+    }
+
+    .split-section {
+        flex-direction: column;
+    }
+
+    .split-half {
+        width: 100%;
+        flex: none;
+    }
+
+    .split-content {
+        padding: 80px 8% 60px;
+        min-height: auto;
+    }
+
+    .split-image {
+        min-height: 50vw;
+        max-height: 480px;
+        order: -1; /* Image appears on top on tablet */
+    }
+
+    /* ── Floating Services Grid (Home-2 Tablet) ────────────────────────────── */
+    .floating-services-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        margin-top: 30px;
+    }
+
+    /* ── Hero Sections (Tablet) ────────────────────────────────────────────── */
+    .hero {
+        min-height: auto;
+        padding-top: 130px;
+        padding-bottom: 70px;
+    }
+
+    .hero-title {
+        font-size: 2.6rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.98rem;
+    }
+
+    /* ── Stats Grid (Tablet) ───────────────────────────────────────────────── */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    /* ── Services Grid (Tablet) ────────────────────────────────────────────── */
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* ── Pricing Grid (Tablet) ─────────────────────────────────────────────── */
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        margin: 0 auto;
+    }
+
+    .pricing-card.featured {
+        transform: scale(1);
+    }
+
+    /* ── Before/After Gallery (Tablet) ────────────────────────────────────── */
+    .ba-gallery-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 24px;
+    }
+
+    /* ── About Grid (Tablet) ────────────────────────────────────────────────── */
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .about-graphic-container {
+        max-width: 100%;
+        padding-bottom: 60px;
+    }
+
+    /* ── Testimonial Slider (Tablet) ───────────────────────────────────────── */
+    .testimonial-slider-container {
+        padding: 0 20px;
+    }
+
+    .testimonial-slide {
+        padding: 35px 30px;
+    }
+
+    /* ── Footer Grid (Tablet 576-991px) ────────────────────────────────────── */
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    /* ── Section Container Padding (Tablet) ─────────────────────────────────── */
+    .section-container {
+        padding: 80px 0;
+    }
+
 }
 
 
@@ -1405,5 +1552,66 @@
     .form-row-dual {
         grid-template-columns: 1fr !important;
         gap: 16px !important;
+    }
+}
+
+
+/* ============================================================
+   RTL TOGGLE RESPONSIVE MOBILE SIZING
+   ============================================================ */
+@media (max-width: 575px) {
+    .rtl-toggle {
+        width: 52px;
+        height: 28px;
+        margin-right: 0;
+        flex-shrink: 0;
+    }
+    
+    .rtl-toggle-bubble {
+        width: 18px;
+        height: 18px;
+    }
+    
+    html.rtl-active .rtl-toggle-bubble {
+        transform: translateX(24px);
+    }
+    
+    .rtl-toggle-text {
+        font-size: 0.55rem;
+        right: 6px;
+    }
+    
+    html.rtl-active .rtl-toggle-text {
+        left: 6px;
+        right: auto;
+    }
+}
+
+@media (max-width: 575px) {
+    /* Mobile RTL overrides for vertical process timeline */
+    html[dir="rtl"] .timeline {
+        padding-left: 0;
+        padding-right: 10px;
+    }
+
+    html[dir="rtl"] .timeline-item {
+        padding-left: 0;
+        padding-right: 65px;
+        z-index: 2;
+    }
+
+    html[dir="rtl"] .timeline-badge {
+        left: auto;
+        right: 0;
+    }
+
+    html[dir="rtl"] .timeline-container::after {
+        left: auto;
+        right: 24px;
+        z-index: 1;
+    }
+    
+    html[dir="rtl"] .timeline-item:hover .timeline-content {
+        transform: none;
     }
 }

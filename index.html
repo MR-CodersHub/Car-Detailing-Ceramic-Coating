@@ -21,11 +21,19 @@
     <link rel="stylesheet" href="mobile.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-    <!-- Theme Switcher Script (Instantly runs to avoid FOIT flashing) -->
+    <!-- Theme & RTL Switcher Script (Instantly runs to avoid FOIT flashing) -->
     <script>
         (function () {
             const savedTheme = localStorage.getItem('theme') || 'dark';
             document.documentElement.setAttribute('data-theme', savedTheme);
+            const savedRTL = localStorage.getItem('rtl') === 'true';
+            if (savedRTL) {
+                document.documentElement.setAttribute('dir', 'rtl');
+                document.documentElement.classList.add('rtl-active');
+            } else {
+                document.documentElement.setAttribute('dir', 'ltr');
+                document.documentElement.classList.remove('rtl-active');
+            }
         })();
     </script>
 </head>
@@ -91,6 +99,13 @@
                         <i class="fas fa-sun sun-icon"></i>
                     </div>
                 </button>
+                <!-- Premium Animated Capsule RTL Layout Switcher -->
+                <button class="rtl-toggle" id="rtl-toggle-btn" aria-label="Toggle Layout Direction">
+                    <div class="rtl-toggle-bubble">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <span class="rtl-toggle-text">RTL</span>
+                </button>
                 <a href="#contact" class="btn-header">BOOK NOW</a>
                 <!-- Mobile Hamburger Menu Button -->
                 <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu">
@@ -127,42 +142,47 @@
     <!-- HERO SECTION -->
     <section class="hero" id="hero">
         <div class="hero-bg"
-            style="background-image: url('https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=2070&auto=format&fit=crop');">
+            style="background-image: url('https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=2070&auto=format&fit=crop');">
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <span class="hero-subhead animate-on-load">DRIVE WITH CONFIDENCE</span>
-            <h1 class="hero-title animate-on-load">Premium Car <span class="highlight">Detailing</span> & Repair <span
-                    class="highlight">Solutions</span></h1>
-            <p class="hero-subtitle animate-on-load">Experience elite automotive paint correction, state-of-the-art
-                ceramic coatings, and surgical interior detailing engineered for luxury and exotic vehicles.</p>
+            <span class="hero-subhead animate-on-load">CERTIFIED 9H CERAMIC COATING SPECIALISTS</span>
+            <h1 class="hero-title animate-on-load">Transform Your Vehicle Into A <span class="highlight">Showroom</span>
+                <span class="highlight">Masterpiece</span>
+            </h1>
+            <p class="hero-subtitle animate-on-load">India's premier destination for professional ceramic coating, paint
+                correction, and PPF installation. Permanent hydrophobic protection that repels water, resists UV damage,
+                and preserves your vehicle's factory finish for years.</p>
             <div class="hero-ctas animate-on-load">
-                <a href="#contact" class="btn-primary">MAKE APPOINTMENT</a>
-                <a href="#services" class="btn-secondary">READ MORE <i class="fas fa-arrow-right"></i></a>
+                <a href="#contact" class="btn-primary">BOOK FREE INSPECTION</a>
+                <a href="#services" class="btn-secondary">EXPLORE SERVICES <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
 
         <!-- FLOATING OVERLAY HIGHLIGHT CARDS -->
         <div class="hero-floater-container">
             <div class="floater-card animate-on-scroll">
-                <div class="floater-icon"><i class="fas fa-award"></i></div>
+                <div class="floater-icon"><i class="fas fa-gem"></i></div>
                 <div class="floater-text">
-                    <h3>Expertise & Professional</h3>
-                    <p>Duis dictum nisl mi, in mattis purus lobortis dapibus.</p>
+                    <h3>9H Ceramic Rated</h3>
+                    <p>Military-grade nano-ceramic formula that chemically bonds to your paint for permanent glass-like
+                        protection.</p>
                 </div>
             </div>
             <div class="floater-card active animate-on-scroll">
-                <div class="floater-icon"><i class="fas fa-headset"></i></div>
+                <div class="floater-icon"><i class="fas fa-shield-alt"></i></div>
                 <div class="floater-text">
-                    <h3>24/7 Ready Support</h3>
-                    <p>Duis dictum nisl mi, in mattis purus lobortis dapibus.</p>
+                    <h3>5-Year Warranty</h3>
+                    <p>Every Gold Elite ceramic package includes a registered lifetime warranty backed by our quality
+                        guarantee.</p>
                 </div>
             </div>
             <div class="floater-card animate-on-scroll">
-                <div class="floater-icon"><i class="fas fa-comments"></i></div>
+                <div class="floater-icon"><i class="fas fa-search"></i></div>
                 <div class="floater-text">
-                    <h3>Free Consulting</h3>
-                    <p>Duis dictum nisl mi, in mattis purus lobortis dapibus.</p>
+                    <h3>Free Paint Inspection</h3>
+                    <p>Complimentary digital paint depth measurement and vehicle condition assessment before every
+                        service.</p>
                 </div>
             </div>
         </div>
@@ -175,42 +195,74 @@
 
                 <!-- Left Side: Narrative & Progress Bars -->
                 <div class="about-content animate-on-scroll">
-                    <span class="section-subhead">WHO WE ARE ?</span>
-                    <h2 class="section-title">Car Detailing And Repair Services You Can Rely On</h2>
-                    <p class="about-desc">Proin id erat pharetra, consectetur erat at, tincidunt turpis. Nullam ac purus
-                        velit. Curabitur a consectetur enim. Vestibulum feugiat quis nisl volutpat rhoncus. Nulla non
-                        augue neque. Pellentesque molestie tincidunt felis vel commodo.</p>
+                    <span class="section-subhead">WHO WE ARE</span>
+                    <h2 class="section-title">The Most Trusted Ceramic Coating Studio In The Region</h2>
+                    <p class="about-desc">At TRAVICE, we don't just detail cars — we permanently transform them. Founded
+                        in 2010 by IDA-certified specialists, our state-of-the-art laboratory uses aerospace-grade
+                        nanoceramic formulas and precision machine polishing to restore paint to concours condition and
+                        seal it under a permanent glass-hard barrier. Every vehicle is treated with surgical precision,
+                        from full decontamination to infrared-cured ceramic bonding.</p>
 
-                    <!-- Progress Bar -->
+                    <!-- Progress Bars -->
                     <div class="progress-container">
                         <div class="progress-header">
-                            <span class="progress-title">Client Satisfaction</span>
-                            <span class="progress-val">90%</span>
+                            <span class="progress-title">Paint Correction Accuracy</span>
+                            <span class="progress-val">95%</span>
                         </div>
                         <div class="progress-bar-bg">
-                            <div class="progress-bar-fill" data-progress="90%"></div>
+                            <div class="progress-bar-fill" data-progress="95%"></div>
+                        </div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-header">
+                            <span class="progress-title">Ceramic Coating Retention Rate</span>
+                            <span class="progress-val">98%</span>
+                        </div>
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill" data-progress="98%"></div>
+                        </div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-header">
+                            <span class="progress-title">Client Satisfaction Score</span>
+                            <span class="progress-val">97%</span>
+                        </div>
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill" data-progress="97%"></div>
                         </div>
                     </div>
 
                     <!-- Dual Features grid -->
                     <div class="about-features">
                         <div class="about-feature-box">
-                            <div class="feat-icon"><i class="fas fa-users-cog"></i></div>
+                            <div class="feat-icon"><i class="fas fa-certificate"></i></div>
                             <div class="feat-info">
-                                <h3>Professional & Creative Staff</h3>
+                                <h3>IDA Certified Technicians</h3>
+                            </div>
+                        </div>
+                        <div class="about-feature-box">
+                            <div class="feat-icon"><i class="fas fa-tint-slash"></i></div>
+                            <div class="feat-info">
+                                <h3>Hydrophobic Glass Coating</h3>
                             </div>
                         </div>
                         <div class="about-feature-box">
                             <div class="feat-icon"><i class="fas fa-shield-alt"></i></div>
                             <div class="feat-info">
-                                <h3>Warrantees & Guarantees</h3>
+                                <h3>Registered Lifetime Warranty</h3>
+                            </div>
+                        </div>
+                        <div class="about-feature-box">
+                            <div class="feat-icon"><i class="fas fa-microscope"></i></div>
+                            <div class="feat-info">
+                                <h3>Nano-Tech Paint Analysis</h3>
                             </div>
                         </div>
                     </div>
 
                     <!-- Actions -->
                     <div class="about-actions">
-                        <a href="#services" class="btn-primary">READ MORE</a>
+                        <a href="services.html" class="btn-primary">VIEW ALL SERVICES</a>
                         <div class="about-phone">
                             <i class="fas fa-phone-alt"></i>
                             <a href="tel:+1234567890">+123-456-7890</a>
@@ -286,6 +338,348 @@
         </div>
     </section>
 
+    <!-- CERAMIC COATING EDUCATION SECTION -->
+    <section class="ceramic-info" id="ceramic-info">
+        <div class="section-container">
+            <div class="ceramic-grid">
+                <div class="ceramic-content animate-on-scroll">
+                    <span class="section-subhead">THE SCIENCE OF PROTECTION</span>
+                    <h2 class="section-title">What Is <span class="highlight">Ceramic Coating</span>?</h2>
+                    <p class="ceramic-lead">
+                        Unlike traditional wax or polymer sealants that sit on top of the paint, professional ceramic
+                        coatings are liquid glass formulas (primarily Silicon Dioxide, SiO2) that chemically bond to
+                        your vehicle's paint on a molecular level. This creates a permanent, ultra-durable crystalline
+                        layer that is extremely hydrophobic, protective, and mirror-reflective.
+                    </p>
+
+                    <div class="ceramic-benefits-grid">
+                        <div class="benefit-card">
+                            <div class="benefit-icon"><i class="fas fa-tint"></i></div>
+                            <h4>Hydrophobic Repellency</h4>
+                            <p>Water, mud, and road grime slide right off. Dramatically reduces water spotting and makes
+                                routine washing effort-free.</p>
+                        </div>
+                        <div class="benefit-card">
+                            <div class="benefit-icon"><i class="fas fa-sun"></i></div>
+                            <h4>UV & Thermal Protection</h4>
+                            <p>Blocks harmful ultraviolet rays, preventing clearcoat oxidation, paint fading, and
+                                sun-induced weathering.</p>
+                        </div>
+                        <div class="benefit-card">
+                            <div class="benefit-icon"><i class="fas fa-shield-alt"></i></div>
+                            <h4>Chemical Resistance</h4>
+                            <p>Shields paint from environmental hazards like acidic bird droppings, bug splatter, acid
+                                rain, and tree sap.</p>
+                        </div>
+                        <div class="benefit-card">
+                            <div class="benefit-icon"><i class="fas fa-magic"></i></div>
+                            <h4>Mirror-Like Gloss</h4>
+                            <p>Deepens paint reflectivity, increases depth of color, and delivers a permanent showroom
+                                mirror-like finish.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ceramic-visual animate-on-scroll">
+                    <div class="ceramic-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070&auto=format&fit=crop"
+                            alt="Premium ceramic coating hydrophobic water-beading effect">
+                        <div class="ceramic-img-overlay"></div>
+                        <div class="ceramic-stat-badge">
+                            <div class="c-stat-item">
+                                <span class="c-stat-num">9H</span>
+                                <span class="c-stat-lbl">Hardness Rating</span>
+                            </div>
+                            <div class="c-stat-item">
+                                <span class="c-stat-num">5 Yr</span>
+                                <span class="c-stat-lbl">Durability</span>
+                            </div>
+                            <div class="c-stat-item">
+                                <span class="c-stat-num">100%</span>
+                                <span class="c-stat-lbl">UV Protection</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PREMIUM SERVICES SHOWCASE -->
+    <section class="services" id="services">
+        <div class="section-container">
+            <div class="services-header animate-on-scroll">
+                <div>
+                    <span class="section-subhead">OUR DETAILING WORKSHOP</span>
+                    <h2 class="section-title">Premium Car Restorative <span class="highlight">Services</span></h2>
+                </div>
+                <p class="services-header-desc">We offer a complete suite of certified protective, detailing, and
+                    restorative
+                    services using state-of-the-art diagnostic equipment and high-purity formulations.</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card animate-on-scroll">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=800&auto=format&fit=crop"
+                            alt="9H Ceramic Coating">
+                        <div class="badge-icon"><i class="fas fa-gem"></i></div>
+                    </div>
+                    <div class="service-info">
+                        <h3>9H Ceramic Coating</h3>
+                        <p>Crystalline liquid quartz coatings that permanently bond to clearcoats. Our certified
+                            application delivers absolute hydrophobic liquid repellency, eliminates the need for waxing,
+                            shields against UV oxidation, and carries a registered warranty.</p>
+                        <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card animate-on-scroll">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=800&auto=format&fit=crop"
+                            alt="Paint Protection Film">
+                        <div class="badge-icon"><i class="fas fa-shield-alt"></i></div>
+                    </div>
+                    <div class="service-info">
+                        <h3>Paint Protection Film (PPF)</h3>
+                        <p>Military-grade, optically clear polyurethane wraps featuring elastomeric self-healing
+                            polymers. Physically shields your panels against high-impact rock chips, key scratches, road
+                            salt, chemical stains, and highway debris.</p>
+                        <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card animate-on-scroll">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=800&auto=format&fit=crop"
+                            alt="Paint Correction">
+                        <div class="badge-icon"><i class="fas fa-magic"></i></div>
+                    </div>
+                    <div class="service-info">
+                        <h3>Paint Correction</h3>
+                        <p>Precision multi-stage machine compounding and polishing to level clearcoat imperfections. We
+                            permanently eliminate swirl marks, heavy scratches, chemical etching, water spot damage, and
+                            oxidation haze to restore concours clarity.</p>
+                        <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card animate-on-scroll">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1589739900243-4b52cd9b104e?q=80&w=800&auto=format&fit=crop"
+                            alt="Interior Detailing">
+                        <div class="badge-icon"><i class="fas fa-soap"></i></div>
+                    </div>
+                    <div class="service-info">
+                        <h3>Interior Detailing</h3>
+                        <p>Comprehensive interior detailing including high-pressure dry steam extraction, leather
+                            hydration, deep carpet shampooing, vent sanitation, odor elimination, and application of
+                            hydrophobic textile guards to prevent future staining.</p>
+                        <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card animate-on-scroll">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=800&auto=format&fit=crop"
+                            alt="Exterior Detailing">
+                        <div class="badge-icon"><i class="fas fa-car"></i></div>
+                    </div>
+                    <div class="service-info">
+                        <h3>Exterior Detailing</h3>
+                        <p>Bespoke exterior wash incorporating paint decontamination, iron fallout removal, synthetic
+                            clay bar treatment, wheel barrel cleaning, trim restoration, exhaust tip polishing, and
+                            application of a high-gloss polymer paint glaze.</p>
+                        <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="service-card animate-on-scroll">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=800&auto=format&fit=crop"
+                            alt="Scratch & Swirl Removal">
+                        <div class="badge-icon"><i class="fas fa-tools"></i></div>
+                    </div>
+                    <div class="service-info">
+                        <h3>Scratch & Swirl Removal</h3>
+                        <p>Local paint wet sanding, clearcoat leveling, and compound restorations designed for deep
+                            isolated scratches, key lines, and surface scuffs. Safely smooths out paint defects without
+                            the cost of panel repainting.</p>
+                        <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 7 -->
+                <div class="service-card animate-on-scroll">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=800&auto=format&fit=crop"
+                            alt="Headlight Restoration">
+                        <div class="badge-icon"><i class="fas fa-lightbulb"></i></div>
+                    </div>
+                    <div class="service-info">
+                        <h3>Headlight Restoration</h3>
+                        <p>Restores safety and clarity to yellow, oxidized, and foggy polycarbonate lenses. Utilizes a
+                            multi-stage wet-sanding and compound polishing process, sealed under a chemical UV block to
+                            prevent future hazing.</p>
+                        <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 8 -->
+                <div class="service-card animate-on-scroll">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=800&auto=format&fit=crop"
+                            alt="Engine Bay Cleaning">
+                        <div class="badge-icon"><i class="fas fa-cogs"></i></div>
+                    </div>
+                    <div class="service-info">
+                        <h3>Engine Bay Cleaning</h3>
+                        <p>Clinical cleaning of the engine compartment. Employs dry steam degreasing, safe detail
+                            brushing, electrical component protection, and application of a non-conductive, anti-static
+                            satin plastic dressing for a factory finish.</p>
+                        <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 9 -->
+                <div class="service-card animate-on-scroll">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=800&auto=format&fit=crop"
+                            alt="Long-Term Shine Protection">
+                        <div class="badge-icon"><i class="fas fa-star"></i></div>
+                    </div>
+                    <div class="service-info">
+                        <h3>Long-Term Shine Protection</h3>
+                        <p>Seasonal silica-based sealant spray, polymer paint glazes, and gloss enhancers. Provides
+                            sacrificial hydrophobic properties, boosts water-beading performance, and dramatically
+                            extends the gloss of existing coatings.</p>
+                        <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE TRANSFORMATION GALLERY -->
+    <section class="before-after" id="before-after">
+        <div class="section-container">
+            <div class="ba-header animate-on-scroll">
+                <span class="section-subhead">THE PROOF IS IN THE PROCESS</span>
+                <h2 class="section-title">Interactive <span class="highlight">Transformation</span> Gallery</h2>
+                <p class="ba-desc">Drag the interactive slider handles to witness the dramatic surface enhancements
+                    performed inside our laboratory cleanrooms.</p>
+            </div>
+
+            <div class="ba-gallery-grid">
+                <!-- Pair 1: Paint Correction -->
+                <div class="ba-slider-container animate-on-scroll">
+                    <div class="ba-slider">
+                        <div class="before-img">
+                            <img src="assets/paint_correction_before.png"
+                                alt="Car paint heavily swirled and scratched before treatment">
+                            <div class="ba-label before">Before</div>
+                        </div>
+                        <div class="after-img">
+                            <img src="assets/paint_correction_after.png"
+                                alt="Car paint polished and scratch-free after compound treatment">
+                            <div class="ba-label after">After</div>
+                        </div>
+                        <div class="slider-handle">
+                            <div class="ba-handle-knob">↔</div>
+                        </div>
+                    </div>
+                    <div class="ba-caption">
+                        <h4>Multi-Stage Paint Correction</h4>
+                        <span>Swirl Marks & Haze Elimination</span>
+                    </div>
+                </div>
+
+                <!-- Pair 2: Interior restoration -->
+                <div class="ba-slider-container animate-on-scroll">
+                    <div class="ba-slider">
+                        <div class="before-img">
+                            <img src="assets/interior_before.png"
+                                alt="Stained leather seat and dusty cabin before cleaning">
+                            <div class="ba-label before">Before</div>
+                        </div>
+                        <div class="after-img">
+                            <img src="assets/interior_after.png"
+                                alt="Pristine vacuumed and treated leather seats after detailing">
+                            <div class="ba-label after">After</div>
+                        </div>
+                        <div class="slider-handle">
+                            <div class="ba-handle-knob">↔</div>
+                        </div>
+                    </div>
+                    <div class="ba-caption">
+                        <h4>Luxury Interior Detailing</h4>
+                        <span>Leather Nourishment & Extraction</span>
+                    </div>
+                </div>
+
+                <!-- Pair 3: Wheel Restoration -->
+                <div class="ba-slider-container animate-on-scroll">
+                    <div class="ba-slider">
+                        <div class="before-img">
+                            <img src="assets/wheel_before.png"
+                                alt="Alloy wheel covered in heavy brake dust and dirt before cleaning">
+                            <div class="ba-label before">Before</div>
+                        </div>
+                        <div class="after-img">
+                            <img src="assets/wheel_after.png"
+                                alt="Alloy wheel polished clean and ceramic coated after wash">
+                            <div class="ba-label after">After</div>
+                        </div>
+                        <div class="slider-handle">
+                            <div class="ba-handle-knob">↔</div>
+                        </div>
+                    </div>
+                    <div class="ba-caption">
+                        <h4>Wheel & Brake Caliper Detail</h4>
+                        <span>Brake Dust & Grime Decontamination</span>
+                    </div>
+                </div>
+
+                <!-- Pair 4: Engine Bay Detail -->
+                <div class="ba-slider-container animate-on-scroll">
+                    <div class="ba-slider">
+                        <div class="before-img">
+                            <img src="assets/engine_before.png"
+                                alt="Engine bay dusty and greasy before steam detailing">
+                            <div class="ba-label before">Before</div>
+                        </div>
+                        <div class="after-img">
+                            <img src="assets/engine_after.png"
+                                alt="Engine bay steam cleaned and dressed with satin plastic protection">
+                            <div class="ba-label after">After</div>
+                        </div>
+                        <div class="slider-handle">
+                            <div class="ba-handle-knob">↔</div>
+                        </div>
+                    </div>
+                    <div class="ba-caption">
+                        <h4>Precision Engine Bay Detailing</h4>
+                        <span>Steam Degreasing & Dressing</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ba-cta-bar animate-on-scroll">
+                <p>Ready to restore your vehicle to absolute factory perfection and shield it with 9H quartz coatings?
+                </p>
+                <div class="ba-cta-buttons">
+                    <a href="#contact" class="btn-primary">BOOK AN APPOINTMENT</a>
+                    <a href="services.html" class="btn-secondary">EXPLORE ALL SERVICES</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- CERAMIC COATING PREMIUM PACKAGES -->
     <section class="pricing" id="pricing">
@@ -366,7 +760,7 @@
             <div class="timeline-header animate-on-scroll">
                 <span class="section-subhead">THE PATH TO PERFECTION</span>
                 <h2 class="section-title">Our Detailing <span class="highlight">Process</span> Timeline</h2>
-                <p class="timeline-desc">We follow a strict, surgical five-stage process to guarantee absolute quality.
+                <p class="timeline-desc">We follow a strict, surgical six-stage process to guarantee absolute quality.
                     Here is the path your vehicle undergoes to achieve the ultimate shine.</p>
             </div>
 
@@ -375,9 +769,9 @@
                 <div class="timeline-item animate-on-scroll">
                     <div class="timeline-badge">01</div>
                     <div class="timeline-content">
-                        <h3>Decontamination Wash</h3>
-                        <p>We perform an intensive two-bucket foam bath, iron fallout decontamination, and clay bar
-                            treatment to clear all embedded microscopic road film.</p>
+                        <h3>Initial Inspection & Depth Analysis</h3>
+                        <p>We perform digital electromagnetic paint depth measurements, clearcoat thickness mapping, and
+                            paint swirl diagnostics under monochromatic lights.</p>
                     </div>
                 </div>
 
@@ -385,9 +779,9 @@
                 <div class="timeline-item animate-on-scroll">
                     <div class="timeline-badge">02</div>
                     <div class="timeline-content">
-                        <h3>Paint Analysis & Taping</h3>
-                        <p>Using digital electromagnetic paint depth meters, we calculate the clearcoat thickness before
-                            taping off sensitive trim, rubber seals, and plastics.</p>
+                        <h3>Deep Decontamination Wash</h3>
+                        <p>An intensive multi-stage two-bucket foam bath, iron fallout chemical decontamination, and
+                            synthetic clay bar treatment to lift embedded particles.</p>
                     </div>
                 </div>
 
@@ -395,9 +789,9 @@
                 <div class="timeline-item animate-on-scroll">
                     <div class="timeline-badge">03</div>
                     <div class="timeline-content">
-                        <h3>Multi-Stage Correction</h3>
-                        <p>Certified specialists perform machine compounding and fine polishing to permanently level
-                            scratch ridges, swirls, and color oxidation.</p>
+                        <h3>Surgical Taping & Trim Prep</h3>
+                        <p>Sensitive elements, badges, rubber seals, and matte plastic trims are meticulously taped off
+                            using specialty low-tack detailing tape.</p>
                     </div>
                 </div>
 
@@ -405,9 +799,9 @@
                 <div class="timeline-item animate-on-scroll">
                     <div class="timeline-badge">04</div>
                     <div class="timeline-content">
-                        <h3>Ceramic Bonding</h3>
-                        <p>The panel surfaces are chemically wiped clean of polishing oils, followed by the meticulous
-                            hand application and curing of premium 9H quartz coatings.</p>
+                        <h3>Multi-Stage Paint Correction</h3>
+                        <p>Certified master polishers use dual-action machines, micro-abrasive compounding, and
+                            jewel-finishing polishes to permanently level defects.</p>
                     </div>
                 </div>
 
@@ -415,11 +809,88 @@
                 <div class="timeline-item animate-on-scroll">
                     <div class="timeline-badge">05</div>
                     <div class="timeline-content">
-                        <h3>Quality Inspection</h3>
-                        <p>Every square inch is cross-inspected using monochromatic inspection spotlights. The car is
-                            cured under dynamic infrared wave lamps before final handover.</p>
+                        <h3>9H Ceramic Nano Coating</h3>
+                        <p>Chemical prep wipes clean polishing residues, followed by meticulous hand-application of the
+                            9H glass basecoat and hydrophobic topcoats.</p>
                     </div>
                 </div>
+
+                <!-- Step 6 -->
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-badge">06</div>
+                    <div class="timeline-content">
+                        <h3>Infrared Heat Curing & Inspection</h3>
+                        <p>The coating layers are thermally cured under dynamic short-wave infrared lamps, followed by a
+                            multi-point inspection under high-intensity lights.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE TRAVICE — BENEFITS STRIP -->
+    <section class="benefits-strip" id="why-us">
+        <div class="section-container">
+            <div class="benefits-strip-header animate-on-scroll">
+                <span class="section-subhead">WHY CHOOSE TRAVICE</span>
+                <h2 class="section-title">The Difference Between <span class="highlight">Average</span> &amp; <span
+                        class="highlight">Extraordinary</span></h2>
+            </div>
+            <div class="benefits-strip-grid">
+                <div class="benefit-strip-card animate-on-scroll">
+                    <div class="bsc-icon"><i class="fas fa-microscope"></i></div>
+                    <h3>Nanotechnology Formulas</h3>
+                    <p>We use only certified 9H-rated Silicon Dioxide (SiO2) and Graphene liquid-glass coatings that
+                        molecularly fuse to clearcoats for permanent bonding.</p>
+                </div>
+                <div class="benefit-strip-card animate-on-scroll">
+                    <div class="bsc-icon"><i class="fas fa-certificate"></i></div>
+                    <h3>IDA Certified Technicians</h3>
+                    <p>All our detailing specialists hold active IDA (International Detailing Association)
+                        certifications and undergo rigorous annual recertification.</p>
+                </div>
+                <div class="benefit-strip-card animate-on-scroll">
+                    <div class="bsc-icon"><i class="fas fa-thermometer-half"></i></div>
+                    <h3>Climate-Controlled Cleanroom</h3>
+                    <p>Our coatings are applied in clinical, ISO-level dust-free chambers with precise temperature and
+                        humidity control for flawless curing.</p>
+                </div>
+                <div class="benefit-strip-card animate-on-scroll">
+                    <div class="bsc-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Registered Lifetime Warranty</h3>
+                    <p>Our Gold Elite packages carry registered lifetime warranties logged in our digital registry,
+                        providing transferable value for your vehicle.</p>
+                </div>
+                <div class="benefit-strip-card animate-on-scroll">
+                    <div class="bsc-icon"><i class="fas fa-tint"></i></div>
+                    <h3>Extreme Hydrophobic Effect</h3>
+                    <p>Experience water contact angles exceeding 110° that repel dirt, mud, and hard water spots,
+                        keeping your car cleaner for much longer.</p>
+                </div>
+                <div class="benefit-strip-card animate-on-scroll">
+                    <div class="bsc-icon"><i class="fas fa-sun"></i></div>
+                    <h3>Full UV Spectrum Protection</h3>
+                    <p>Our nanoceramic matrix filters out 99.9% of solar radiation, preventing paint oxidation,
+                        clearcoat peeling, and color fade over years.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WARRANTY TRUST BANNER -->
+    <section
+        style="background-color: var(--color-secondary-dark); padding: 60px 0; border-top: 1px solid rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.03);">
+        <div class="section-container">
+            <div class="warranty-banner animate-on-scroll">
+                <div class="warranty-icon"><i class="fas fa-award"></i></div>
+                <div class="warranty-content">
+                    <h3>Industry-Certified Coating Warranty — Registered &amp; Transferable</h3>
+                    <p>Every TRAVICE Gold Elite Ceramic Coating package includes a formal, registered lifetime warranty
+                        backed by our coating manufacturer. Your vehicle's coating batch, application date, and
+                        technician ID are logged in our permanent digital registry — providing documented proof of
+                        protection that adds resale value to your automobile.</p>
+                </div>
+                <a href="#contact" class="warranty-badge">GET WARRANTED</a>
             </div>
         </div>
     </section>
@@ -503,6 +974,54 @@
                         </div>
                     </div>
 
+                    <!-- Slide 4 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Had a full front-end PPF wrap combined with the Silver Ceramic
+                            package on my Mercedes AMG GT63. The paintwork is now physically bulletproof. Six months
+                            later and it still looks like it drove straight off the showroom floor. Absolutely
+                            exceptional work."
+                        </p>
+                        <div class="testimonial-client">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=150&auto=format&fit=crop"
+                                alt="Client James P.">
+                            <div class="client-details">
+                                <h4>James Prescott</h4>
+                                <span>Owner, Mercedes-AMG GT63</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 5 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"The paint correction alone was worth every penny. My Ferrari had
+                            years of micro-swirls that made the red look dull in sunlight. After TRAVICE's three-stage
+                            correction and 9H ceramic, the depth and richness of the red is breathtaking. I could see my
+                            reflection perfectly."
+                        </p>
+                        <div class="testimonial-client">
+                            <img src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?q=80&w=150&auto=format&fit=crop"
+                                alt="Client Antonio R.">
+                            <div class="client-details">
+                                <h4>Antonio Russo</h4>
+                                <span>Owner, Ferrari F8 Tributo</span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
                 <!-- Slider Indicators & Navigation -->
@@ -510,6 +1029,8 @@
                     <button class="slider-arrow prev" id="slider-prev-btn"><i class="fas fa-chevron-left"></i></button>
                     <div class="slider-dots" id="slider-dots-container">
                         <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
                         <span class="dot"></span>
                         <span class="dot"></span>
                     </div>
@@ -605,6 +1126,58 @@
                             <p>Yes! Our Silver and Gold Elite packages include formal lifetime registry warranties. We
                                 input the unique coating application record directly into our digital service registry,
                                 ensuring permanent maintenance history and transferable value for your automobile.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 6 -->
+                <div class="faq-item">
+                    <button class="faq-trigger">
+                        <span>How long does Ceramic Coating last on a vehicle?</span>
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="faq-panel">
+                        <div class="faq-content-inner">
+                            <p>Longevity depends on the product grade and maintenance routine. Our Bronze nanoceramic
+                                lasts 1+ year, Silver Shield dual-layer lasts 3+ years, and Gold Elite 9H permanent
+                                basecoat is rated 5+ years with annual inspections and a registered warranty. Proper
+                                pH-neutral washing significantly extends coating life across all packages.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 7 -->
+                <div class="faq-item">
+                    <button class="faq-trigger">
+                        <span>What is the difference between Ceramic Coating and traditional car wax?</span>
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="faq-panel">
+                        <div class="faq-content-inner">
+                            <p>Traditional carnauba wax is a topical sacrificial layer that washes away within 1&ndash;3
+                                months, offering minimal chemical resistance and zero UV protection. Ceramic coatings
+                                chemically bond to paint at the molecular level, creating a permanent glass-hard shell
+                                rated 9H on the pencil hardness scale. Hydrophobic performance, UV blockage, scratch
+                                resistance, and mirror gloss are all fundamentally superior with professional ceramic
+                                coating.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 8 -->
+                <div class="faq-item">
+                    <button class="faq-trigger">
+                        <span>Should I choose PPF, Ceramic Coating, or combine both?</span>
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="faq-panel">
+                        <div class="faq-content-inner">
+                            <p>PPF and Ceramic Coating serve complementary roles. PPF is a self-healing polyurethane
+                                shield that absorbs rock chips, road debris, and deep scratches &mdash; providing
+                                mechanical impact protection. Ceramic Coating provides chemical resistance, UV blocking,
+                                hydrophobic properties, and extreme mirror gloss. Combining both gives you physical
+                                impact defense AND chemical/UV/hydrophobic protection simultaneously &mdash; our most
+                                popular premium system.</p>
                         </div>
                     </div>
                 </div>
@@ -755,18 +1328,6 @@
                         </a>
                         <p class="footer-text">State-of-the-art detailing laboratorial chambers specializing in
                             ultra-gloss correction and quartz barrier preservation.</p>
-
-                        <div class="newsletter-wrapper">
-                            <h4>Subscribe To Newsletter</h4>
-                            <form id="newsletter-form">
-                                <div class="newsletter-input-group">
-                                    <input type="email" placeholder="Your email address" aria-label="Newsletter email"
-                                        required>
-                                    <button type="submit" aria-label="Subscribe"><i
-                                            class="fas fa-chevron-right"></i></button>
-                                </div>
-                            </form>
-                        </div>
                     </div>
 
                     <!-- Col 2: Services Quick Links -->
@@ -822,6 +1383,23 @@
                             <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                             <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                             <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Col 5: Newsletter -->
+                    <div class="footer-col newsletter-col">
+                        <div class="newsletter-wrapper">
+                            <h3>Newsletter</h3>
+                            <p class="footer-text" style="margin-bottom: 20px;">Subscribe to receive exclusive insights
+                                and premium detailing offers.</p>
+                            <form id="newsletter-form">
+                                <div class="newsletter-input-group">
+                                    <input type="email" placeholder="Your email address" aria-label="Newsletter email"
+                                        required>
+                                    <button type="submit" aria-label="Subscribe"><i
+                                            class="fas fa-chevron-right"></i></button>
+                                </div>
+                            </form>
                         </div>
                     </div>
 

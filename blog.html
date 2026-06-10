@@ -9,14 +9,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="pages.css">
-    <link rel="stylesheet" href="mobile.css">
-    <!-- Theme Switcher Script (Instantly runs to avoid FOIT flashing) -->
+    <link rel="stylesheet" href="style.css?v=1.1">
+    <link rel="stylesheet" href="pages.css?v=1.1">
+    <link rel="stylesheet" href="mobile.css?v=1.1">
+        <!-- Favicon Links -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico?v=1.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png?v=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png?v=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png?v=1.0">
+    <!-- Theme & RTL Switcher Script (Instantly runs to avoid FOIT flashing) -->
     <script>
-        (function() {
+        (function () {
             const savedTheme = localStorage.getItem('theme') || 'dark';
             document.documentElement.setAttribute('data-theme', savedTheme);
+            const savedRTL = localStorage.getItem('rtl') === 'true';
+            if (savedRTL) {
+                document.documentElement.setAttribute('dir', 'rtl');
+                document.documentElement.classList.add('rtl-active');
+            } else {
+                document.documentElement.setAttribute('dir', 'ltr');
+                document.documentElement.classList.remove('rtl-active');
+            }
         })();
     </script>
 </head>
@@ -60,18 +73,25 @@
                     <li><a href="about.html" class="nav-link">ABOUT US</a></li>
                     <li><a href="services.html" class="nav-link">SERVICES</a></li>
                     <li><a href="gallery.html" class="nav-link">GALLERY</a></li>
-                    <li><a href="blog.html" class="nav-link active">BLOG</a></li>
+                    <li><a href="blog.html" class="nav-link">BLOG</a></li>
                     <li><a href="contact.html" class="nav-link">CONTACT US</a></li>
                 </ul>
             </nav>
 
             <div class="nav-actions">
                 <!-- Premium Redesigned Animated Capsule Theme Switcher -->
-                <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle Theme">
+                                <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle Theme">
                     <div class="theme-toggle-bubble">
                         <i class="fas fa-moon moon-icon"></i>
                         <i class="fas fa-sun sun-icon"></i>
                     </div>
+                </button>
+                <!-- Premium Animated Capsule RTL Layout Switcher -->
+                <button class="rtl-toggle" id="rtl-toggle-btn" aria-label="Toggle Layout Direction">
+                    <div class="rtl-toggle-bubble">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <span class="rtl-toggle-text">RTL</span>
                 </button>
                 <a href="contact.html" class="btn-header">BOOK NOW</a>
                 <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu">
@@ -217,11 +237,12 @@
     <!-- FOOTER -->
     <footer class="footer">
 
+
         <div class="footer-top">
             <div class="section-container">
                 <div class="footer-grid">
 
-                    <!-- Col 1: About & Newsletter -->
+                    <!-- Col 1: About -->
                     <div class="footer-col about-col">
                         <a href="index.html" class="logo footer-logo">
                             <div class="logo-icon">
@@ -238,18 +259,6 @@
                         </a>
                         <p class="footer-text">State-of-the-art detailing laboratorial chambers specializing in
                             ultra-gloss correction and quartz barrier preservation.</p>
-
-                        <div class="newsletter-wrapper">
-                            <h4>Subscribe To Newsletter</h4>
-                            <form id="newsletter-form">
-                                <div class="newsletter-input-group">
-                                    <input type="email" placeholder="Your email address" aria-label="Newsletter email"
-                                        required>
-                                    <button type="submit" aria-label="Subscribe"><i
-                                            class="fas fa-chevron-right"></i></button>
-                                </div>
-                            </form>
-                        </div>
                     </div>
 
                     <!-- Col 2: Services Quick Links -->
@@ -257,12 +266,17 @@
                         <h3>Our Services</h3>
                         <ul>
                             <li><a href="services.html"><i class="fas fa-chevron-right"></i> Exterior Detailing</a></li>
-                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Interior Rejuvenation</a></li>
-                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Multi-Stage Correction</a></li>
-                            <li><a href="index.html#pricing"><i class="fas fa-chevron-right"></i> 9H Ceramic Quartz Coating</a>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Interior Rejuvenation</a>
                             </li>
-                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Engine Bay Steam Prep</a></li>
-                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Alloy Caliper Coating</a></li>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Multi-Stage Correction</a>
+                            </li>
+                            <li><a href="index.html#pricing"><i class="fas fa-chevron-right"></i> 9H Ceramic Quartz
+                                    Coating</a>
+                            </li>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Engine Bay Steam Prep</a>
+                            </li>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Alloy Caliper Coating</a>
+                            </li>
                         </ul>
                     </div>
 
@@ -272,10 +286,13 @@
                         <ul>
                             <li><a href="index.html"><i class="fas fa-chevron-right"></i> Homepage</a></li>
                             <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us Portfolio</a></li>
-                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Luxury Detailing Services</a>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Luxury Detailing
+                                    Services</a>
                             </li>
-                            <li><a href="index.html#pricing"><i class="fas fa-chevron-right"></i> Ceramic Coating Plans</a></li>
-                            <li><a href="index.html#faq"><i class="fas fa-chevron-right"></i> Detailing FAQ Center</a></li>
+                            <li><a href="index.html#pricing"><i class="fas fa-chevron-right"></i> Ceramic Coating
+                                    Plans</a></li>
+                            <li><a href="index.html#faq"><i class="fas fa-chevron-right"></i> Detailing FAQ Center</a>
+                            </li>
                         </ul>
                     </div>
 
@@ -300,6 +317,22 @@
                         </div>
                     </div>
 
+                    <!-- Col 5: Newsletter -->
+                    <div class="footer-col newsletter-col">
+                        <div class="newsletter-wrapper">
+                            <h3>Newsletter</h3>
+                            <p class="footer-text" style="margin-bottom: 20px;">Subscribe to receive exclusive insights and premium detailing offers.</p>
+                            <form id="newsletter-form">
+                                <div class="newsletter-input-group">
+                                    <input type="email" placeholder="Your email address" aria-label="Newsletter email"
+                                        required>
+                                    <button type="submit" aria-label="Subscribe"><i
+                                            class="fas fa-chevron-right"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -319,7 +352,7 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=1.1"></script>
     <script src="pages.js"></script>
 </body>
 </html>

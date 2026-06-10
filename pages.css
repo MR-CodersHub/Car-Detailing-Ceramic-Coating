@@ -99,7 +99,8 @@
     background-size: cover;
     background-position: center;
     z-index: 1;
-    filter: brightness(0.7);
+    filter: brightness(1.1) contrast(1.05) saturate(1.05); /* Optimised Dark Mode filter */
+    transition: filter 0.4s ease;
 }
 
 .inner-hero-overlay {
@@ -108,7 +109,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(5, 8, 17, 0.9) 0%, rgba(5, 8, 17, 0.6) 100%);
+    background: linear-gradient(to bottom, rgba(5, 8, 17, 0.65) 0%, rgba(5, 8, 17, 0.3) 100%); /* Softened to improve visibility */
     z-index: 2;
 }
 
@@ -188,6 +189,14 @@
     min-height: 400px;
     background-size: cover;
     background-position: center;
+    /* Dark Mode: maintain vibrant image detail — not too dark */
+    filter: brightness(1.08) contrast(1.06) saturate(1.12);
+    transition: filter 0.4s ease;
+}
+
+html[data-theme="light"] .split-image {
+    /* Light Mode: keep natural brightness, maximize image clarity */
+    filter: brightness(1.04) contrast(1.04) saturate(1.08);
 }
 
 .split-content {
@@ -196,6 +205,23 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+/* Light mode overrides for Home 2 split content */
+html[data-theme="light"] .split-content {
+    background-color: var(--color-secondary-dark);
+}
+
+html[data-theme="light"] .split-content .hero-subhead {
+    text-shadow: none;
+}
+
+html[data-theme="light"] .split-content .hero-title {
+    text-shadow: none;
+}
+
+html[data-theme="light"] .split-content .hero-subtitle {
+    text-shadow: none;
 }
 
 /* Floating Service Cards (Home 2) */

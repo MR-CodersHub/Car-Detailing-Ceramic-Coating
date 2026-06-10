@@ -9,14 +9,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="pages.css">
-    <link rel="stylesheet" href="mobile.css">
-    <!-- Theme Switcher Script (Instantly runs to avoid FOIT flashing) -->
+    <link rel="stylesheet" href="style.css?v=1.1">
+    <link rel="stylesheet" href="pages.css?v=1.1">
+    <link rel="stylesheet" href="mobile.css?v=1.1">
+        <!-- Favicon Links -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico?v=1.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png?v=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png?v=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png?v=1.0">
+    <!-- Theme & RTL Switcher Script (Instantly runs to avoid FOIT flashing) -->
     <script>
-        (function() {
+        (function () {
             const savedTheme = localStorage.getItem('theme') || 'dark';
             document.documentElement.setAttribute('data-theme', savedTheme);
+            const savedRTL = localStorage.getItem('rtl') === 'true';
+            if (savedRTL) {
+                document.documentElement.setAttribute('dir', 'rtl');
+                document.documentElement.classList.add('rtl-active');
+            } else {
+                document.documentElement.setAttribute('dir', 'ltr');
+                document.documentElement.classList.remove('rtl-active');
+            }
         })();
     </script>
 </head>
@@ -58,7 +71,7 @@
                     <li><a href="index.html" class="nav-link">HOME</a></li>
                     <li><a href="home-2.html" class="nav-link">HOME 2</a></li>
                     <li><a href="about.html" class="nav-link">ABOUT US</a></li>
-                    <li><a href="services.html" class="nav-link active">SERVICES</a></li>
+                    <li><a href="services.html" class="nav-link">SERVICES</a></li>
                     <li><a href="gallery.html" class="nav-link">GALLERY</a></li>
                     <li><a href="blog.html" class="nav-link">BLOG</a></li>
                     <li><a href="contact.html" class="nav-link">CONTACT US</a></li>
@@ -67,11 +80,18 @@
 
             <div class="nav-actions">
                 <!-- Premium Redesigned Animated Capsule Theme Switcher -->
-                <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle Theme">
+                                <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle Theme">
                     <div class="theme-toggle-bubble">
                         <i class="fas fa-moon moon-icon"></i>
                         <i class="fas fa-sun sun-icon"></i>
                     </div>
+                </button>
+                <!-- Premium Animated Capsule RTL Layout Switcher -->
+                <button class="rtl-toggle" id="rtl-toggle-btn" aria-label="Toggle Layout Direction">
+                    <div class="rtl-toggle-bubble">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <span class="rtl-toggle-text">RTL</span>
                 </button>
                 <a href="contact.html" class="btn-header">BOOK NOW</a>
                 <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu">
@@ -119,93 +139,88 @@
                 <p class="services-header-desc">From surgical interior steam cleaning to permanent 9H ceramic coatings and paint protection films, explore our complete range of specialized automotive preservation services.</p>
             </div>
 
-            <!-- Dynamic Grid for all 10 Services -->
+            <!-- Dynamic Grid for all 9 Premium Services -->
             <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
                 
+                <!-- Service 1 -->
                 <div class="service-card animate-on-scroll">
                     <div class="card-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=800&auto=format&fit=crop" alt="Ceramic Coating">
-                        <div class="badge-icon"><i class="fas fa-spray-can"></i></div>
+                        <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=800&auto=format&fit=crop" alt="9H Ceramic Coating">
+                        <div class="badge-icon"><i class="fas fa-gem"></i></div>
                     </div>
                     <div class="service-info">
                         <h3>9H Ceramic Coating</h3>
-                        <p>Permanent hydrophobic nanotech bonding that repels chemicals and intensifies gloss.</p>
-                        <a href="contact.html" class="service-link">LEARN MORE <i class="fas fa-arrow-right"></i></a>
+                        <p>Crystalline liquid quartz coatings that permanently bond to clearcoats. Our certified application delivers absolute hydrophobic liquid repellency, eliminates the need for waxing, shields against UV oxidation, and carries a registered warranty.</p>
+                        <a href="#booking-modal" class="service-link btn-pricing-action">BOOK SERVICE <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
+                <!-- Service 2 -->
                 <div class="service-card animate-on-scroll">
                     <div class="card-img-wrapper">
                         <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=800&auto=format&fit=crop" alt="Paint Protection Film">
                         <div class="badge-icon"><i class="fas fa-shield-alt"></i></div>
                     </div>
                     <div class="service-info">
-                        <h3>Paint Protection Film</h3>
-                        <p>Self-healing, optically clear polyurethane wrap defending against physical rock chips.</p>
-                        <a href="contact.html" class="service-link">LEARN MORE <i class="fas fa-arrow-right"></i></a>
+                        <h3>Paint Protection Film (PPF)</h3>
+                        <p>Military-grade, optically clear polyurethane wraps featuring elastomeric self-healing polymers. Physically shields your panels against high-impact rock chips, key scratches, road salt, chemical stains, and highway debris.</p>
+                        <a href="#booking-modal" class="service-link btn-pricing-action">BOOK SERVICE <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
-                <div class="service-card animate-on-scroll">
-                    <div class="card-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1589739900243-4b52cd9b104e?q=80&w=800&auto=format&fit=crop" alt="Interior Detailing">
-                        <div class="badge-icon"><i class="fas fa-couch"></i></div>
-                    </div>
-                    <div class="service-info">
-                        <h3>Interior Detailing</h3>
-                        <p>Complete leather feeding, extraction, and antimicrobial ozone treatments for the cabin.</p>
-                        <a href="contact.html" class="service-link">LEARN MORE <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
+                <!-- Service 3 -->
                 <div class="service-card animate-on-scroll">
                     <div class="card-img-wrapper">
                         <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=800&auto=format&fit=crop" alt="Paint Correction">
-                        <div class="badge-icon"><i class="fas fa-hands-wash"></i></div>
+                        <div class="badge-icon"><i class="fas fa-magic"></i></div>
                     </div>
                     <div class="service-info">
                         <h3>Paint Correction</h3>
-                        <p>Multi-stage compounding and polishing to permanently level swirls and oxidation.</p>
-                        <a href="contact.html" class="service-link">LEARN MORE <i class="fas fa-arrow-right"></i></a>
+                        <p>Precision multi-stage rotary compounding and jewel polishing to level clearcoat imperfections. We permanently eliminate swirl marks, heavy scratches, chemical etching, water spot damage, and oxidation haze to restore concours clarity.</p>
+                        <a href="#booking-modal" class="service-link btn-pricing-action">BOOK SERVICE <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
+                <!-- Service 4 -->
                 <div class="service-card animate-on-scroll">
                     <div class="card-img-wrapper">
-                        <img src="assets/interior_after.png" alt="Steam Wash">
-                        <div class="badge-icon"><i class="fas fa-wind"></i></div>
+                        <img src="https://images.unsplash.com/photo-1589739900243-4b52cd9b104e?q=80&w=800&auto=format&fit=crop" alt="Interior Detailing">
+                        <div class="badge-icon"><i class="fas fa-soap"></i></div>
                     </div>
                     <div class="service-info">
-                        <h3>Steam Wash</h3>
-                        <p>Eco-friendly high-pressure dry steam cleaning eliminating bacteria and stubborn grime.</p>
-                        <a href="contact.html" class="service-link">LEARN MORE <i class="fas fa-arrow-right"></i></a>
+                        <h3>Interior Detailing</h3>
+                        <p>Comprehensive interior detailing including high-pressure dry steam extraction, leather hydration, deep carpet shampooing, vent sanitation, odor elimination, and application of hydrophobic textile guards to prevent future staining.</p>
+                        <a href="#booking-modal" class="service-link btn-pricing-action">BOOK SERVICE <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
+                <!-- Service 5 -->
                 <div class="service-card animate-on-scroll">
                     <div class="card-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=800&auto=format&fit=crop" alt="Engine Bay">
-                        <div class="badge-icon"><i class="fas fa-cogs"></i></div>
+                        <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=800&auto=format&fit=crop" alt="Exterior Detailing">
+                        <div class="badge-icon"><i class="fas fa-car"></i></div>
                     </div>
                     <div class="service-info">
-                        <h3>Engine Bay Cleaning</h3>
-                        <p>Safe degreasing, steam extraction, and plastics dressing for a factory-new engine compartment.</p>
-                        <a href="contact.html" class="service-link">LEARN MORE <i class="fas fa-arrow-right"></i></a>
+                        <h3>Exterior Detailing</h3>
+                        <p>Bespoke exterior wash incorporating paint decontamination, iron fallout removal, synthetic clay bar treatment, wheel barrel cleaning, trim restoration, exhaust tip polishing, and application of a high-gloss polymer paint glaze.</p>
+                        <a href="#booking-modal" class="service-link btn-pricing-action">BOOK SERVICE <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
+                <!-- Service 6 -->
                 <div class="service-card animate-on-scroll">
                     <div class="card-img-wrapper">
                         <img src="assets/paint_correction_after.png" alt="Scratch Removal">
-                        <div class="badge-icon"><i class="fas fa-eraser"></i></div>
+                        <div class="badge-icon"><i class="fas fa-tools"></i></div>
                     </div>
                     <div class="service-info">
                         <h3>Scratch Removal</h3>
-                        <p>Localized wet sanding and heavy compounding targeting specific deep clearcoat scratches.</p>
-                        <a href="contact.html" class="service-link">LEARN MORE <i class="fas fa-arrow-right"></i></a>
+                        <p>Local paint wet sanding, clearcoat leveling, and compound restorations designed for deep isolated scratches, key lines, and surface scuffs. Safely smooths out paint defects without the cost of panel repainting.</p>
+                        <a href="#booking-modal" class="service-link btn-pricing-action">BOOK SERVICE <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
+                <!-- Service 7 -->
                 <div class="service-card animate-on-scroll">
                     <div class="card-img-wrapper">
                         <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=800&auto=format&fit=crop" alt="Headlight Restoration">
@@ -213,32 +228,34 @@
                     </div>
                     <div class="service-info">
                         <h3>Headlight Restoration</h3>
-                        <p>Sanding out yellow UV oxidation and recoating the lenses with ceramic protection.</p>
-                        <a href="contact.html" class="service-link">LEARN MORE <i class="fas fa-arrow-right"></i></a>
+                        <p>Restores safety and clarity to yellow, oxidized, and foggy polycarbonate lenses. Utilizes a multi-stage wet-sanding and compound polishing process, sealed under a chemical UV block to prevent future hazing.</p>
+                        <a href="#booking-modal" class="service-link btn-pricing-action">BOOK SERVICE <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
+                <!-- Service 8 -->
                 <div class="service-card animate-on-scroll">
                     <div class="card-img-wrapper">
-                        <img src="assets/engine_after.png" alt="Exterior Detailing">
-                        <div class="badge-icon"><i class="fas fa-car"></i></div>
+                        <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=800&auto=format&fit=crop" alt="Engine Bay Cleaning">
+                        <div class="badge-icon"><i class="fas fa-cogs"></i></div>
                     </div>
                     <div class="service-info">
-                        <h3>Exterior Detailing</h3>
-                        <p>Two-bucket foam wash, iron fallout decontamination, and clay bar treatment.</p>
-                        <a href="contact.html" class="service-link">LEARN MORE <i class="fas fa-arrow-right"></i></a>
+                        <h3>Engine Bay Cleaning</h3>
+                        <p>Clinical cleaning of the engine compartment. Employs dry steam degreasing, safe detail brushing, electrical component protection, and application of a non-conductive, anti-static satin plastic dressing for a factory finish.</p>
+                        <a href="#booking-modal" class="service-link btn-pricing-action">BOOK SERVICE <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
+                <!-- Service 9 -->
                 <div class="service-card animate-on-scroll">
                     <div class="card-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=800&auto=format&fit=crop" alt="Full Car Spa">
-                        <div class="badge-icon"><i class="fas fa-gem"></i></div>
+                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=800&auto=format&fit=crop" alt="Vehicle Shine Protection">
+                        <div class="badge-icon"><i class="fas fa-star"></i></div>
                     </div>
                     <div class="service-info">
-                        <h3>Full Car Spa</h3>
-                        <p>The ultimate bumper-to-bumper reset combining interior and exterior perfection.</p>
-                        <a href="contact.html" class="service-link">LEARN MORE <i class="fas fa-arrow-right"></i></a>
+                        <h3>Vehicle Shine Protection</h3>
+                        <p>Seasonal silica-based sealant spray, polymer paint glazes, and gloss enhancers. Provides sacrificial hydrophobic properties, boosts water-beading performance, and dramatically extends the gloss of existing coatings.</p>
+                        <a href="#booking-modal" class="service-link btn-pricing-action">BOOK SERVICE <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
@@ -382,11 +399,12 @@
     <!-- FOOTER -->
     <footer class="footer">
 
+
         <div class="footer-top">
             <div class="section-container">
                 <div class="footer-grid">
 
-                    <!-- Col 1: About & Newsletter -->
+                    <!-- Col 1: About -->
                     <div class="footer-col about-col">
                         <a href="index.html" class="logo footer-logo">
                             <div class="logo-icon">
@@ -403,18 +421,6 @@
                         </a>
                         <p class="footer-text">State-of-the-art detailing laboratorial chambers specializing in
                             ultra-gloss correction and quartz barrier preservation.</p>
-
-                        <div class="newsletter-wrapper">
-                            <h4>Subscribe To Newsletter</h4>
-                            <form id="newsletter-form">
-                                <div class="newsletter-input-group">
-                                    <input type="email" placeholder="Your email address" aria-label="Newsletter email"
-                                        required>
-                                    <button type="submit" aria-label="Subscribe"><i
-                                            class="fas fa-chevron-right"></i></button>
-                                </div>
-                            </form>
-                        </div>
                     </div>
 
                     <!-- Col 2: Services Quick Links -->
@@ -422,12 +428,17 @@
                         <h3>Our Services</h3>
                         <ul>
                             <li><a href="services.html"><i class="fas fa-chevron-right"></i> Exterior Detailing</a></li>
-                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Interior Rejuvenation</a></li>
-                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Multi-Stage Correction</a></li>
-                            <li><a href="index.html#pricing"><i class="fas fa-chevron-right"></i> 9H Ceramic Quartz Coating</a>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Interior Rejuvenation</a>
                             </li>
-                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Engine Bay Steam Prep</a></li>
-                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Alloy Caliper Coating</a></li>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Multi-Stage Correction</a>
+                            </li>
+                            <li><a href="index.html#pricing"><i class="fas fa-chevron-right"></i> 9H Ceramic Quartz
+                                    Coating</a>
+                            </li>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Engine Bay Steam Prep</a>
+                            </li>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Alloy Caliper Coating</a>
+                            </li>
                         </ul>
                     </div>
 
@@ -437,10 +448,13 @@
                         <ul>
                             <li><a href="index.html"><i class="fas fa-chevron-right"></i> Homepage</a></li>
                             <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us Portfolio</a></li>
-                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Luxury Detailing Services</a>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Luxury Detailing
+                                    Services</a>
                             </li>
-                            <li><a href="index.html#pricing"><i class="fas fa-chevron-right"></i> Ceramic Coating Plans</a></li>
-                            <li><a href="index.html#faq"><i class="fas fa-chevron-right"></i> Detailing FAQ Center</a></li>
+                            <li><a href="index.html#pricing"><i class="fas fa-chevron-right"></i> Ceramic Coating
+                                    Plans</a></li>
+                            <li><a href="index.html#faq"><i class="fas fa-chevron-right"></i> Detailing FAQ Center</a>
+                            </li>
                         </ul>
                     </div>
 
@@ -462,6 +476,22 @@
                             <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                             <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                             <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Col 5: Newsletter -->
+                    <div class="footer-col newsletter-col">
+                        <div class="newsletter-wrapper">
+                            <h3>Newsletter</h3>
+                            <p class="footer-text" style="margin-bottom: 20px;">Subscribe to receive exclusive insights and premium detailing offers.</p>
+                            <form id="newsletter-form">
+                                <div class="newsletter-input-group">
+                                    <input type="email" placeholder="Your email address" aria-label="Newsletter email"
+                                        required>
+                                    <button type="submit" aria-label="Subscribe"><i
+                                            class="fas fa-chevron-right"></i></button>
+                                </div>
+                            </form>
                         </div>
                     </div>
 
@@ -737,7 +767,7 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=1.1"></script>
     <script src="pages.js"></script>
 </body>
 </html>

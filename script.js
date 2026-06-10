@@ -103,33 +103,59 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /* ==========================================================================
-       4. SCROLLSPY ACTIVE NAVIGATION LINKS HIGH-LIGHTER
+       4. ACTIVE PAGE NAVIGATION LINK HIGHLIGHTER (URL-based, no scrollspy)
        ========================================================================== */
     const navLinks = document.querySelectorAll('.nav-link');
-    const pageSections = document.querySelectorAll('section');
 
-    function updateActiveNavLink() {
-        let currentActiveSectionId = '';
+    // Determine the current page filename from the URL
+    function getCurrentPageName() {
+        const path = window.location.pathname;
+        const pageName = path.substring(path.lastIndexOf('/') + 1).toLowerCase();
+        // Treat empty path or bare slash as index.html
+        if (!pageName || pageName === '/') {
+            return 'index.html';
+        }
+        return pageName;
+    }
 
-        pageSections.forEach(section => {
-            const sectionTopOffset = section.offsetTop - 120; // accounting for navigation height
-            const sectionHeight = section.offsetHeight;
-            const scrollPosition = window.scrollY;
+    const currentPage = getCurrentPageName();
 
-            if (scrollPosition >= sectionTopOffset && scrollPosition < sectionTopOffset + sectionHeight) {
-                currentActiveSectionId = section.getAttribute('id');
+    // Resolve which nav href should be active for the current page.
+    // Special cases:
+    //   gallery-page-2.html  → gallery.html (sub-page of gallery)
+    //   index.html or ''     → index.html
+    //   home-2.html          → home-2.html (its own dedicated page)
+    function resolveActiveHref(pageName) {
+        if (pageName === 'gallery-page-2.html') return 'gallery.html';
+        return pageName;
+    }
+
+    const activeHref = resolveActiveHref(currentPage);
+
+    // Set active class based purely on the URL — called once, never changes on scroll
+    function setActivePageLink() {
+        // Desktop nav links
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href === activeHref) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
             }
         });
 
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${currentActiveSectionId}`) {
+        // Mobile nav links
+        mobileLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href === activeHref) {
                 link.classList.add('active');
+            } else {
+                link.classList.remove('active');
             }
         });
     }
 
-    window.addEventListener('scroll', updateActiveNavLink);
+    setActivePageLink();
 
 
     /* ==========================================================================
@@ -581,6 +607,24 @@ document.addEventListener('DOMContentLoaded', () => {
             
             document.documentElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
+        });
+    });
+
+    // --- RTL LAYOUT CONTROLLER ---
+    const rtlToggleBtns = document.querySelectorAll('.rtl-toggle');
+    rtlToggleBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+            const newRTL = !isRTL;
+            
+            if (newRTL) {
+                document.documentElement.setAttribute('dir', 'rtl');
+                document.documentElement.classList.add('rtl-active');
+            } else {
+                document.documentElement.setAttribute('dir', 'ltr');
+                document.documentElement.classList.remove('rtl-active');
+            }
+            localStorage.setItem('rtl', newRTL ? 'true' : 'false');
         });
     });
 

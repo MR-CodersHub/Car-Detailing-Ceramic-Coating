@@ -12,14 +12,27 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="pages.css">
-    <link rel="stylesheet" href="mobile.css">
-    <!-- Theme Switcher Script (Instantly runs to avoid FOIT flashing) -->
+    <link rel="stylesheet" href="style.css?v=1.1">
+    <link rel="stylesheet" href="pages.css?v=1.1">
+    <link rel="stylesheet" href="mobile.css?v=1.1">
+        <!-- Favicon Links -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico?v=1.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png?v=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png?v=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png?v=1.0">
+    <!-- Theme & RTL Switcher Script (Instantly runs to avoid FOIT flashing) -->
     <script>
-        (function() {
+        (function () {
             const savedTheme = localStorage.getItem('theme') || 'dark';
             document.documentElement.setAttribute('data-theme', savedTheme);
+            const savedRTL = localStorage.getItem('rtl') === 'true';
+            if (savedRTL) {
+                document.documentElement.setAttribute('dir', 'rtl');
+                document.documentElement.classList.add('rtl-active');
+            } else {
+                document.documentElement.setAttribute('dir', 'ltr');
+                document.documentElement.classList.remove('rtl-active');
+            }
         })();
     </script>
 </head>
@@ -59,7 +72,7 @@
             <nav class="nav-menu">
                 <ul>
                     <li><a href="index.html" class="nav-link">HOME</a></li>
-                    <li><a href="home-2.html" class="nav-link active">HOME 2</a></li>
+                    <li><a href="home-2.html" class="nav-link">HOME 2</a></li>
                     <li><a href="about.html" class="nav-link">ABOUT US</a></li>
                     <li><a href="services.html" class="nav-link">SERVICES</a></li>
                     <li><a href="gallery.html" class="nav-link">GALLERY</a></li>
@@ -70,11 +83,18 @@
 
             <div class="nav-actions">
                 <!-- Premium Redesigned Animated Capsule Theme Switcher -->
-                <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle Theme">
+                                <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle Theme">
                     <div class="theme-toggle-bubble">
                         <i class="fas fa-moon moon-icon"></i>
                         <i class="fas fa-sun sun-icon"></i>
                     </div>
+                </button>
+                <!-- Premium Animated Capsule RTL Layout Switcher -->
+                <button class="rtl-toggle" id="rtl-toggle-btn" aria-label="Toggle Layout Direction">
+                    <div class="rtl-toggle-bubble">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <span class="rtl-toggle-text">RTL</span>
                 </button>
                 <a href="contact.html" class="btn-header">BOOK NOW</a>
                 <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu">
@@ -88,13 +108,21 @@
     <div class="mobile-nav" id="mobile-menu">
         <ul>
             <li><a href="index.html" class="mobile-link">HOME</a></li>
-            <li><a href="home-2.html" class="mobile-link" style="color:var(--color-accent);">HOME 2</a></li>
+            <li><a href="home-2.html" class="mobile-link">HOME 2</a></li>
             <li><a href="about.html" class="mobile-link">ABOUT US</a></li>
             <li><a href="services.html" class="mobile-link">SERVICES</a></li>
             <li><a href="gallery.html" class="mobile-link">GALLERY</a></li>
             <li><a href="blog.html" class="mobile-link">BLOG</a></li>
             <li><a href="contact.html" class="mobile-link">CONTACT US</a></li>
         </ul>
+        <div class="mobile-nav-footer">
+            <div class="mobile-socials">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <a href="contact.html" class="btn-primary" style="display: block; text-align: center; margin-top: 20px;">BOOK APPOINTMENT</a>
+        </div>
     </div>
 
     <!-- HOME 2 SPLIT HERO BANNER -->
@@ -157,34 +185,306 @@
         </div>
     </section>
 
-    <!-- STATISTICS -->
-    <section class="stats" id="stats">
-        <div class="stats-bg"></div>
+
+    <!-- WHY CHOOSE CERAMIC COATING -->
+    <section class="why-choose" id="why-choose" style="background-color: var(--color-primary-dark);">
         <div class="section-container">
-            <div class="stats-grid">
-                <div class="stat-card animate-on-scroll">
-                    <div class="stat-icon"><i class="fas fa-car-side"></i></div>
-                    <div class="stat-num" data-target="15420">0</div>
-                    <p class="stat-label">Exotics Detailed</p>
+            <div class="features-header animate-on-scroll" style="text-align: center; margin-bottom: 60px;">
+                <span class="section-subhead">THE ULTIMATE SHIELD</span>
+                <h2 class="section-title">Why Choose Our <span class="highlight">Ceramic Coating</span></h2>
+                <p style="color: var(--color-text-light); max-width: 650px; margin: 20px auto 0;">Experience the pinnacle of automotive preservation. Our 9H nanoceramic formulas bond with your vehicle's clear coat on a molecular level, offering unparalleled protection and a permanent mirror finish.</p>
+            </div>
+
+            <div class="features-grid animate-on-scroll" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px;">
+                <!-- Feature 1 -->
+                <div class="service-card" style="padding: 40px 32px; text-align: center; margin-bottom: 0;">
+                    <div class="service-icon" style="margin: 0 auto 20px;"><i class="fas fa-shield-alt"></i></div>
+                    <h3 style="font-family: var(--font-heading); font-size: 1.2rem; color: var(--color-text-white); margin-bottom: 12px; font-weight: 800;">Extreme Durability</h3>
+                    <p style="color: var(--color-text-light); font-size: 0.9rem; line-height: 1.7;">Forms a permanent, rigid glass shield with 9H hardness, effectively preventing minor scratches, wash marring, and daily wear.</p>
                 </div>
-                <div class="stat-card animate-on-scroll">
-                    <div class="stat-icon"><i class="fas fa-smile"></i></div>
-                    <div class="stat-num" data-target="999">0</div>
-                    <p class="stat-label">Happy Clients %</p>
+                <!-- Feature 2 -->
+                <div class="service-card" style="padding: 40px 32px; text-align: center; margin-bottom: 0;">
+                    <div class="service-icon" style="margin: 0 auto 20px;"><i class="fas fa-sun"></i></div>
+                    <h3 style="font-family: var(--font-heading); font-size: 1.2rem; color: var(--color-text-white); margin-bottom: 12px; font-weight: 800;">Advanced UV Protection</h3>
+                    <p style="color: var(--color-text-light); font-size: 0.9rem; line-height: 1.7;">Blocks harmful ultraviolet rays, completely preventing paint oxidation, fading, and clear-coat degradation over time.</p>
                 </div>
-                <div class="stat-card animate-on-scroll">
-                    <div class="stat-icon"><i class="fas fa-gem"></i></div>
-                    <div class="stat-num" data-target="100">0</div>
-                    <p class="stat-label">Ceramic Formulations</p>
+                <!-- Feature 3 -->
+                <div class="service-card" style="padding: 40px 32px; text-align: center; margin-bottom: 0;">
+                    <div class="service-icon" style="margin: 0 auto 20px;"><i class="fas fa-tint"></i></div>
+                    <h3 style="font-family: var(--font-heading); font-size: 1.2rem; color: var(--color-text-white); margin-bottom: 12px; font-weight: 800;">Super Hydrophobic</h3>
+                    <p style="color: var(--color-text-light); font-size: 0.9rem; line-height: 1.7;">Creates an intense water-repelling surface. Dirt, grime, and contaminants simply slide off, making maintenance washing effortless.</p>
                 </div>
-                <div class="stat-card animate-on-scroll">
-                    <div class="stat-icon"><i class="fas fa-award"></i></div>
-                    <div class="stat-num" data-target="50">0</div>
-                    <p class="stat-label">Detailing Awards</p>
+                <!-- Feature 4 -->
+                <div class="service-card" style="padding: 40px 32px; text-align: center; margin-bottom: 0;">
+                    <div class="service-icon" style="margin: 0 auto 20px;"><i class="fas fa-gem"></i></div>
+                    <h3 style="font-family: var(--font-heading); font-size: 1.2rem; color: var(--color-text-white); margin-bottom: 12px; font-weight: 800;">Long-lasting Shine</h3>
+                    <p style="color: var(--color-text-light); font-size: 0.9rem; line-height: 1.7;">Enhances gloss and optical clarity beyond factory levels, locking in a permanent, deep mirror finish that never requires waxing.</p>
                 </div>
             </div>
         </div>
     </section>
+
+
+    <!-- BEFORE & AFTER TRANSFORMATION GALLERY -->
+    <section class="before-after" id="before-after">
+        <div class="section-container">
+            <div class="ba-header animate-on-scroll">
+                <span class="section-subhead">THE PROOF IS IN THE PROCESS</span>
+                <h2 class="section-title">Interactive <span class="highlight">Transformation</span> Gallery</h2>
+                <p class="ba-desc">Drag the interactive slider handles to witness the dramatic surface enhancements
+                    performed inside our laboratory cleanrooms.</p>
+            </div>
+
+            <div class="ba-gallery-grid">
+                <!-- Pair 1: Paint Correction -->
+                <div class="ba-slider-container animate-on-scroll">
+                    <div class="ba-slider">
+                        <div class="before-img">
+                            <img src="assets/paint_correction_before.png"
+                                alt="Car paint heavily swirled and scratched before treatment">
+                            <div class="ba-label before">Before</div>
+                        </div>
+                        <div class="after-img">
+                            <img src="assets/paint_correction_after.png"
+                                alt="Car paint polished and scratch-free after compound treatment">
+                            <div class="ba-label after">After</div>
+                        </div>
+                        <div class="slider-handle">
+                            <div class="ba-handle-knob">↔</div>
+                        </div>
+                    </div>
+                    <div class="ba-caption">
+                        <h4>Multi-Stage Paint Correction</h4>
+                        <span>Swirl Marks & Haze Elimination</span>
+                    </div>
+                </div>
+
+                <!-- Pair 2: Interior restoration -->
+                <div class="ba-slider-container animate-on-scroll">
+                    <div class="ba-slider">
+                        <div class="before-img">
+                            <img src="assets/interior_before.png"
+                                alt="Stained leather seat and dusty cabin before cleaning">
+                            <div class="ba-label before">Before</div>
+                        </div>
+                        <div class="after-img">
+                            <img src="assets/interior_after.png"
+                                alt="Pristine vacuumed and treated leather seats after detailing">
+                            <div class="ba-label after">After</div>
+                        </div>
+                        <div class="slider-handle">
+                            <div class="ba-handle-knob">↔</div>
+                        </div>
+                    </div>
+                    <div class="ba-caption">
+                        <h4>Luxury Interior Detailing</h4>
+                        <span>Leather Nourishment & Extraction</span>
+                    </div>
+                </div>
+
+                <!-- Pair 3: Wheel Restoration -->
+                <div class="ba-slider-container animate-on-scroll">
+                    <div class="ba-slider">
+                        <div class="before-img">
+                            <img src="assets/wheel_before.png"
+                                alt="Alloy wheel covered in heavy black brake dust and dirt before cleaning">
+                            <div class="ba-label before">Before</div>
+                        </div>
+                        <div class="after-img">
+                            <img src="assets/wheel_after.png"
+                                alt="Alloy wheel polished clean and ceramic coated after wash">
+                            <div class="ba-label after">After</div>
+                        </div>
+                        <div class="slider-handle">
+                            <div class="ba-handle-knob">↔</div>
+                        </div>
+                    </div>
+                    <div class="ba-caption">
+                        <h4>Wheel & Brake Caliper Detail</h4>
+                        <span>Brake Dust & Grime Decontamination</span>
+                    </div>
+                </div>
+
+                <!-- Pair 4: Engine Bay Detail -->
+                <div class="ba-slider-container animate-on-scroll">
+                    <div class="ba-slider">
+                        <div class="before-img">
+                            <img src="assets/engine_before.png"
+                                alt="Engine bay dusty and greasy before steam detailing">
+                            <div class="ba-label before">Before</div>
+                        </div>
+                        <div class="after-img">
+                            <img src="assets/engine_after.png"
+                                alt="Engine bay steam cleaned and dressed with satin plastic protection">
+                            <div class="ba-label after">After</div>
+                        </div>
+                        <div class="slider-handle">
+                            <div class="ba-handle-knob">↔</div>
+                        </div>
+                    </div>
+                    <div class="ba-caption">
+                        <h4>Precision Engine Bay Detailing</h4>
+                        <span>Steam Degreasing & Dressing</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ba-cta-bar animate-on-scroll">
+                <p>Ready to restore your vehicle to absolute factory perfection and shield it with 9H quartz coatings?
+                </p>
+                <div class="ba-cta-buttons">
+                    <a href="contact.html" class="btn-primary">BOOK AN APPOINTMENT</a>
+                    <a href="services.html" class="btn-secondary">EXPLORE ALL SERVICES</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CUSTOMER TESTIMONIALS -->
+    <section class="testimonials" id="testimonials">
+        <div class="section-container">
+            <div class="testimonials-header animate-on-scroll">
+                <span class="section-subhead">WHAT CLIENTS SAY</span>
+                <h2 class="section-title">Customer <span class="highlight">Testimonials</span></h2>
+            </div>
+
+            <!-- Testimonial Slider Wrapper -->
+            <div class="testimonial-slider-container animate-on-scroll">
+                <div class="testimonial-slider" id="testimonial-slider">
+
+                    <!-- Slide 1 -->
+                    <div class="testimonial-slide active">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"My black Porsche GT3 RS had severe swirl marks from previous hand
+                            washes. The team at TRAVICE performed a multi-stage paint correction and applied the Gold
+                            Elite Ceramic. The car looks glossier than the day I picked it up from the dealership!
+                            Absolute masterclass."</p>
+                        <div class="testimonial-client">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop"
+                                alt="Client Marcus V.">
+                            <div class="client-details">
+                                <h4>Marcus Vance</h4>
+                                <span>Owner, Porsche GT3 RS</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"The water sheeting and hydrophobic action of their Silver Shield
+                            Ceramic package is incredible. Bugs and road salts just wash off with a light rinse. Highly
+                            recommend this workshop for any high-end or collector car owner."</p>
+                        <div class="testimonial-client">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150&auto=format&fit=crop"
+                                alt="Client David K.">
+                            <div class="client-details">
+                                <h4>David Kincaid</h4>
+                                <span>Owner, Audi R8 V10</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Absolute top tier service! From the initial digital booking, clear
+                            paint thickness measurements report, to the final handover under inspection lights, the
+                            experience was premium, detailed, and deeply transparent."</p>
+                        <div class="testimonial-client">
+                            <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=150&auto=format&fit=crop"
+                                alt="Client Sofia R.">
+                            <div class="client-details">
+                                <h4>Sofia Romero</h4>
+                                <span>Owner, Range Rover Autobiography</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Had a full front-end PPF wrap combined with the Silver Ceramic
+                            package on my Mercedes AMG GT63. The paintwork is now physically bulletproof. Six months
+                            later and it still looks like it drove straight off the showroom floor. Absolutely
+                            exceptional work."
+                        </p>
+                        <div class="testimonial-client">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=150&auto=format&fit=crop"
+                                alt="Client James P.">
+                            <div class="client-details">
+                                <h4>James Prescott</h4>
+                                <span>Owner, Mercedes-AMG GT63</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 5 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"The paint correction alone was worth every penny. My Ferrari had
+                            years of micro-swirls that made the red look dull in sunlight. After TRAVICE's three-stage
+                            correction and 9H ceramic, the depth and richness of the red is breathtaking. I could see my
+                            reflection perfectly."
+                        </p>
+                        <div class="testimonial-client">
+                            <img src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?q=80&w=150&auto=format&fit=crop"
+                                alt="Client Antonio R.">
+                            <div class="client-details">
+                                <h4>Antonio Russo</h4>
+                                <span>Owner, Ferrari F8 Tributo</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Slider Indicators & Navigation -->
+                <div class="slider-controls">
+                    <button class="slider-arrow prev" id="slider-prev-btn"><i class="fas fa-chevron-left"></i></button>
+                    <div class="slider-dots" id="slider-dots-container">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                    <button class="slider-arrow next" id="slider-next-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <!-- INTERACTIVE PRICING CALCULATOR -->
     <section class="calculator-section section-padding animate-on-scroll" id="pricing-calculator">
@@ -384,11 +684,12 @@
     <!-- FOOTER -->
     <footer class="footer">
 
+
         <div class="footer-top">
             <div class="section-container">
                 <div class="footer-grid">
 
-                    <!-- Col 1: About & Newsletter -->
+                    <!-- Col 1: About -->
                     <div class="footer-col about-col">
                         <a href="index.html" class="logo footer-logo">
                             <div class="logo-icon">
@@ -405,18 +706,6 @@
                         </a>
                         <p class="footer-text">State-of-the-art detailing laboratorial chambers specializing in
                             ultra-gloss correction and quartz barrier preservation.</p>
-
-                        <div class="newsletter-wrapper">
-                            <h4>Subscribe To Newsletter</h4>
-                            <form id="newsletter-form">
-                                <div class="newsletter-input-group">
-                                    <input type="email" placeholder="Your email address" aria-label="Newsletter email"
-                                        required>
-                                    <button type="submit" aria-label="Subscribe"><i
-                                            class="fas fa-chevron-right"></i></button>
-                                </div>
-                            </form>
-                        </div>
                     </div>
 
                     <!-- Col 2: Services Quick Links -->
@@ -424,12 +713,17 @@
                         <h3>Our Services</h3>
                         <ul>
                             <li><a href="services.html"><i class="fas fa-chevron-right"></i> Exterior Detailing</a></li>
-                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Interior Rejuvenation</a></li>
-                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Multi-Stage Correction</a></li>
-                            <li><a href="index.html#pricing"><i class="fas fa-chevron-right"></i> 9H Ceramic Quartz Coating</a>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Interior Rejuvenation</a>
                             </li>
-                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Engine Bay Steam Prep</a></li>
-                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Alloy Caliper Coating</a></li>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Multi-Stage Correction</a>
+                            </li>
+                            <li><a href="index.html#pricing"><i class="fas fa-chevron-right"></i> 9H Ceramic Quartz
+                                    Coating</a>
+                            </li>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Engine Bay Steam Prep</a>
+                            </li>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Alloy Caliper Coating</a>
+                            </li>
                         </ul>
                     </div>
 
@@ -439,10 +733,13 @@
                         <ul>
                             <li><a href="index.html"><i class="fas fa-chevron-right"></i> Homepage</a></li>
                             <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us Portfolio</a></li>
-                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Luxury Detailing Services</a>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Luxury Detailing
+                                    Services</a>
                             </li>
-                            <li><a href="index.html#pricing"><i class="fas fa-chevron-right"></i> Ceramic Coating Plans</a></li>
-                            <li><a href="index.html#faq"><i class="fas fa-chevron-right"></i> Detailing FAQ Center</a></li>
+                            <li><a href="index.html#pricing"><i class="fas fa-chevron-right"></i> Ceramic Coating
+                                    Plans</a></li>
+                            <li><a href="index.html#faq"><i class="fas fa-chevron-right"></i> Detailing FAQ Center</a>
+                            </li>
                         </ul>
                     </div>
 
@@ -464,6 +761,22 @@
                             <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                             <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                             <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Col 5: Newsletter -->
+                    <div class="footer-col newsletter-col">
+                        <div class="newsletter-wrapper">
+                            <h3>Newsletter</h3>
+                            <p class="footer-text" style="margin-bottom: 20px;">Subscribe to receive exclusive insights and premium detailing offers.</p>
+                            <form id="newsletter-form">
+                                <div class="newsletter-input-group">
+                                    <input type="email" placeholder="Your email address" aria-label="Newsletter email"
+                                        required>
+                                    <button type="submit" aria-label="Subscribe"><i
+                                            class="fas fa-chevron-right"></i></button>
+                                </div>
+                            </form>
                         </div>
                     </div>
 
@@ -740,7 +1053,7 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=1.1"></script>
     <script src="pages.js"></script>
 </body>
 </html>
