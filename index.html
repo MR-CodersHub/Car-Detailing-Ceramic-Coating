@@ -752,7 +752,83 @@
         </div>
     </section>
 
+    <!-- MULTI-LAYER NANO SHIELD VISUALIZER -->
+    <section class="layers-visualizer section-padding" id="layer-visualizer"
+        style="background-color: var(--color-primary-dark); border-top: 1px solid rgba(255,255,255,0.03);">
+        <div class="section-container">
+            <div class="section-header animate-on-scroll" style="text-align: center; margin-bottom: 60px;">
+                <span class="section-subhead">UNDER THE MICROSCOPE</span>
+                <h2 class="section-title">Molecular Layer <span class="highlight">Breakdown</span></h2>
+                <p style="color: var(--color-text-light); max-width: 650px; margin: 20px auto 0;">Interact with the
+                    paint layers below to visualize how our certified nanoceramic coatings fuse to your paint to create
+                    an impenetrable crystalline shield.</p>
+            </div>
 
+            <div class="layer-visualizer-container">
+                <!-- Stack of Layers -->
+                <div class="layers-stack animate-on-scroll">
+                    <!-- Layer 5 -->
+                    <div class="layer-item active" data-layer="topcoat">
+                        <div class="layer-header-flex">
+                            <span class="layer-title">Graphene Diamond 10H / 9H Ceramic Topcoat</span>
+                            <span class="layer-thickness">~ 2.0 µm</span>
+                        </div>
+                    </div>
+                    <!-- Layer 4 -->
+                    <div class="layer-item" data-layer="basecoat">
+                        <div class="layer-header-flex">
+                            <span class="layer-title">Nanoceramic Chemical Basecoat</span>
+                            <span class="layer-thickness">~ 1.5 µm</span>
+                        </div>
+                    </div>
+                    <!-- Layer 3 -->
+                    <div class="layer-item" data-layer="clearcoat">
+                        <div class="layer-header-flex">
+                            <span class="layer-title">Factory Clear Coat (Pristine Condition)</span>
+                            <span class="layer-thickness">~ 35-50 µm</span>
+                        </div>
+                    </div>
+                    <!-- Layer 2 -->
+                    <div class="layer-item" data-layer="paint">
+                        <div class="layer-header-flex">
+                            <span class="layer-title">Base Color Paint Coat</span>
+                            <span class="layer-thickness">~ 15-25 µm</span>
+                        </div>
+                    </div>
+                    <!-- Layer 1 -->
+                    <div class="layer-item" data-layer="steel">
+                        <div class="layer-header-flex">
+                            <span class="layer-title">Automotive Metal / Carbon Fiber Panel</span>
+                            <span class="layer-thickness">Base Substrate</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detail Card -->
+                <div class="layer-detail-card animate-on-scroll">
+                    <div class="layer-detail-icon">
+                        <i class="fas fa-gem" id="layer-icon"></i>
+                    </div>
+                    <div class="layer-detail-content">
+                        <h3 id="layer-title-display">Graphene Diamond 10H / 9H Ceramic Topcoat</h3>
+                        <p id="layer-desc-display">The sacrificial outer boundary layer. Delivers extreme water contact
+                            angles (>110°) for absolute hydrophobic self-cleaning performance, blocks UV rays, and
+                            prevents wash marring or environmental etching.</p>
+                        <div class="layer-specs-list" id="layer-specs-display">
+                            <div class="layer-spec-item"><i class="fas fa-certificate"></i> <span>Hardness: 9H - 10H
+                                    Rated</span></div>
+                            <div class="layer-spec-item"><i class="fas fa-thermometer-half"></i> <span>IR Curing: 60°C
+                                    Thermals</span></div>
+                            <div class="layer-spec-item"><i class="fas fa-tint"></i> <span>Contact Angle: >110°
+                                    Hydrophobic</span></div>
+                            <div class="layer-spec-item"><i class="fas fa-sun"></i> <span>UV Filter: 99.9%
+                                    Absorption</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- THE DETAILING PROCESS TIMELINE -->
     <section class="timeline" id="timeline">
@@ -872,6 +948,67 @@
                     <h3>Full UV Spectrum Protection</h3>
                     <p>Our nanoceramic matrix filters out 99.9% of solar radiation, preventing paint oxidation,
                         clearcoat peeling, and color fade over years.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLINICAL LABORATORY ENVIRONMENTAL DIAGNOSTICS -->
+    <section class="lab-diagnostics section-padding" id="lab-diagnostics"
+        style="background-color: var(--color-secondary-dark); border-top: 1px solid rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.03);">
+        <div class="section-container">
+            <div class="section-header animate-on-scroll" style="text-align: center; margin-bottom: 60px;">
+                <span class="section-subhead">CONTROLLED PRECISION</span>
+                <h2 class="section-title">Clinical Laboratory <span class="highlight">Diagnostics</span></h2>
+                <p style="color: var(--color-text-light); max-width: 650px; margin: 20px auto 0;">Certified nano-ceramic
+                    coatings require surgical environmental control. We maintain real-time telemetry on our custom
+                    cleanrooms to guarantee ideal chemical curing.</p>
+            </div>
+
+            <div class="lab-grid animate-on-scroll">
+                <!-- Card 1 -->
+                <div class="lab-card">
+                    <div class="lab-card-header">
+                        <div class="lab-icon"><i class="fas fa-wind"></i></div>
+                        <div class="lab-status-dot"></div>
+                    </div>
+                    <div class="lab-val">&lt;1,000</div>
+                    <div class="lab-label">HEPA H14 Dust Count</div>
+                    <p class="lab-desc">Particles/m³ monitored via laser diagnostics. Prevents particulate contamination
+                        during application.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="lab-card">
+                    <div class="lab-card-header">
+                        <div class="lab-icon"><i class="fas fa-thermometer-half"></i></div>
+                        <div class="lab-status-dot"></div>
+                    </div>
+                    <div class="lab-val">22°C</div>
+                    <div class="lab-label">Cleanroom Temperature</div>
+                    <p class="lab-desc">Locked at 22°C (±0.5°C) to govern optimal chemical flash off times and molecular
+                        alignment.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="lab-card">
+                    <div class="lab-card-header">
+                        <div class="lab-icon"><i class="fas fa-percentage"></i></div>
+                        <div class="lab-status-dot"></div>
+                    </div>
+                    <div class="lab-val">45%</div>
+                    <div class="lab-label">Relative Humidity</div>
+                    <p class="lab-desc">Maintained at 45% (±3%) to control the moisture-curing reaction rate of SiO2
+                        nanopolymers.</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="lab-card">
+                    <div class="lab-card-header">
+                        <div class="lab-icon"><i class="fas fa-sun"></i></div>
+                        <div class="lab-status-dot"></div>
+                    </div>
+                    <div class="lab-val">60°C</div>
+                    <div class="lab-label">Dynamic Curing Array</div>
+                    <p class="lab-desc">Shortwave infrared panels cure basecoats at 60°C, accelerating cross-linking and
+                        bonding.</p>
                 </div>
             </div>
         </div>
@@ -1036,6 +1173,181 @@
                     </div>
                     <button class="slider-arrow next" id="slider-next-btn"><i class="fas fa-chevron-right"></i></button>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE PAINT DEFECT DIAGNOSTIC ASSISTANT -->
+    <section class="paint-diagnostic section-padding" id="paint-diagnostic"
+        style="background-color: var(--color-primary-dark); border-top: 1px solid rgba(255,255,255,0.03);">
+        <div class="section-container">
+            <div class="section-header animate-on-scroll" style="text-align: center; margin-bottom: 60px;">
+                <span class="section-subhead">DIAGNOSE YOUR PAINT</span>
+                <h2 class="section-title">Paint Defect <span class="highlight">Analyzer</span></h2>
+                <p style="color: var(--color-text-light); max-width: 650px; margin: 20px auto 0;">Select your vehicle's
+                    surface symptom below to understand the cause, the required restoration process, and our recommended
+                    preservation package.</p>
+            </div>
+
+            <div class="diagnostic-container animate-on-scroll">
+                <!-- Symptom Tabs -->
+                <div class="diagnostic-tabs">
+                    <button class="diagnostic-tab-btn active" data-symptom="swirls">
+                        <i class="fas fa-redo"></i>
+                        <span>Swirls & Cobwebs</span>
+                    </button>
+                    <button class="diagnostic-tab-btn" data-symptom="oxidation">
+                        <i class="fas fa-cloud"></i>
+                        <span>Oxidation & Haze</span>
+                    </button>
+                    <button class="diagnostic-tab-btn" data-symptom="spots">
+                        <i class="fas fa-tint"></i>
+                        <span>Water Spots & Etching</span>
+                    </button>
+                    <button class="diagnostic-tab-btn" data-symptom="scratches">
+                        <i class="fas fa-slash"></i>
+                        <span>Deep Scratches</span>
+                    </button>
+                </div>
+
+                <!-- Panels -->
+                <!-- Panel 1: Swirls -->
+                <div class="diagnostic-panel active" id="diag-swirls">
+                    <div class="diagnostic-info">
+                        <span class="severity-badge severity-low">Severity: Low / Medium</span>
+                        <h3>Swirl Marks & Cobweb Lines</h3>
+                        <p>Fine scratches on the clear coat surface, visible under direct sunlight or inspection lamps.
+                            Usually caused by improper washing, automatic car washes, or dusty towels.</p>
+                        <div class="diagnostic-steps">
+                            <div class="diagnostic-step">
+                                <div class="diagnostic-step-num">1</div>
+                                <span>Multi-step paint decontamination bath to remove grit.</span>
+                            </div>
+                            <div class="diagnostic-step">
+                                <div class="diagnostic-step-num">2</div>
+                                <span>Stage 1 machine compounding and polish refinement to level the clear coat.</span>
+                            </div>
+                            <div class="diagnostic-step">
+                                <div class="diagnostic-step-num">3</div>
+                                <span>Application of Ceramic Coating to lock in high gloss.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="diagnostic-recommendation">
+                        <h4>Recommended Action</h4>
+                        <div class="pkg-highlight">Silver Shield Package</div>
+                        <p style="font-size: 0.85rem; line-height: 1.5; margin-bottom: 20px;">A 2-stage correction
+                            completely removes fine swirls, restoring depth and clarity to the paint before the 3-year
+                            quartz protection is applied.</p>
+                        <a href="#contact" class="btn-primary"
+                            style="display: block; text-align: center; font-size: 0.8rem; padding: 10px 0;">BOOK
+                            DIAGNOSIS</a>
+                    </div>
+                </div>
+
+                <!-- Panel 2: Oxidation -->
+                <div class="diagnostic-panel" id="diag-oxidation">
+                    <div class="diagnostic-info">
+                        <span class="severity-badge severity-medium">Severity: Medium</span>
+                        <h3>Paint Oxidation & Haze</h3>
+                        <p>Dull, fading, or chalky paint. Caused by long-term ultraviolet (UV) exposure from sunlight
+                            and lack of paint protection, leading to clearcoat degradation.</p>
+                        <div class="diagnostic-steps">
+                            <div class="diagnostic-step">
+                                <div class="diagnostic-step-num">1</div>
+                                <span>Chemical paint decontamination and clay bar smoothing.</span>
+                            </div>
+                            <div class="diagnostic-step">
+                                <div class="diagnostic-step-num">2</div>
+                                <span>Stage 2 machine correction to compound away the oxidized clearcoat layer.</span>
+                            </div>
+                            <div class="diagnostic-step">
+                                <div class="diagnostic-step-num">3</div>
+                                <span>9H Graphene or Ceramic application to block future UV degradation.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="diagnostic-recommendation">
+                        <h4>Recommended Action</h4>
+                        <div class="pkg-highlight">Gold Elite Package</div>
+                        <p style="font-size: 0.85rem; line-height: 1.5; margin-bottom: 20px;">Requires intensive
+                            compounding to remove the oxidized layer, followed by a lifetime warranty UV block to
+                            prevent chemical fading.</p>
+                        <a href="#contact" class="btn-primary"
+                            style="display: block; text-align: center; font-size: 0.8rem; padding: 10px 0;">BOOK
+                            DIAGNOSIS</a>
+                    </div>
+                </div>
+
+                <!-- Panel 3: Spots -->
+                <div class="diagnostic-panel" id="diag-spots">
+                    <div class="diagnostic-info">
+                        <span class="severity-badge severity-medium">Severity: Medium</span>
+                        <h3>Water Spots & Acid Etching</h3>
+                        <p>White rings or mineral deposits etched into the clearcoat. Caused by hard tap water, acid
+                            rain, bird droppings, or tree sap baking on hot body panels.</p>
+                        <div class="diagnostic-steps">
+                            <div class="diagnostic-step">
+                                <div class="diagnostic-step-num">1</div>
+                                <span>Acid wash decontamination to dissolve calcium/mineral buildup.</span>
+                            </div>
+                            <div class="diagnostic-step">
+                                <div class="diagnostic-step-num">2</div>
+                                <span>Precision spot wet-sanding or rotary compounding depending on depth.</span>
+                            </div>
+                            <div class="diagnostic-step">
+                                <div class="diagnostic-step-num">3</div>
+                                <span>Hydrophobic ceramic topcoat application to repel water sheeting.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="diagnostic-recommendation">
+                        <h4>Recommended Action</h4>
+                        <div class="pkg-highlight">Silver or Gold Shield</div>
+                        <p style="font-size: 0.85rem; line-height: 1.5; margin-bottom: 20px;">Deep spots require
+                            dual-stage compounding. The hydrophobic topcoat prevents water from sitting and baking in
+                            the future.</p>
+                        <a href="#contact" class="btn-primary"
+                            style="display: block; text-align: center; font-size: 0.8rem; padding: 10px 0;">BOOK
+                            DIAGNOSIS</a>
+                    </div>
+                </div>
+
+                <!-- Panel 4: Scratches -->
+                <div class="diagnostic-panel" id="diag-scratches">
+                    <div class="diagnostic-info">
+                        <span class="severity-badge severity-high">Severity: High</span>
+                        <h3>Deep Surface Scratches</h3>
+                        <p>Deep lines cut into the clearcoat (sometimes exposing white basecoat/primer). Caused by
+                            keyings, hedges, or heavy physical impact.</p>
+                        <div class="diagnostic-steps">
+                            <div class="diagnostic-step">
+                                <div class="diagnostic-step-num">1</div>
+                                <span>Digital paint depth check to measure remaining clearcoat safety margins.</span>
+                            </div>
+                            <div class="diagnostic-step">
+                                <div class="diagnostic-step-num">2</div>
+                                <span>Local wet-sanding and micro-rotary polishing.</span>
+                            </div>
+                            <div class="diagnostic-step">
+                                <div class="diagnostic-step-num">3</div>
+                                <span>Self-Healing PPF application over repaired panel for physical impact
+                                    armoring.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="diagnostic-recommendation">
+                        <h4>Recommended Action</h4>
+                        <div class="pkg-highlight">Paint Correction + PPF Wrap</div>
+                        <p style="font-size: 0.85rem; line-height: 1.5; margin-bottom: 20px;">Deep scratches cannot be
+                            corrected by ceramic coating alone; they require paint level refinement and a physical
+                            self-healing PPF wrap.</p>
+                        <a href="#contact" class="btn-primary"
+                            style="display: block; text-align: center; font-size: 0.8rem; padding: 10px 0;">BOOK
+                            DIAGNOSIS</a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>

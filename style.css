@@ -108,6 +108,38 @@ img {
     color: var(--color-accent);
 }
 
+/* ==========================================================================
+   SCROLL & LOAD ANIMATION BASE UTILITIES (Declared early to let states override them)
+   ========================================================================== */
+/* Initial states for load in items */
+.animate-on-load {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.animate-on-load.ready {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.hero-content .animate-on-load:nth-child(1) { transition-delay: 0.1s; }
+.hero-content .animate-on-load:nth-child(2) { transition-delay: 0.3s; }
+.hero-content .animate-on-load:nth-child(3) { transition-delay: 0.5s; }
+.hero-content .animate-on-load:nth-child(4) { transition-delay: 0.7s; }
+
+/* Scroll Trigger elements CSS states */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity 1s cubic-bezier(0.1, 1, 0.1, 1), transform 1s cubic-bezier(0.1, 1, 0.1, 1);
+}
+
+.animate-on-scroll.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* --- PREMIUM BUTTON DESIGN --- */
 .btn-primary {
     background-color: var(--color-accent);
@@ -629,6 +661,7 @@ img {
     background-color: var(--color-accent);
 }
 
+
 /* --- HERO SECTION --- */
 .hero {
     position: relative;
@@ -1052,6 +1085,10 @@ img {
     cursor: pointer;
     transition: var(--transition-smooth);
     margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
 .btn-quick-submit:hover {
@@ -1186,16 +1223,18 @@ img {
 
 /* Service Card Components */
 .service-card {
+    position: relative;
     background-color: var(--color-secondary-dark);
     border: 1px solid var(--color-card-border);
     border-radius: var(--border-radius-lg);
     overflow: hidden;
     box-shadow: var(--shadow-premium);
     transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
 }
 
 .card-img-wrapper {
-    position: relative;
     width: 100%;
     height: 230px;
     overflow: hidden;
@@ -1212,7 +1251,7 @@ img {
 /* Floating Yellow Accent Badge with icon */
 .badge-icon {
     position: absolute;
-    bottom: -20px;
+    top: 207px;
     right: 25px;
     width: 46px;
     height: 46px;
@@ -1230,6 +1269,9 @@ img {
 
 .service-info {
     padding: 35px 30px 30px 30px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .service-info h3 {
@@ -1245,6 +1287,7 @@ img {
     color: var(--color-text-light);
     line-height: 1.6;
     margin-bottom: 25px;
+    flex-grow: 1;
 }
 
 .service-link {
@@ -1392,6 +1435,7 @@ img {
     margin-bottom: 45px;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     padding-top: 30px;
+    flex-grow: 1;
 }
 
 .pricing-features li {
@@ -2887,34 +2931,6 @@ img {
 /* ==========================================================================
    SCROLL INTERACTIVE ANIMATIONS
    ========================================================================== */
-/* Initial states for load in items */
-.animate-on-load {
-    opacity: 0;
-    transform: translateY(20px);
-}
-
-.animate-on-load.ready {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.hero-content .animate-on-load:nth-child(1) { transition-delay: 0.1s; }
-.hero-content .animate-on-load:nth-child(2) { transition-delay: 0.3s; }
-.hero-content .animate-on-load:nth-child(3) { transition-delay: 0.5s; }
-.hero-content .animate-on-load:nth-child(4) { transition-delay: 0.7s; }
-
-/* Scroll Trigger elements CSS states */
-.animate-on-scroll {
-    opacity: 0;
-    transform: translateY(35px);
-    transition: opacity 1s cubic-bezier(0.1, 1, 0.1, 1), transform 1s cubic-bezier(0.1, 1, 0.1, 1);
-}
-
-.animate-on-scroll.appear {
-    opacity: 1;
-    transform: translateY(0);
-}
 
 /* ==========================================================================
    TRAVICE THEME SWITCHER & LIGHT MODE SYSTEM
@@ -2924,16 +2940,16 @@ img {
 .theme-toggle {
     width: 62px;
     height: 32px;
-    background-color: rgba(13, 22, 41, 0.8);
-    border: 1.5px solid rgba(255, 184, 0, 0.25);
+    background: linear-gradient(145deg, rgba(8, 12, 20, 0.96), rgba(15, 23, 42, 0.94));
+    border: 1.5px solid rgba(255, 255, 255, 0.14);
     border-radius: 30px;
     position: relative;
     cursor: pointer;
     display: flex;
     align-items: center;
     padding: 0 4px;
-    transition: var(--transition-smooth);
-    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5), 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.15s ease;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.45), 0 4px 10px rgba(0, 0, 0, 0.24);
     overflow: visible;
     margin-right: 8px;
     z-index: 1001;
@@ -2942,65 +2958,99 @@ img {
 .theme-toggle-bubble {
     width: 22px;
     height: 22px;
-    background: linear-gradient(135deg, #FFB800, #E0A200);
+    position: relative;
+    background: linear-gradient(135deg, #111827 0%, #1F2937 45%, #0B1220 100%);
+    border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), background 0.4s ease, box-shadow 0.4s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), background 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.08);
     transform: translateX(0);
 }
 
 .theme-toggle-bubble i {
     font-size: 0.75rem;
-    color: #050811;
-    transition: transform 0.4s ease, opacity 0.4s ease;
+    line-height: 1;
+    color: #F8FAFC;
     position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%);
+    transition: transform 0.35s ease, opacity 0.35s ease, color 0.35s ease;
+    text-shadow: 0 1px 2px rgba(15, 23, 42, 0.4);
 }
 
 .theme-toggle-bubble .sun-icon {
     opacity: 0;
-    transform: rotate(-90deg) scale(0);
+    transform: translate(-50%, -50%) rotate(-90deg) scale(0.8);
 }
 
 .theme-toggle-bubble .moon-icon {
     opacity: 1;
-    transform: rotate(0) scale(1);
+    transform: translate(-50%, -50%) rotate(0) scale(1);
 }
 
-/* Hover effects */
 .theme-toggle:hover {
-    border-color: var(--color-accent);
-    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5), 0 0 15px rgba(var(--color-accent-rgb), 0.3);
+    border-color: rgba(255, 184, 0, 0.55);
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.45), 0 0 18px rgba(var(--color-accent-rgb), 0.22);
+}
+
+.theme-toggle:hover .theme-toggle-bubble {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.12);
+}
+
+.theme-toggle:focus-visible {
+    outline: none;
+    border-color: rgba(255, 184, 0, 0.9);
+    box-shadow: 0 0 0 3px rgba(255, 184, 0, 0.18), inset 0 2px 5px rgba(0, 0, 0, 0.45), 0 0 18px rgba(var(--color-accent-rgb), 0.26);
+}
+
+.theme-toggle:active {
+    transform: translateY(1px);
 }
 
 /* Light theme state animations */
 html[data-theme="light"] .theme-toggle {
-    background-color: #E2E8F0;
-    border-color: var(--color-accent);
-    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1), 0 4px 10px rgba(0, 0, 0, 0.05);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(238, 244, 250, 0.98));
+    border-color: rgba(15, 23, 42, 0.14);
+    box-shadow: inset 0 2px 5px rgba(15, 23, 42, 0.08), 0 6px 14px rgba(15, 23, 42, 0.08);
 }
 
 html[data-theme="light"] .theme-toggle-bubble {
     transform: translateX(30px);
-    background: linear-gradient(135deg, var(--color-accent), #C57E00);
-    box-shadow: 0 2px 8px rgba(var(--color-accent-rgb), 0.4);
+    background: linear-gradient(135deg, #FFFFFF 0%, #F1F5F9 45%, #E2E8F0 100%);
+    border-color: rgba(15, 23, 42, 0.16);
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.14), inset 0 1px 1px rgba(255, 255, 255, 0.9);
+}
+
+html[data-theme="light"] .theme-toggle-bubble i {
+    color: #111827;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 html[data-theme="light"] .theme-toggle-bubble .moon-icon {
     opacity: 0;
-    transform: rotate(90deg) scale(0);
+    transform: translate(-50%, -50%) rotate(90deg) scale(0.8);
 }
 
 html[data-theme="light"] .theme-toggle-bubble .sun-icon {
     opacity: 1;
-    transform: rotate(0) scale(1);
-    color: #FFFFFF;
+    transform: translate(-50%, -50%) rotate(0) scale(1);
+    color: #111827;
 }
 
 html[data-theme="light"] .theme-toggle:hover {
-    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1), 0 0 15px rgba(var(--color-accent-rgb), 0.2);
+    border-color: rgba(15, 23, 42, 0.24);
+    box-shadow: inset 0 2px 5px rgba(15, 23, 42, 0.08), 0 0 18px rgba(var(--color-accent-rgb), 0.18);
+}
+
+html[data-theme="light"] .theme-toggle:hover .theme-toggle-bubble {
+    box-shadow: 0 5px 12px rgba(15, 23, 42, 0.16), inset 0 1px 1px rgba(255, 255, 255, 0.9);
 }
 
 /* --- PREMIUM RTL DYNAMIC SWITCHER --- */
@@ -3039,7 +3089,6 @@ html[data-theme="light"] .theme-toggle:hover {
     font-size: 0.75rem;
     color: #050811;
     transition: transform 0.4s ease, opacity 0.4s ease;
-    position: absolute;
 }
 
 .rtl-toggle-text {
@@ -5545,6 +5594,75 @@ html[data-theme="light"] .warranty-badge:hover {
         border-bottom: none;
         padding-bottom: 0;
     }
+}
+
+/* ==========================================================================
+   UI CONTRAST & ACCESSIBILITY ACCENT OVERRIDES (LIGHT MODE)
+   ========================================================================== */
+html[data-theme="light"] .rtl-toggle-bubble i {
+    color: #050811;
+}
+
+html[data-theme="light"] .ba-label.after {
+    color: #050811;
+}
+
+html[data-theme="light"] .ba-handle-knob {
+    color: #050811;
+    box-shadow: 0 0 15px rgba(var(--color-accent-rgb), 0.5), 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+html[data-theme="light"] .ba-slider-container:hover .ba-handle-knob {
+    background-color: #050811;
+    color: #FFFFFF;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.25), 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+html[data-theme="light"] .slider-handle {
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.35), 0 0 10px rgba(var(--color-accent-rgb), 0.6);
+}
+
+html[data-theme="light"] .back-to-top:hover {
+    color: #FFFFFF;
+    background-color: #0F172A;
+}
+
+html[data-theme="light"] .mobile-socials a {
+    color: #1E293B;
+    background-color: rgba(15, 23, 42, 0.05);
+}
+
+html[data-theme="light"] .mobile-socials a:hover {
+    color: #FFFFFF;
+    background-color: var(--color-accent-hover);
+}
+
+html[data-theme="light"] .service-link {
+    color: var(--color-accent-hover);
+}
+
+html[data-theme="light"] .service-card:hover .service-link {
+    color: #0F172A;
+}
+
+html[data-theme="light"] .badge-icon {
+    color: #050811;
+}
+
+html[data-theme="light"] .custom-select-wrapper select {
+    color-scheme: light;
+}
+
+html[data-theme="light"] .custom-select-wrapper::after {
+    color: #334155;
+}
+
+html[data-theme="light"] .btn-reminder-snooze {
+    color: #050811;
+}
+
+html[data-theme="light"] .reminder-icon {
+    color: var(--color-accent-hover);
 }
 
 

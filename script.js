@@ -74,8 +74,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
+
     /* ==========================================================================
-       3. MOBILE DROPDOWN HAMBURGER MENU DRAWER
+       4. MOBILE DROPDOWN HAMBURGER MENU DRAWER
        ========================================================================== */
     const hamburgerBtn = document.getElementById('hamburger-btn');
     const mobileMenu = document.getElementById('mobile-menu');
