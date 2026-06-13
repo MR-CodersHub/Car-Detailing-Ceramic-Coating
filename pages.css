@@ -996,6 +996,7 @@ html[data-theme="light"] .lightbox-close {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 16px;
 }
 .layer-title {
     font-family: var(--font-heading);
@@ -1012,6 +1013,8 @@ html[data-theme="light"] .lightbox-close {
     padding: 3px 10px;
     border-radius: 4px;
     letter-spacing: 0.5px;
+    flex-shrink: 0;
+    white-space: nowrap;
 }
 .layer-detail-card {
     background: var(--color-card-bg);
@@ -1483,6 +1486,18 @@ html[data-theme="light"] .layer-item.active {
 }
 
 /* Responsive Overrides */
+@media (max-width: 1200px) and (min-width: 992px) {
+    .layer-visualizer-container {
+        gap: 24px;
+    }
+    .layer-item {
+        padding: 14px 18px;
+    }
+    .layer-title {
+        font-size: 0.9rem;
+    }
+}
+
 @media (max-width: 991px) {
     .layer-visualizer-container {
         grid-template-columns: 1fr;
@@ -1541,4 +1556,468 @@ html[data-theme="light"] .layer-item.active {
         grid-template-columns: 1fr;
     }
 }
+
+/* ==========================================================================
+   REDESIGNED PREMIUM COMPONENT STYLING
+   ========================================================================== */
+
+/* CCTV Container & Scanlines */
+.cctv-container {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    background: #000;
+}
+.cctv-screen {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.cctv-screen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.85;
+    filter: saturate(0.8) contrast(1.1);
+}
+.cctv-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        rgba(18, 16, 16, 0) 50%, 
+        rgba(0, 0, 0, 0.25) 50%
+    ), linear-gradient(
+        90deg, 
+        rgba(255, 0, 0, 0.06), 
+        rgba(0, 255, 0, 0.02), 
+        rgba(0, 0, 255, 0.06)
+    );
+    background-size: 100% 4px, 3px 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+.cctv-scanline {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.08) 10%,
+        rgba(255, 255, 255, 0) 20%
+    );
+    animation: cctv-scan 6s linear infinite;
+    pointer-events: none;
+    z-index: 3;
+}
+.cctv-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(0, 0, 0, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #FFFFFF;
+    font-family: monospace;
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 4px;
+    z-index: 4;
+    letter-spacing: 1px;
+}
+.cctv-rec-dot {
+    width: 8px;
+    height: 8px;
+    background: #FF2A54;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #FF2A54;
+    animation: cctv-blink 1.5s infinite;
+}
+.cctv-cam-name {
+    position: absolute;
+    bottom: 12px;
+    left: 15px;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: monospace;
+    font-size: 0.72rem;
+    z-index: 4;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9);
+}
+.cctv-timestamp {
+    position: absolute;
+    bottom: 12px;
+    right: 15px;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: monospace;
+    font-size: 0.72rem;
+    z-index: 4;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9);
+}
+
+/* Simulated Environmental Gauges (Cleanroom Standards) */
+.cleanroom-gauges-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+.gauge-card {
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-card-border);
+    border-radius: var(--border-radius-lg);
+    padding: 35px 25px;
+    text-align: center;
+    box-shadow: var(--shadow-premium);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: var(--transition-smooth);
+}
+.gauge-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-glow);
+}
+.gauge-dial-wrapper {
+    position: relative;
+    width: 130px;
+    height: 130px;
+    margin-bottom: 20px;
+}
+.gauge-svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+.gauge-track {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.05);
+    stroke-width: 8;
+}
+.gauge-fill {
+    fill: none;
+    stroke: var(--color-accent);
+    stroke-width: 8;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 1s ease-out;
+}
+.gauge-value-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--color-text-white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.gauge-unit {
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: -2px;
+}
+.gauge-label {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1.05rem;
+    color: var(--color-text-white);
+    margin-bottom: 10px;
+}
+.gauge-desc {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+    line-height: 1.5;
+}
+
+/* Split Panel Layouts (Precision Tools & Quality Pledge) */
+.split-panel-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 50px;
+    align-items: center;
+    margin-top: 40px;
+}
+.split-panel-media {
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    border: 1px solid rgba(255, 184, 0, 0.15);
+    box-shadow: var(--shadow-premium);
+    height: 480px;
+    position: relative;
+}
+.split-panel-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.split-panel-media-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(10, 17, 32, 0.9) 0%, rgba(10, 17, 32, 0.2) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 35px;
+}
+.split-panel-media-tag {
+    color: var(--color-accent);
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+.split-panel-media-title {
+    color: #FFFFFF;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+/* Premium Checklist layout */
+.checklist-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+.checklist-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.checklist-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+.checklist-icon {
+    width: 26px;
+    height: 26px;
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #22c55e;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+.checklist-info h3 {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 6px;
+}
+.checklist-info p {
+    color: var(--color-text-light);
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+/* Master Quality Seal Stamp */
+.stamp-seal {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 3px dashed rgba(255, 184, 0, 0.4);
+    padding: 15px 25px;
+    border-radius: 8px;
+    width: fit-content;
+    transform: rotate(-6deg);
+    margin-top: 30px;
+    background: rgba(255, 184, 0, 0.02);
+    box-shadow: 0 0 15px rgba(255, 184, 0, 0.05);
+}
+.stamp-seal i {
+    font-size: 1.6rem;
+    color: var(--color-accent);
+    margin-bottom: 6px;
+}
+.stamp-title {
+    font-family: var(--font-heading);
+    font-size: 0.68rem;
+    font-weight: 900;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+.stamp-status {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Timeline Milestones with Thumbnails */
+.milestone-media-wrapper {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-top: 15px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.08);
+    padding-top: 15px;
+}
+.milestone-thumb {
+    width: 70px;
+    height: 70px;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    flex-shrink: 0;
+}
+.milestone-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.milestone-desc-short {
+    font-size: 0.82rem;
+    color: var(--color-text-light);
+    line-height: 1.5;
+}
+
+/* Telemetry fluctuates indicators */
+.telemetry-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    background: rgba(16, 185, 129, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    color: #10b981;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+.telemetry-indicator i {
+    font-size: 0.5rem;
+    animation: cctv-blink 1.5s infinite;
+}
+
+/* Paint defect cards inside Defect Analyzer */
+.defect-card-media {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+}
+.defect-card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.defect-card-media-overlay {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: rgba(0, 0, 0, 0.75);
+    border: 1px solid rgba(255, 184, 0, 0.3);
+    color: var(--color-accent);
+    font-family: var(--font-heading);
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 4px 8px;
+    border-radius: 4px;
+    letter-spacing: 1px;
+}
+
+/* Light Mode Overrides for newly added components */
+html[data-theme="light"] .cctv-container {
+    border-color: rgba(0, 0, 0, 0.08);
+}
+html[data-theme="light"] .gauge-card {
+    background: #FFFFFF;
+    border-color: rgba(0, 0, 0, 0.08);
+}
+html[data-theme="light"] .gauge-track {
+    stroke: rgba(0, 0, 0, 0.05);
+}
+html[data-theme="light"] .gauge-value-center,
+html[data-theme="light"] .gauge-label,
+html[data-theme="light"] .split-panel-media-title,
+html[data-theme="light"] .checklist-info h3 {
+    color: #0F172A;
+}
+html[data-theme="light"] .checklist-item {
+    border-bottom-color: rgba(0, 0, 0, 0.05);
+}
+html[data-theme="light"] .stamp-seal {
+    background: rgba(255, 184, 0, 0.02);
+}
+html[data-theme="light"] .milestone-media-wrapper {
+    border-top-color: rgba(0, 0, 0, 0.05);
+}
+html[data-theme="light"] .milestone-thumb {
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+/* Animations Definitions */
+@keyframes cctv-scan {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+@keyframes cctv-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Responsiveness overrides for newly added layouts */
+@media (max-width: 991px) {
+    .cleanroom-gauges-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .split-panel-layout {
+        grid-template-columns: 1fr;
+    }
+    .split-panel-media {
+        height: 350px;
+    }
+}
+@media (max-width: 575px) {
+    .cleanroom-gauges-container {
+        grid-template-columns: 1fr;
+    }
+    .milestone-media-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
 

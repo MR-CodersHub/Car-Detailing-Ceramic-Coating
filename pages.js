@@ -227,5 +227,45 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    /* --- REAL-TIME ENVIRONMENTAL TELEMETRY SIMULATION --- */
+    const tempEl = document.getElementById('telemetry-temp');
+    const humidityEl = document.getElementById('telemetry-humidity');
+    const dustEl = document.getElementById('telemetry-dust');
+
+    if (tempEl || humidityEl || dustEl) {
+        setInterval(() => {
+            if (tempEl) {
+                const currentTemp = parseFloat(tempEl.textContent);
+                const delta = (Math.random() - 0.5) * 0.2;
+                const newTemp = Math.min(22.5, Math.max(21.5, currentTemp + delta));
+                tempEl.textContent = newTemp.toFixed(1);
+            }
+            if (humidityEl) {
+                const currentHumidity = parseFloat(humidityEl.textContent);
+                const delta = (Math.random() - 0.5) * 0.4;
+                const newHumidity = Math.min(47.0, Math.max(43.0, currentHumidity + delta));
+                humidityEl.textContent = newHumidity.toFixed(1);
+            }
+            if (dustEl) {
+                const currentDust = parseInt(dustEl.textContent);
+                const delta = Math.round((Math.random() - 0.5) * 6);
+                const newDust = Math.min(1010, Math.max(960, currentDust + delta));
+                dustEl.textContent = newDust;
+            }
+        }, 3000);
+    }
+
+    /* --- CCTV CLOCK TICKER --- */
+    const cctvClock = document.getElementById('cctv-clock');
+    if (cctvClock) {
+        setInterval(() => {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            cctvClock.textContent = `${hours}:${minutes}:${seconds}`;
+        }, 1000);
+    }
 });
 

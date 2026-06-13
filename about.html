@@ -202,7 +202,12 @@
                     <div class="milestone-card">
                         <div class="milestone-year">2010</div>
                         <h3 class="milestone-title">The Boutique Workshop</h3>
-                        <p style="color: var(--color-text-light); font-size: 0.88rem; line-height: 1.6;">Founded as a high-end hand compounding garage for local luxury vehicle clubs, prioritizing correction quality over volume.</p>
+                        <div class="milestone-media-wrapper">
+                            <div class="milestone-thumb">
+                                <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=150&auto=format&fit=crop" alt="Boutique Detailing Studio 2010">
+                            </div>
+                            <p class="milestone-desc-short">Founded as a high-end hand compounding garage for local luxury vehicle clubs, prioritizing correction quality over volume.</p>
+                        </div>
                     </div>
                 </div>
                 <!-- Milestone 2 -->
@@ -211,7 +216,12 @@
                     <div class="milestone-card">
                         <div class="milestone-year">2015</div>
                         <h3 class="milestone-title">IDA Accreditation & Cleanroom</h3>
-                        <p style="color: var(--color-text-light); font-size: 0.88rem; line-height: 1.6;">Officially accredited by the International Detailing Association. Built our first climate-regulated dust-free chamber.</p>
+                        <div class="milestone-media-wrapper">
+                            <div class="milestone-thumb">
+                                <img src="https://images.unsplash.com/photo-1599256872237-5dcc0fbe9668?q=80&w=150&auto=format&fit=crop" alt="IDA Detailing Cleanroom 2015">
+                            </div>
+                            <p class="milestone-desc-short">Officially accredited by the International Detailing Association. Built our first climate-regulated dust-free chamber.</p>
+                        </div>
                     </div>
                 </div>
                 <!-- Milestone 3 -->
@@ -220,7 +230,12 @@
                     <div class="milestone-card">
                         <div class="milestone-year">2020</div>
                         <h3 class="milestone-title">Proprietary Nano-Formulations</h3>
-                        <p style="color: var(--color-text-light); font-size: 0.88rem; line-height: 1.6;">Partnered with leading German chemistry laboratories to engineer custom SiO2 and Graphene coating matrix solutions.</p>
+                        <div class="milestone-media-wrapper">
+                            <div class="milestone-thumb">
+                                <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=150&auto=format&fit=crop" alt="Nano Ceramic Formulations 2020">
+                            </div>
+                            <p class="milestone-desc-short">Partnered with leading German chemistry laboratories to engineer custom SiO2 and Graphene coating matrix solutions.</p>
+                        </div>
                     </div>
                 </div>
                 <!-- Milestone 4 -->
@@ -229,7 +244,12 @@
                     <div class="milestone-card">
                         <div class="milestone-year">2026</div>
                         <h3 class="milestone-title">ISO-Chamber Lab Expansion</h3>
-                        <p style="color: var(--color-text-light); font-size: 0.88rem; line-height: 1.6;">Inaugurated our multi-bay cleanroom facility featuring real-time environmental diagnostics and custom user dashboards.</p>
+                        <div class="milestone-media-wrapper">
+                            <div class="milestone-thumb">
+                                <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=150&auto=format&fit=crop" alt="ISO Chamber Cleanroom 2026">
+                            </div>
+                            <p class="milestone-desc-short">Inaugurated our multi-bay cleanroom facility featuring real-time environmental diagnostics and custom user dashboards.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -290,46 +310,66 @@
                 <p style="color: var(--color-text-light);">True ceramic bonding cannot happen in a standard garage. Dust, humidity, and airflow are strictly regulated in our detailing chambers to ensure flawless coating adhesion.</p>
             </div>
 
-            <div class="lab-grid animate-on-scroll">
-                <!-- Card 1 -->
-                <div class="lab-card">
-                    <div class="lab-card-header">
-                        <div class="lab-icon"><i class="fas fa-filter"></i></div>
-                        <div class="lab-status-dot"></div>
+            <div class="cleanroom-gauges-container animate-on-scroll">
+                <!-- Card 1: HEPA -->
+                <div class="gauge-card">
+                    <div class="gauge-dial-wrapper">
+                        <svg class="gauge-svg" viewBox="0 0 100 100">
+                            <circle class="gauge-track" cx="50" cy="50" r="40" />
+                            <circle class="gauge-fill" cx="50" cy="50" r="40" stroke-dasharray="251.2" stroke-dashoffset="0.1" stroke="#00E5FF" />
+                        </svg>
+                        <div class="gauge-value-center">
+                            99.9%
+                            <span class="gauge-unit">HEPA</span>
+                        </div>
                     </div>
-                    <div class="lab-val">HEPA H14</div>
-                    <div class="lab-label">99.995% Air Filtration</div>
-                    <p class="lab-desc">H14 medical-grade HEPA filters scrub environmental air, trapping sub-micron particulates to eliminate paint contamination.</p>
+                    <h3 class="gauge-label">HEPA H14 Air Filter</h3>
+                    <p class="gauge-desc">Medical-grade HEPA filters scrub environmental air, trapping sub-micron particulates to eliminate paint contamination.</p>
                 </div>
-                <!-- Card 2 -->
-                <div class="lab-card">
-                    <div class="lab-card-header">
-                        <div class="lab-icon"><i class="fas fa-thermometer-three-quarters"></i></div>
-                        <div class="lab-status-dot"></div>
+                <!-- Card 2: Climate -->
+                <div class="gauge-card">
+                    <div class="gauge-dial-wrapper">
+                        <svg class="gauge-svg" viewBox="0 0 100 100">
+                            <circle class="gauge-track" cx="50" cy="50" r="40" />
+                            <circle class="gauge-fill" cx="50" cy="50" r="40" stroke-dasharray="251.2" stroke-dashoffset="62.8" stroke="#FFB800" />
+                        </svg>
+                        <div class="gauge-value-center">
+                            22°C
+                            <span class="gauge-unit">Climate</span>
+                        </div>
                     </div>
-                    <div class="lab-val">22°C / 45%</div>
-                    <div class="lab-label">Thermo-Hygro Lock</div>
-                    <p class="lab-desc">Environmental controls seal temperature at 22°C and humidity at 45% to ensure precise chemical flashing and curing ratios.</p>
+                    <h3 class="gauge-label">Thermo-Hygro Lock</h3>
+                    <p class="gauge-desc">Environmental controls seal temperature at 22°C and humidity at 45% to ensure precise chemical flashing.</p>
                 </div>
-                <!-- Card 3 -->
-                <div class="lab-card">
-                    <div class="lab-card-header">
-                        <div class="lab-icon"><i class="fas fa-lightbulb"></i></div>
-                        <div class="lab-status-dot"></div>
+                <!-- Card 3: LED Tunnel -->
+                <div class="gauge-card">
+                    <div class="gauge-dial-wrapper">
+                        <svg class="gauge-svg" viewBox="0 0 100 100">
+                            <circle class="gauge-track" cx="50" cy="50" r="40" />
+                            <circle class="gauge-fill" cx="50" cy="50" r="40" stroke-dasharray="251.2" stroke-dashoffset="25.1" stroke="#10b981" />
+                        </svg>
+                        <div class="gauge-value-center">
+                            98+
+                            <span class="gauge-unit">CRI</span>
+                        </div>
                     </div>
-                    <div class="lab-val">5000K</div>
-                    <div class="lab-label">CRI 98+ Tunnel Lights</div>
-                    <p class="lab-desc">High color-rendering index LED light arrays mimic overhead sun, exposing micro-swirls and ensuring flat level correction.</p>
+                    <h3 class="gauge-label">CRI 98+ Light Tunnel</h3>
+                    <p class="gauge-desc">High color-rendering index LED light arrays mimic overhead sun, exposing micro-swirls and paint flaws.</p>
                 </div>
-                <!-- Card 4 -->
-                <div class="lab-card">
-                    <div class="lab-card-header">
-                        <div class="lab-icon"><i class="fas fa-fire-alt"></i></div>
-                        <div class="lab-status-dot"></div>
+                <!-- Card 4: Infrared -->
+                <div class="gauge-card">
+                    <div class="gauge-dial-wrapper">
+                        <svg class="gauge-svg" viewBox="0 0 100 100">
+                            <circle class="gauge-track" cx="50" cy="50" r="40" />
+                            <circle class="gauge-fill" cx="50" cy="50" r="40" stroke-dasharray="251.2" stroke-dashoffset="50.2" stroke="#FF2A54" />
+                        </svg>
+                        <div class="gauge-value-center">
+                            60°C
+                            <span class="gauge-unit">Cure</span>
+                        </div>
                     </div>
-                    <div class="lab-val">60°C</div>
-                    <div class="lab-label">Infrared Curing Array</div>
-                    <p class="lab-desc">Short-wave infrared overhead panels heat vehicle panels, speeding molecular cross-linking for hard crystalline density.</p>
+                    <h3 class="gauge-label">Infrared Curing Array</h3>
+                    <p class="gauge-desc">Short-wave infrared overhead panels heat vehicle panels, speeding molecular cross-linking for density.</p>
                 </div>
             </div>
         </div>
@@ -344,30 +384,61 @@
                 <p style="color: var(--color-text-light);">Before your car key is returned, the vehicle undergoes three independent validation checks to ensure absolute detailing perfection.</p>
             </div>
 
-            <div class="vip-grid animate-on-scroll">
-                <!-- Check 1 -->
-                <div class="vip-card">
-                    <div class="vip-icon"><i class="fas fa-microscope"></i></div>
-                    <h3>1. Thickness Calibration</h3>
-                    <p style="color: var(--color-text-light); font-size: 0.8rem; line-height: 1.6;">Digital electromagnetic thickness checks ensure we compound paint panels safely without diminishing clearcoat depth profiles.</p>
+            <div class="split-panel-layout animate-on-scroll">
+                <!-- Left column: Quality Inspection Media -->
+                <div class="split-panel-media animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1599256872237-5dcc0fbe9668?q=80&w=800&auto=format&fit=crop" alt="IDA Certified Detailing Inspection">
+                    <div class="split-panel-media-overlay">
+                        <span class="split-panel-media-tag">IDA CERTIFIED LAB</span>
+                        <h3 class="split-panel-media-title">Master Quality Audits</h3>
+                    </div>
                 </div>
-                <!-- Check 2 -->
-                <div class="vip-card">
-                    <div class="vip-icon"><i class="fas fa-chart-bar"></i></div>
-                    <h3>2. Reflection Gloss Scan</h3>
-                    <p style="color: var(--color-text-light); font-size: 0.8rem; line-height: 1.6;">Precision laser reflection glossmeters audit paint reflection at multiple angles, verifying a specular gloss rating above 95 GU.</p>
-                </div>
-                <!-- Check 3 -->
-                <div class="vip-card">
-                    <div class="vip-icon"><i class="fas fa-signature"></i></div>
-                    <h3>3. Master Detail Sign-Off</h3>
-                    <p style="color: var(--color-text-light); font-size: 0.8rem; line-height: 1.6;">An IDA-certified Master Detailer executes a final visual checklist under specialized diagnostic lights to ensure zero defects remain.</p>
-                </div>
-                <!-- Check 4 -->
-                <div class="vip-card">
-                    <div class="vip-icon"><i class="fas fa-award"></i></div>
-                    <h3>4. Warranty Registry</h3>
-                    <p style="color: var(--color-text-light); font-size: 0.8rem; line-height: 1.6;">Your unique coating batch number, execution timestamp, and master details are logged in our registry database, guaranteeing transferable coverage.</p>
+
+                <!-- Right column: Checklist & Signature Stamp -->
+                <div class="quality-checklist-side animate-on-scroll" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+                    <div class="checklist-container">
+                        <!-- Check 1 -->
+                        <div class="checklist-item">
+                            <div class="checklist-icon"><i class="fas fa-check"></i></div>
+                            <div class="checklist-info">
+                                <h3>1. Thickness Calibration</h3>
+                                <p>Digital electromagnetic thickness checks ensure we compound paint panels safely without diminishing clearcoat depth profiles.</p>
+                            </div>
+                        </div>
+                        <!-- Check 2 -->
+                        <div class="checklist-item">
+                            <div class="checklist-icon"><i class="fas fa-check"></i></div>
+                            <div class="checklist-info">
+                                <h3>2. Reflection Gloss Scan</h3>
+                                <p>Precision laser reflection glossmeters audit paint reflection at multiple angles, verifying a specular gloss rating above 95 GU.</p>
+                            </div>
+                        </div>
+                        <!-- Check 3 -->
+                        <div class="checklist-item">
+                            <div class="checklist-icon"><i class="fas fa-check"></i></div>
+                            <div class="checklist-info">
+                                <h3>3. Master Detail Sign-Off</h3>
+                                <p>An IDA-certified Master Detailer executes a final visual checklist under specialized diagnostic lights to ensure zero defects remain.</p>
+                            </div>
+                        </div>
+                        <!-- Check 4 -->
+                        <div class="checklist-item">
+                            <div class="checklist-icon"><i class="fas fa-check"></i></div>
+                            <div class="checklist-info">
+                                <h3>4. Warranty Registry</h3>
+                                <p>Your unique coating batch number, execution timestamp, and master details are logged in our registry database, guaranteeing transferable coverage.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stamp Section -->
+                    <div style="display: flex; justify-content: flex-end; margin-top: 10px;">
+                        <div class="stamp-seal">
+                            <i class="fas fa-award"></i>
+                            <span class="stamp-title">TRAVICE DETAIL LABS</span>
+                            <span class="stamp-status">PASSED VERIFICATION</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
