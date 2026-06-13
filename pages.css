@@ -967,8 +967,20 @@ html[data-theme="light"] .lightbox-close {
 
 /* Interactive Hover / Active States */
 .layer-item:hover, .layer-item.active {
-    transform: translateX(12px);
     background: rgba(13, 22, 41, 0.95);
+}
+
+.layer-item:hover::before, .layer-item.active::before {
+    width: 10px;
+}
+
+.layer-item:hover .layer-title, .layer-item.active .layer-title {
+    transform: translateX(8px);
+}
+
+html[dir="rtl"] .layer-item:hover .layer-title,
+html[dir="rtl"] .layer-item.active .layer-title {
+    transform: translateX(-8px);
 }
 
 .layer-item[data-layer="topcoat"]:hover, .layer-item[data-layer="topcoat"].active {
@@ -1003,6 +1015,8 @@ html[data-theme="light"] .lightbox-close {
     font-weight: 700;
     font-size: 1.05rem;
     color: var(--color-text-white);
+    display: inline-block;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 .layer-thickness {
     font-family: var(--font-heading);
