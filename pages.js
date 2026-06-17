@@ -267,5 +267,26 @@ document.addEventListener('DOMContentLoaded', () => {
             cctvClock.textContent = `${hours}:${minutes}:${seconds}`;
         }, 1000);
     }
+
+    /* --- TRANSIT GPS SIMULATOR --- */
+    const transitGps = document.getElementById('transit-gps');
+    if (transitGps) {
+        let lat = 34.0522;
+        let lon = -118.2437;
+        setInterval(() => {
+            lat += (Math.random() - 0.5) * 0.0002;
+            lon += (Math.random() - 0.5) * 0.0002;
+            transitGps.textContent = `LAT: ${lat.toFixed(4)} N | LON: ${lon.toFixed(4)} W`;
+        }, 3000);
+    }
+
+    /* --- AUDIT REFLECTION SIMULATOR --- */
+    const auditMetrics = document.getElementById('audit-metrics');
+    if (auditMetrics) {
+        setInterval(() => {
+            const glossVal = (98.0 + Math.random() * 0.8).toFixed(1);
+            auditMetrics.textContent = `GLOSS VALUE: ${glossVal} GU`;
+        }, 4000);
+    }
 });
 

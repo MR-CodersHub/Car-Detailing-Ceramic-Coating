@@ -207,6 +207,12 @@ html[data-theme="light"] .split-image {
     justify-content: center;
 }
 
+.split-content .hero-ctas {
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
 /* Light mode overrides for Home 2 split content */
 html[data-theme="light"] .split-content {
     background-color: var(--color-secondary-dark);
@@ -229,7 +235,7 @@ html[data-theme="light"] .split-content .hero-subtitle {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    margin-top: -80px;
+    margin-top: 50px;
     position: relative;
     z-index: 10;
 }
@@ -635,7 +641,7 @@ html[data-theme="light"] .split-content .hero-subtitle {
     }
     .floating-services-grid {
         grid-template-columns: 1fr;
-        margin-top: 30px;
+        margin-top: 40px;
     }
 }
 

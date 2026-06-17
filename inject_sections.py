@@ -32,28 +32,48 @@ why_choose_html = """
 
             <div class="features-grid animate-on-scroll" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px;">
                 <!-- Feature 1 -->
-                <div class="service-card" style="margin-bottom: 0;">
-                    <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
-                    <h3>Extreme Durability</h3>
-                    <p>Forms a permanent, rigid, flexible glass shield with 9H hardness, effectively preventing minor scratches, wash marring, and daily wear.</p>
+                <div class="service-card animate-on-scroll">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=800&auto=format&fit=crop" alt="Extreme Durability">
+                        <div class="badge-icon"><i class="fas fa-shield-alt"></i></div>
+                    </div>
+                    <div class="service-info">
+                        <h3 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 800; color: var(--color-text-white); margin-bottom: 12px;">Extreme Durability</h3>
+                        <p style="color: var(--color-text-light); font-size: 0.85rem; line-height: 1.6;">Forms a permanent, rigid glass shield with 9H hardness, effectively preventing minor scratches, wash marring, and daily wear.</p>
+                    </div>
                 </div>
                 <!-- Feature 2 -->
-                <div class="service-card" style="margin-bottom: 0;">
-                    <div class="service-icon"><i class="fas fa-sun"></i></div>
-                    <h3>Advanced UV Protection</h3>
-                    <p>Blocks 100% of harmful ultraviolet rays, completely preventing paint oxidation, fading, and clear-coat degradation over time.</p>
+                <div class="service-card animate-on-scroll">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=800&auto=format&fit=crop" alt="Advanced UV Protection">
+                        <div class="badge-icon"><i class="fas fa-sun"></i></div>
+                    </div>
+                    <div class="service-info">
+                        <h3 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 800; color: var(--color-text-white); margin-bottom: 12px;">Advanced UV Protection</h3>
+                        <p style="color: var(--color-text-light); font-size: 0.85rem; line-height: 1.6;">Blocks harmful ultraviolet rays, completely preventing paint oxidation, fading, and clear-coat degradation over time.</p>
+                    </div>
                 </div>
                 <!-- Feature 3 -->
-                <div class="service-card" style="margin-bottom: 0;">
-                    <div class="service-icon"><i class="fas fa-tint"></i></div>
-                    <h3>Super Hydrophobic</h3>
-                    <p>Creates an intense water-repelling surface. Dirt, grime, and environmental contaminants simply slide off, making maintenance washing effortless.</p>
+                <div class="service-card animate-on-scroll">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=800&auto=format&fit=crop" alt="Super Hydrophobic">
+                        <div class="badge-icon"><i class="fas fa-tint"></i></div>
+                    </div>
+                    <div class="service-info">
+                        <h3 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 800; color: var(--color-text-white); margin-bottom: 12px;">Super Hydrophobic</h3>
+                        <p style="color: var(--color-text-light); font-size: 0.85rem; line-height: 1.6;">Creates an intense water-repelling surface. Dirt, grime, and contaminants simply slide off, making maintenance washing effortless.</p>
+                    </div>
                 </div>
                 <!-- Feature 4 -->
-                <div class="service-card" style="margin-bottom: 0;">
-                    <div class="service-icon"><i class="fas fa-gem"></i></div>
-                    <h3>Long-lasting Shine</h3>
-                    <p>Enhances gloss and optical clarity beyond factory levels, locking in a permanent, deep mirror-like finish that never requires waxing.</p>
+                <div class="service-card animate-on-scroll">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=800&auto=format&fit=crop" alt="Long-lasting Shine">
+                        <div class="badge-icon"><i class="fas fa-gem"></i></div>
+                    </div>
+                    <div class="service-info">
+                        <h3 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 800; color: var(--color-text-white); margin-bottom: 12px;">Long-lasting Shine</h3>
+                        <p style="color: var(--color-text-light); font-size: 0.85rem; line-height: 1.6;">Enhances gloss and optical clarity beyond factory levels, locking in a permanent, deep mirror finish that never requires waxing.</p>
+                    </div>
                 </div>
             </div>
         </div>

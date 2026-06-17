@@ -254,6 +254,7 @@ img {
     align-items: center;
     transition: var(--transition-smooth);
     padding: 0 20px;
+    gap: 0;
 }
 
 .header.scrolled .nav-container {
@@ -265,6 +266,7 @@ img {
     display: flex;
     align-items: center;
     gap: 10px;
+    flex-shrink: 0;
 }
 
 .logo-text {
@@ -277,8 +279,11 @@ img {
 
 /* Navigation Links */
 .nav-menu {
-    margin-left: 80px;
-    margin-right: auto;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    margin-left: 40px;
+    margin-right: 40px;
 }
 
 .nav-menu ul {
@@ -350,6 +355,7 @@ img {
     display: flex;
     align-items: center;
     gap: 24px;
+    flex-shrink: 0;
 }
 
 .social-icons {
@@ -472,13 +478,13 @@ img {
     }
 
     .nav-menu {
+        flex: 1;
         display: flex;
         align-items: center;
-        flex: 1;
         justify-content: center;
         overflow: hidden;
-        margin-left: 24px;
-        margin-right: 24px;
+        margin-left: 20px;
+        margin-right: 20px;
     }
 
     .nav-menu ul {
@@ -579,8 +585,8 @@ img {
     }
 
     .nav-menu {
-        margin-left: 15px;
-        margin-right: 15px;
+        margin-left: 12px;
+        margin-right: 12px;
     }
 
     .nav-menu ul {
