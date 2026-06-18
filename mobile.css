@@ -86,19 +86,23 @@
 
     /* Theme Toggle — ensure it's visible and not clipped */
     .theme-toggle {
-        width: 52px;
-        height: 28px;
+        width: 54px;
+        height: 30px;
         margin-right: 0;
         flex-shrink: 0;
+        padding: 0 4px;
+        overflow: visible;
     }
 
     .theme-toggle-bubble {
-        width: 18px;
-        height: 18px;
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
     }
 
     html[data-theme="light"] .theme-toggle-bubble {
-        transform: translateX(24px);
+        /* 54px - 4px - 4px - 20px = 26px travel */
+        transform: translateX(26px);
     }
 
     /* Hide BOOK NOW CTA button from navbar on mobile */
@@ -1431,17 +1435,21 @@
     }
 
     .theme-toggle {
-        width: 46px;
+        width: 48px;
         height: 26px;
+        padding: 0 4px;
+        overflow: visible;
     }
 
     .theme-toggle-bubble {
         width: 16px;
         height: 16px;
+        flex-shrink: 0;
     }
 
     html[data-theme="light"] .theme-toggle-bubble {
-        transform: translateX(20px);
+        /* 48px - 4px - 4px - 16px = 24px travel */
+        transform: translateX(24px);
     }
 
     .rtl-toggle {

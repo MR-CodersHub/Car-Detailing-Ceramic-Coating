@@ -166,7 +166,7 @@ img {
 }
 
 .btn-secondary {
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.08); /* Subtle glass background for visibility over image */
     color: var(--color-text-white);
     font-family: var(--font-heading);
     font-weight: 600;
@@ -174,17 +174,22 @@ img {
     letter-spacing: 1.5px;
     padding: 14px 32px;
     border-radius: 5px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.55); /* Stronger border — clearly visible over dark hero */
     cursor: pointer;
     display: inline-block;
     transition: var(--transition-smooth);
     text-transform: uppercase;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.6); /* Text shadow for legibility over any background */
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
 }
 
 .btn-secondary:hover {
+    background-color: var(--color-accent);
     border-color: var(--color-accent);
-    color: var(--color-accent);
+    color: var(--color-primary-dark);
     transform: translateY(-3px);
+    text-shadow: none;
 }
 
 /* --- TOP UTILITY BAR --- */
@@ -354,7 +359,7 @@ img {
 .nav-actions {
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 12px;  /* Unified consistent gap between all header controls */
     flex-shrink: 0;
 }
 
@@ -391,7 +396,7 @@ img {
     font-size: 0.8rem;
     letter-spacing: 1.2px;
     padding: 0 22px;
-    height: 32px;
+    height: 34px;  /* Unified height matching toggle controls */
     box-sizing: border-box;
     border-radius: 30px;
     border: 1.5px solid var(--color-accent);
@@ -511,14 +516,15 @@ img {
 
     .theme-toggle {
         width: 56px;
-        height: 28px;
+        height: 30px;
         margin-right: 0;
         flex-shrink: 0;
+        padding: 0 4px;
     }
 
     .rtl-toggle {
         width: auto;
-        height: 28px;
+        height: 30px;
         margin-right: 0;
         flex-shrink: 0;
         padding: 0 8px;
@@ -526,7 +532,12 @@ img {
         box-sizing: border-box;
     }
 
-    .theme-toggle-bubble,
+    .theme-toggle-bubble {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+    }
+
     .rtl-toggle-bubble {
         width: 20px;
         height: 20px;
@@ -534,6 +545,7 @@ img {
     }
 
     html[data-theme="light"] .theme-toggle-bubble {
+        /* 56px - 4px - 4px - 20px = 28px travel */
         transform: translateX(28px);
     }
 
@@ -557,7 +569,7 @@ img {
 
     .btn-header {
         padding: 0 16px;
-        height: 28px;
+        height: 30px;
         box-sizing: border-box;
         font-size: 0.78rem;
         letter-spacing: 0.8px;
@@ -604,12 +616,23 @@ img {
 
     .theme-toggle {
         width: 52px;
-        height: 26px;
+        height: 28px;
+        padding: 0 4px;
+    }
+
+    .theme-toggle-bubble {
+        width: 18px;
+        height: 18px;
+    }
+
+    html[data-theme="light"] .theme-toggle-bubble {
+        /* 52px - 4px - 4px - 18px = 26px travel */
+        transform: translateX(26px);
     }
 
     .rtl-toggle {
         width: auto;
-        height: 26px;
+        height: 28px;
         padding: 0 6px;
         gap: 4px;
         box-sizing: border-box;
@@ -617,7 +640,7 @@ img {
 
     .btn-header {
         padding: 0 14px;
-        height: 26px;
+        height: 28px;
         box-sizing: border-box;
         font-size: 0.75rem;
     }
@@ -745,13 +768,14 @@ img {
     /* Balanced overlay: strong on left for text readability, transparent on right for image visibility */
     background: linear-gradient(
         to right,
-        rgba(5, 8, 17, 0.82) 0%,
-        rgba(5, 8, 17, 0.62) 30%,
-        rgba(5, 8, 17, 0.22) 60%,
-        rgba(5, 8, 17, 0.05) 100%
+        rgba(5, 8, 17, 0.90) 0%,
+        rgba(5, 8, 17, 0.75) 35%,
+        rgba(5, 8, 17, 0.45) 70%,
+        rgba(5, 8, 17, 0.15) 100%
     );
     z-index: 2;
     transition: background 0.4s ease;
+    backdrop-filter: blur(2px);
 }
 
 .hero-content {
@@ -783,15 +807,15 @@ img {
     color: var(--color-text-white);
     line-height: 1.1;
     margin-bottom: 24px;
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.8), 0 1px 5px rgba(0, 0, 0, 0.6);
 }
 
 .hero-subtitle {
     font-size: 1.05rem;
-    color: var(--color-text-light);
+    color: #E2E8F0; /* Slightly brighter slate 200 for max legibility over dark overlay */
     margin-bottom: 40px;
     max-width: 600px;
-    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.7), 0 1px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero-ctas {
@@ -1299,7 +1323,7 @@ img {
     width: 46px;
     height: 46px;
     background-color: var(--color-accent);
-    color: var(--color-primary-dark);
+    color: #050811; /* Always dark icon on gold — explicit, not theme-variable */
     border-radius: 6px;
     display: flex;
     align-items: center;
@@ -1360,10 +1384,17 @@ img {
     transform: scale(1.08) rotate(1deg);
 }
 
+/* Dark mode hover: gold → white badge, icon stays dark for contrast */
 .service-card:hover .badge-icon {
-    transform: scale(1.1);
-    box-shadow: var(--shadow-glow);
-    background-color: var(--color-text-white);
+    transform: scale(1.1) rotate(-3deg);
+    /* Switch to crisp white pill with strong glow */
+    background-color: #FFFFFF;
+    color: #050811; /* Explicit dark — never use theme variable here */
+    border: 1px solid rgba(255, 184, 0, 0.30);
+    box-shadow:
+        0 0 22px rgba(255, 184, 0, 0.55),
+        0 6px 18px rgba(0, 0, 0, 0.35),
+        inset 0 1px 1px rgba(255, 255, 255, 0.15);
 }
 
 .service-card:hover .service-link {
@@ -1927,12 +1958,14 @@ img {
     left: 30px;
     width: 2px;
     background: linear-gradient(to bottom, var(--color-accent), rgba(255, 184, 0, 0.1));
+    z-index: 1;
 }
 
 .timeline-item {
     position: relative;
     padding-left: 80px;
     margin-bottom: 50px;
+    z-index: 2;
 }
 
 .timeline-item:last-child {
@@ -2982,7 +3015,7 @@ img {
 /* --- PREMIUM BUBBLE FLOATING SWITCHER --- */
 .theme-toggle {
     width: 62px;
-    height: 32px;
+    height: 34px;
     background: linear-gradient(145deg, rgba(8, 12, 20, 0.96), rgba(15, 23, 42, 0.94));
     border: 1.5px solid rgba(255, 255, 255, 0.14);
     border-radius: 30px;
@@ -2990,52 +3023,73 @@ img {
     cursor: pointer;
     display: flex;
     align-items: center;
-    padding: 0 4px;
+    justify-content: flex-start !important; /* Force Left-to-Right layout */
+    direction: ltr !important; /* Force Left-to-Right layout regardless of html[dir="rtl"] */
+    padding: 0 5px;
     transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.15s ease;
     box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.45), 0 4px 10px rgba(0, 0, 0, 0.24);
-    overflow: visible;
-    margin-right: 8px;
+    overflow: visible; /* Must be visible — spring cubic-bezier animation overshoots track boundary */
+    margin-right: 0;
+    flex-shrink: 0;
     z-index: 1001;
 }
 
 .theme-toggle-bubble {
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
     position: relative;
-    background: linear-gradient(135deg, #111827 0%, #1F2937 45%, #0B1220 100%);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: linear-gradient(135deg, #1E293B 0%, #0F172A 60%, #050811 100%);
+    border: 1.5px solid rgba(255, 255, 255, 0.22);
     border-radius: 50%;
+    /* Use flex to center icons — more robust than position:absolute when animating */
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), background 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.08);
+    flex-shrink: 0;
+    /* Clip the icon swap within the bubble only */
+    overflow: hidden;
+    transition: transform 0.42s cubic-bezier(0.34, 1.56, 0.64, 1),
+                background 0.35s ease,
+                box-shadow 0.35s ease,
+                border-color 0.35s ease;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.55), inset 0 1px 1px rgba(255, 255, 255, 0.12);
     transform: translateX(0);
+    z-index: 2;
 }
 
 .theme-toggle-bubble i {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     line-height: 1;
-    color: #F8FAFC;
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    color: #F1F5F9; /* High-contrast near-white on dark bubble */
+    /* Flex centering — no position:absolute needed, avoids clip issues */
+    position: static;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+    z-index: 3;
+    pointer-events: none;
+}
+
+/* Both icons stacked absolutely in the bubble for cross-fade swap */
+.theme-toggle-bubble i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    transition: transform 0.35s ease, opacity 0.35s ease, color 0.35s ease;
-    text-shadow: 0 1px 2px rgba(15, 23, 42, 0.4);
+    width: auto;
+    height: auto;
 }
 
 .theme-toggle-bubble .sun-icon {
     opacity: 0;
-    transform: translate(-50%, -50%) rotate(-90deg) scale(0.8);
+    transform: translate(-50%, -50%) rotate(-90deg) scale(0.7);
 }
 
 .theme-toggle-bubble .moon-icon {
     opacity: 1;
-    transform: translate(-50%, -50%) rotate(0) scale(1);
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
 }
 
 .theme-toggle:hover {
@@ -3059,32 +3113,35 @@ img {
 
 /* Light theme state animations */
 html[data-theme="light"] .theme-toggle {
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(238, 244, 250, 0.98));
-    border-color: rgba(15, 23, 42, 0.14);
-    box-shadow: inset 0 2px 5px rgba(15, 23, 42, 0.08), 0 6px 14px rgba(15, 23, 42, 0.08);
+    background: linear-gradient(145deg, #F1F5F9, #E2E8F0);
+    border-color: rgba(15, 23, 42, 0.18);
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 html[data-theme="light"] .theme-toggle-bubble {
-    transform: translateX(30px);
-    background: linear-gradient(135deg, #FFFFFF 0%, #F1F5F9 45%, #E2E8F0 100%);
-    border-color: rgba(15, 23, 42, 0.16);
-    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.14), inset 0 1px 1px rgba(255, 255, 255, 0.9);
+    /* 62px track - 5px left pad - 5px right pad - 24px bubble = 28px travel */
+    transform: translateX(28px);
+    /* Gold-tinted so bubble is visible against the near-white track */
+    background: linear-gradient(135deg, #FFB800 0%, #E09000 55%, #C57E00 100%);
+    border-color: rgba(255, 184, 0, 0.50);
+    box-shadow: 0 3px 10px rgba(255, 184, 0, 0.35), 0 2px 6px rgba(15, 23, 42, 0.12);
 }
 
 html[data-theme="light"] .theme-toggle-bubble i {
-    color: #111827;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
+    /* Dark icon on gold bubble — maximum contrast */
+    color: #0F172A;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
 }
 
 html[data-theme="light"] .theme-toggle-bubble .moon-icon {
     opacity: 0;
-    transform: translate(-50%, -50%) rotate(90deg) scale(0.8);
+    transform: translate(-50%, -50%) rotate(90deg) scale(0.7);
 }
 
 html[data-theme="light"] .theme-toggle-bubble .sun-icon {
     opacity: 1;
-    transform: translate(-50%, -50%) rotate(0) scale(1);
-    color: #111827;
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    color: #0F172A; /* Dark on gold = WCAG AAA contrast */
 }
 
 html[data-theme="light"] .theme-toggle:hover {
@@ -3099,7 +3156,7 @@ html[data-theme="light"] .theme-toggle:hover .theme-toggle-bubble {
 /* --- PREMIUM RTL DYNAMIC SWITCHER --- */
 .rtl-toggle {
     width: auto;
-    height: 32px;
+    height: 34px; /* Matches theme-toggle and btn-header */
     background-color: rgba(13, 22, 41, 0.8);
     border: 1.5px solid rgba(255, 184, 0, 0.25);
     border-radius: 30px;
@@ -3111,7 +3168,8 @@ html[data-theme="light"] .theme-toggle:hover .theme-toggle-bubble {
     gap: 6px;
     transition: var(--transition-smooth);
     box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5), 0 4px 10px rgba(0, 0, 0, 0.2);
-    margin-right: 8px;
+    margin-right: 0; /* Gap on nav-actions handles spacing */
+    flex-shrink: 0;
     z-index: 1001;
     box-sizing: border-box;
 }
@@ -3286,42 +3344,109 @@ html[data-theme="light"] .hero-overlay {
     /* Light mode overlay: use a lighter warm white gradient so image remains visible */
     background: linear-gradient(
         to right,
-        rgba(250, 251, 253, 0.78) 0%,
-        rgba(250, 251, 253, 0.52) 30%,
-        rgba(250, 251, 253, 0.15) 60%,
-        rgba(250, 251, 253, 0.02) 100%
+        rgba(250, 251, 253, 0.92) 0%,
+        rgba(250, 251, 253, 0.80) 30%,
+        rgba(250, 251, 253, 0.55) 60%,
+        rgba(250, 251, 253, 0.25) 100%
     );
 }
 
-/* Hero text adjustments for light mode — remove dark text-shadows on light background */
+/* Hero text adjustments for light mode — strong contrast on translucent overlay */
 html[data-theme="light"] .hero-title {
-    /* In light mode, use dark slate text on light overlay for legibility */
-    text-shadow: 0 1px 4px rgba(255, 255, 255, 0.8);
+    color: #0F172A; /* Slate 900 for maximum contrast */
+    text-shadow: 0 2px 8px rgba(255, 255, 255, 0.9), 0 1px 3px rgba(255, 255, 255, 0.7);
 }
 
 html[data-theme="light"] .hero-subtitle {
-    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.7);
+    color: #1E293B; /* Slate 800 — high contrast for body text over light overlay */
+    text-shadow: 0 1px 6px rgba(255, 255, 255, 0.85);
 }
 
 html[data-theme="light"] .hero-subhead {
+    color: #855200; /* Rich amber-gold — high contrast on light backgrounds */
     text-shadow: none;
 }
 
+/* Hero secondary CTA — dark contrast border + glass background in light mode */
+html[data-theme="light"] .hero-ctas .btn-secondary {
+    color: #0F172A;
+    border: 2px solid #0F172A;
+    background-color: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+html[data-theme="light"] .hero-ctas .btn-secondary:hover {
+    background-color: #0F172A;
+    border-color: #0F172A;
+    color: #FFFFFF;
+}
+
+/* Hero primary CTA — ensure strong contrast in light mode */
+html[data-theme="light"] .hero-ctas .btn-primary {
+    color: #050811;
+    box-shadow: 0 4px 20px rgba(226, 146, 0, 0.45);
+}
+
+html[data-theme="light"] .hero-ctas .btn-primary:hover {
+    background-color: #0F172A;
+    border-color: #0F172A;
+    color: #FFFFFF;
+    box-shadow: 0 6px 25px rgba(15, 23, 42, 0.4);
+}
+
 html[data-theme="light"] .inner-hero-bg {
-    filter: brightness(1.02) contrast(1.05) saturate(1.05);
+    filter: brightness(0.92) contrast(1.05) saturate(1.05); /* Slightly darken image in light mode so text pops */
 }
 
 html[data-theme="light"] .inner-hero-overlay {
-    background: linear-gradient(to bottom, rgba(250, 251, 253, 0.68) 0%, rgba(250, 251, 253, 0.25) 100%);
+    /* Solid dark vignette — overrides the default for light mode so yellow text
+       stays readable on top of bright sky / chrome / car body photographs */
+    background: linear-gradient(
+        to bottom,
+        rgba(5, 8, 17, 0.68) 0%,
+        rgba(5, 8, 17, 0.52) 40%,
+        rgba(5, 8, 17, 0.42) 70%,
+        rgba(5, 8, 17, 0.30) 100%
+    );
 }
 
-/* Breadcrumbs slate contrast */
+/* Breadcrumbs — light mode: keep white text with dark halos (overlay is now dark) */
+html[data-theme="light"] .inner-page-title {
+    color: #FFFFFF;
+    text-shadow:
+        0 2px 20px rgba(0, 0, 0, 0.90),
+        0 1px 8px  rgba(0, 0, 0, 0.75),
+        0 0px 3px  rgba(0, 0, 0, 0.60);
+}
+
+/* Yellow highlight inside inner hero title — light mode */
+html[data-theme="light"] .inner-page-title .highlight {
+    color: #FFB800; /* Keep vibrant brand gold */
+    text-shadow:
+        0 2px 22px rgba(0, 0, 0, 0.95),
+        0 1px 10px rgba(0, 0, 0, 0.85),
+        0 0px 4px  rgba(0, 0, 0, 0.70);
+    filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.65));
+}
+
+/* Breadcrumb row — light mode */
+html[data-theme="light"] .breadcrumb {
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.85), 0 1px 5px rgba(0, 0, 0, 0.65);
+}
+
 html[data-theme="light"] .breadcrumb a {
-    color: #334155;
+    color: #FFFFFF; /* White over dark overlay — maximum contrast */
 }
 
 html[data-theme="light"] .breadcrumb a:hover {
-    color: var(--color-accent);
+    color: #FFD54F; /* Brighter gold on hover */
+}
+
+/* Gold breadcrumb current page + separator */
+html[data-theme="light"] .breadcrumb span {
+    color: #FFB800;
+    text-shadow: 0 1px 14px rgba(0, 0, 0, 0.90), 0 1px 6px rgba(0, 0, 0, 0.75);
 }
 
 /* Inner Page Cards background and border cleanup */
@@ -3374,6 +3499,22 @@ html[data-theme="light"] .quick-form-card:hover {
     transform: translateY(-8px);
     border-color: var(--color-accent);
     box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08), 0 0 20px rgba(var(--color-accent-rgb), 0.1);
+}
+
+/* Light mode badge-icon hover: card bg is white, so keep gold badge for contrast */
+html[data-theme="light"] .service-card:hover .badge-icon {
+    background-color: var(--color-accent); /* Stay gold — white badge disappears on white card */
+    color: #050811;                         /* Dark icon on gold — WCAG AA+ contrast */
+    border: 1.5px solid rgba(226, 146, 0, 0.60);
+    box-shadow:
+        0 0 18px rgba(226, 146, 0, 0.50),
+        0 6px 16px rgba(15, 23, 42, 0.15),
+        inset 0 1px 1px rgba(255, 255, 255, 0.35);
+}
+
+/* Light mode service-link hover text — ensure readable on white card */
+html[data-theme="light"] .service-card:hover .service-link {
+    color: var(--color-accent-hover); /* Richer amber-gold, not white-on-white */
 }
 
 /* Highlight Active Floater Card - Dark readable text on Gold bg */
@@ -3448,8 +3589,9 @@ html[data-theme="light"] .search-form button {
 
 /* Interactive Hover transitions for buttons */
 html[data-theme="light"] .btn-primary:hover {
-    color: var(--color-accent);
-    background-color: transparent;
+    background-color: #0F172A;
+    color: #FFFFFF;
+    border-color: #0F172A;
 }
 
 html[data-theme="light"] .btn-header:hover,
@@ -3466,13 +3608,15 @@ html[data-theme="light"] .search-form button:hover {
 
 /* Secondary Button Contrast */
 html[data-theme="light"] .btn-secondary {
-    border: 2px solid rgba(15, 23, 42, 0.18);
+    border: 2px solid #0F172A; /* High-contrast solid slate border */
     color: #0F172A;
+    background-color: rgba(255, 255, 255, 0.4); /* Subtle glass background for readability over image */
 }
 
 html[data-theme="light"] .btn-secondary:hover {
+    background-color: var(--color-accent);
     border-color: var(--color-accent);
-    color: var(--color-accent);
+    color: #050811; /* Gold background with high-contrast dark text on hover */
 }
 
 /* FAQ Accordion high-contrast clean borders & indicators */
@@ -3652,7 +3796,7 @@ html[data-theme="light"] .service-icon {
 }
 
 html[data-theme="light"] .service-card:hover .service-link {
-    color: var(--color-accent);
+    color: var(--color-accent-hover); /* Deep amber-gold — readable on white card */
 }
 
 /* Hero floater cards in index.html */
@@ -3673,12 +3817,45 @@ html[data-theme="light"] .pricing-card-header h3 {
     color: #0F172A;
 }
 
+html[data-theme="light"] .pricing-card-header .price {
+    color: #855200; /* Rich gold/bronze passing WCAG AA accessibility contrast (>4.5:1) */
+}
+
+html[data-theme="light"] .pricing-card-header p {
+    color: #475569; /* Slate 600 for clear visibility of card description */
+}
+
+html[data-theme="light"] .pricing-badge {
+    color: #475569; /* Slate 600 for regular badge text */
+}
+
+html[data-theme="light"] .featured-badge {
+    color: #050811; /* Dark charcoal text on gold badge background */
+    background-color: var(--color-accent);
+}
+
+html[data-theme="light"] .pricing-card.featured .btn-pricing {
+    background-color: var(--color-accent);
+    color: #050811; /* Dark text on gold button background */
+    border-color: var(--color-accent);
+}
+
+html[data-theme="light"] .pricing-card.featured .btn-pricing:hover {
+    background-color: #0F172A; /* Slate 900 for high-contrast dark hover background */
+    border-color: #0F172A;
+    color: #FFFFFF; /* White text on dark hover background */
+}
+
 html[data-theme="light"] .pricing-features li {
     color: #334155;
 }
 
+html[data-theme="light"] .pricing-features li i {
+    color: #855200; /* Rich gold/bronze checkmark icon for high accessibility contrast */
+}
+
 html[data-theme="light"] .pricing-features li.disabled {
-    color: #94A3B8;
+    color: #64748B; /* Slate 500 for legible disabled features list text */
 }
 
 html[data-theme="light"] .btn-pricing {
@@ -5288,11 +5465,11 @@ html[data-theme="light"] .btn-reminder-snooze {
 
 /* RTL hero overlay direction swap */
 html[dir="rtl"] .hero-overlay {
-    background: linear-gradient(to left, rgba(5, 8, 17, 0.88) 0%, rgba(5, 8, 17, 0.75) 35%, rgba(5, 8, 17, 0.3) 70%, rgba(5, 8, 17, 0.1) 100%);
+    background: linear-gradient(to left, rgba(5, 8, 17, 0.90) 0%, rgba(5, 8, 17, 0.75) 35%, rgba(5, 8, 17, 0.45) 70%, rgba(5, 8, 17, 0.15) 100%);
 }
 
 html[dir="rtl"][data-theme="light"] .hero-overlay {
-    background: linear-gradient(to left, rgba(250, 251, 253, 0.82) 0%, rgba(250, 251, 253, 0.6) 35%, rgba(250, 251, 253, 0.2) 70%, rgba(250, 251, 253, 0.05) 100%);
+    background: linear-gradient(to left, rgba(250, 251, 253, 0.92) 0%, rgba(250, 251, 253, 0.80) 35%, rgba(250, 251, 253, 0.55) 70%, rgba(250, 251, 253, 0.25) 100%);
 }
 
 
@@ -5684,7 +5861,7 @@ html[data-theme="light"] .service-link {
 }
 
 html[data-theme="light"] .service-card:hover .service-link {
-    color: #0F172A;
+    color: var(--color-accent-hover); /* Deep amber-gold — clear on white card, not dark-on-dark */
 }
 
 html[data-theme="light"] .badge-icon {
