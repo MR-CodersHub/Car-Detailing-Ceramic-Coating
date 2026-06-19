@@ -1014,10 +1014,18 @@ img {
     font-weight: 800;
     font-size: 1.1rem;
     color: var(--color-text-white);
+    line-height: 1;
+}
+
+.about-phone a {
+    line-height: 1;
 }
 
 .about-phone i {
     color: var(--color-accent);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .about-phone a:hover {
@@ -2461,7 +2469,11 @@ img {
 .info-icon {
     font-size: 1.25rem;
     color: var(--color-accent);
-    margin-top: 2px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 1.45rem;
 }
 
 .info-content h4 {

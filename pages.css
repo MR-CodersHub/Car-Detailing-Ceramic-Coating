@@ -203,6 +203,13 @@
     background-size: cover;
     padding: 120px 0;
 }
+.parallax-section .section-title {
+    color: #FFFFFF !important;
+}
+.parallax-section p {
+    color: #E2E8F0 !important;
+}
+
 
 .split-section {
     display: flex;
@@ -2020,7 +2027,6 @@ html[data-theme="light"] .gauge-track {
 }
 html[data-theme="light"] .gauge-value-center,
 html[data-theme="light"] .gauge-label,
-html[data-theme="light"] .split-panel-media-title,
 html[data-theme="light"] .checklist-info h3 {
     color: #0F172A;
 }

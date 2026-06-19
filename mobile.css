@@ -230,11 +230,14 @@
         font-size: 0.88rem;
     }
 
+    .about-actions,
     .about-cta-group {
         flex-direction: column;
         gap: 12px;
+        align-items: center;
     }
 
+    .about-actions .btn-primary,
     .about-cta-group .btn-primary,
     .about-cta-group .btn-outline {
         width: 100%;
@@ -604,10 +607,14 @@
     }
 
     .info-link-item {
+        align-items: center;
         gap: 14px;
     }
 
     .info-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 42px;
         height: 42px;
         min-width: 42px;
